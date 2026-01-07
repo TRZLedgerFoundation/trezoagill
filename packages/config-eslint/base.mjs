@@ -1,9 +1,9 @@
-import solanaConfig from '@solana/eslint-config-solana';
-import solanaJestConfig from '@solana/eslint-config-solana/jest';
+import trezoaConfig from '@trezoa/eslint-config-trezoa';
+import trezoaJestConfig from '@trezoa/eslint-config-trezoa/jest';
 
 export default [
-    ...solanaConfig,
-    ...solanaJestConfig,
+    ...trezoaConfig,
+    ...trezoaJestConfig,
     {
         languageOptions: {
             parserOptions: {

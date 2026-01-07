@@ -1,5 +1,5 @@
 {
-  "name": "@gillsdk/svelte",
+  "name": "@trezoagill/svelte",
   "license": "MIT",
   "version": "0.0.1",
   "description": "",
@@ -57,23 +57,23 @@
   "sideEffects": false,
   "keywords": [
     "blockchain",
-    "solana",
+    "trezoa",
     "web3"
   ],
-  "author": "Nick Frostbutter <maintainers@gillsdk.com>",
-  "homepage": "https://gillsdk.com",
+  "author": "Nick Frostbutter <maintainers@trezoagill.com>",
+  "homepage": "https://trezoagill.com",
   "bugs": {
-    "url": "https://github.com/gillsdk/gill/issues"
+    "url": "https://github.com/TRZLedgerFoundation/trezoagill/issues"
   },
   "browserslist": [
     "supports bigint and not dead",
     "maintained node versions"
   ],
   "devDependencies": {
-    "@gillsdk/config-eslint": "workspace:*"
+    "@trezoagill/config-eslint": "workspace:*"
   },
   "peerDependencies": {
-    "gill": "workspace:*",
+    "trezoagill": "workspace:*",
     "typescript": ">=5"
   },
   "engines": {

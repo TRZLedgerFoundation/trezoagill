@@ -1,0 +1,10 @@
+{
+  "idl": "idl.json",
+  "before": [],
+  "scripts": {
+    "js": {
+      "from": "@trezoa/renderers-js",
+      "args": ["packages/trezoagill/src/programs/token-metadata/generated"]
+    }
+  }
+}

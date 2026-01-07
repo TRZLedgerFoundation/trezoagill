@@ -1,4 +1,4 @@
-import { blockhash, createKeyPairFromBytes, createSignerFromKeyPair } from "@solana/kit";
+import { blockhash, createKeyPairFromBytes, createSignerFromKeyPair } from "@trezoa/kit";
 import {
   createKeypairFromBase58,
   createKeypairSignerFromBase58,

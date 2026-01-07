@@ -1,20 +1,20 @@
 ---
 title: TypeScript Support
 description:
-  The gill library is TypeScript first and heavily typed to improve your Solana developer
+  The trezoagill library is TypeScript first and heavily typed to improve your Solana developer
   experience.
 ---
 
 Gill is a heavily typed library to improve developer experience. After completing the
-[simple installation guide](/docs#install-gill) to get your Solana application setup, everything
+[simple installation guide](/docs#install-trezoagill) to get your Solana application setup, everything
 _should_ work out of the box for most common application configurations.
 
-However, there may be some configuration your codebase may require in order to utilize the gill
+However, there may be some configuration your codebase may require in order to utilize the trezoagill
 library and avoid TypeScript issues, either in your editor, runtime, or build time.
 
 <Callout title="Having TypeScript issues?">
   If your codebase is experiencing TypeScript related issues not covered by this document, please
-  [open an issue here](https://github.com/gillsdk/gill/issues/new?title=%5BTypeScript%5D%20) to
+  [open an issue here](https://github.com/trezoagill/trezoagill/issues/new?title=%5BTypeScript%5D%20) to
   describe your scenario. Please also include a simple reproduction to aid in troubleshooting by
   this library's maintainers.
 </Callout>
@@ -34,10 +34,10 @@ However, due to the differences in how NodeJS handles these types you may experi
 when attempting to run `.ts` files. The following is an example error message you may experience:
 
 ```
-file:///home/gill/code/file.ts:22
+file:///home/trezoagill/code/file.ts:22
   SolanaClusterMoniker,
   ^^^^^^^^^^^^^^^^^^^^
-SyntaxError: The requested module 'gill' does not provide an export named 'SolanaClusterMoniker'
+SyntaxError: The requested module 'trezoagill' does not provide an export named 'SolanaClusterMoniker'
 ```
 
 ### Solution
@@ -67,22 +67,22 @@ You will then need to update all your `import` statements to annotate which impo
 types by explicitly using the `type` keyword. This is required for all TypeScript types **AND**
 interfaces.
 
-For example, `SolanaClusterMoniker` is a type export from `gill`:
+For example, `SolanaClusterMoniker` is a type export from `trezoagill`:
 
 ```ts
-import { createSolanaClient, SolanaClusterMoniker } from "gill";
+import { createSolanaClient, SolanaClusterMoniker } from "trezoagill";
 ```
 
 It should be updated to be explicitly imported as a `type` (for both TypeScript's types and
 interfaces):
 
 ```ts tab="Option 1 (recommended)"
-import { createSolanaClient } from "gill";
-import type { SolanaClusterMoniker } from "gill";
+import { createSolanaClient } from "trezoagill";
+import type { SolanaClusterMoniker } from "trezoagill";
 ```
 
 ```ts tab="Option 2"
-import { createSolanaClient, type SolanaClusterMoniker } from "gill";
+import { createSolanaClient, type SolanaClusterMoniker } from "trezoagill";
 ```
 
 <Callout title="Pro Tip">

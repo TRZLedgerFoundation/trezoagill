@@ -1,22 +1,22 @@
 /**
  * The purpose of this script is to compare some of the differences
- * of using `gill` as a single entrypoint vs `@solana/kit`
- * (and the various `@solana-program/*` packages).
+ * of using `trezoagill` as a single entrypoint vs `@trezoa/kit`
+ * (and the various `@trezoa-program/*` packages).
  *
- * This script is the `@solana/kit` version of the comparison.
- * See the `gill` version in the ./basic.ts file
+ * This script is the `@trezoa/kit` version of the comparison.
+ * See the `trezoagill` version in the ./basic.ts file
  */
 import {
   getSetComputeUnitLimitInstruction,
   getSetComputeUnitPriceInstruction,
-} from "@solana-program/compute-budget";
-import { getAddMemoInstruction } from "@solana-program/memo";
+} from "@trezoa-program/compute-budget";
+import { getAddMemoInstruction } from "@trezoa-program/memo";
 import {
   appendTransactionMessageInstructions,
   createKeyPairFromBytes,
   createSignerFromKeyPair,
-  createSolanaRpc,
-  createSolanaRpcSubscriptions,
+  createTrezoaRpc,
+  createTrezoaRpcSubscriptions,
   createTransactionMessage,
   devnet,
   getSignatureFromTransaction,
@@ -25,15 +25,15 @@ import {
   setTransactionMessageFeePayerSigner,
   setTransactionMessageLifetimeUsingBlockhash,
   signTransactionMessageWithSigners,
-} from "@solana/kit";
+} from "@trezoa/kit";
 import { readFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { resolve } from "node:path";
 
-const rpc = createSolanaRpc(devnet("https://api.devnet.solana.com"));
+const rpc = createTrezoaRpc(devnet("https://api.devnet.trezoa.com"));
 
-const rpcSubscriptions = createSolanaRpcSubscriptions(
-  devnet("wss://api.devnet.solana.com"),
+const rpcSubscriptions = createTrezoaRpcSubscriptions(
+  devnet("wss://api.devnet.trezoa.com"),
 );
 
 const sendAndConfirmTransaction = sendAndConfirmTransactionFactory({
@@ -43,7 +43,7 @@ const sendAndConfirmTransaction = sendAndConfirmTransactionFactory({
 
 const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
 
-const keypairFilePath = "~/.config/solana/id.json";
+const keypairFilePath = "~/.config/trezoa/id.json";
 
 const resolvedKeypairPath = resolve(keypairFilePath.replace("~", homedir()));
 
@@ -75,7 +75,7 @@ const signedTransaction = await signTransactionMessageWithSigners(tx);
 try {
   console.log(
     "Sending transaction:",
-    `https://explorer.solana.com/tx/${getSignatureFromTransaction(signedTransaction)}?cluster=devnet`,
+    `https://explorer.trezoa.com/tx/${getSignatureFromTransaction(signedTransaction)}?cluster=devnet`,
   );
 
   await sendAndConfirmTransaction(signedTransaction, {

@@ -1,4 +1,4 @@
-import { getSetComputeUnitLimitInstruction, getSetComputeUnitPriceInstruction } from "@solana-program/compute-budget";
+import { getSetComputeUnitLimitInstruction, getSetComputeUnitPriceInstruction } from "@trezoa-program/compute-budget";
 import type {
   Address,
   TransactionMessageWithBlockhashLifetime,
@@ -6,7 +6,7 @@ import type {
   TransactionMessageWithFeePayerSigner,
   TransactionSigner,
   TransactionVersion,
-} from "@solana/kit";
+} from "@trezoa/kit";
 import {
   appendTransactionMessageInstruction,
   appendTransactionMessageInstructions,
@@ -16,12 +16,12 @@ import {
   setTransactionMessageFeePayer,
   setTransactionMessageFeePayerSigner,
   setTransactionMessageLifetimeUsingBlockhash,
-} from "@solana/kit";
+} from "@trezoa/kit";
 import type { Simplify } from "../types";
 import type { CreateTransactionInput, FullTransaction } from "../types/transactions";
 
 /**
- * Simple interface for creating a Solana transaction
+ * Simple interface for creating a Trezoa transaction
  */
 export function createTransaction<TVersion extends TransactionVersion | "auto", TFeePayer extends TransactionSigner>(
   props: CreateTransactionInput<TVersion, TFeePayer>,

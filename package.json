@@ -1,22 +1,22 @@
 {
-  "name": "gillsdk",
+  "name": "trezoagill",
   "license": "MIT",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "repository": {
-    "name": "gillsdk/gill",
+    "name": "TRZLedgerFoundation/trezoagill",
     "type": "git",
-    "url": "https://github.com/gillsdk/gill"
+    "url": "https://github.com/TRZLedgerFoundation/trezoagill"
   },
   "scripts": {
     "clean": "turbo run --concurrency=${TURBO_CONCURRENCY:-95.84%} clean && pnpm clean:root",
     "clean:root": "rimraf coverage dist build node_modules .turbo",
-    "prebuild": "turbo run --concurrency=${TURBO_CONCURRENCY:-95.84%} build --filter=gill",
+    "prebuild": "turbo run --concurrency=${TURBO_CONCURRENCY:-95.84%} build --filter=trezoagill",
     "coverage": "turbo run --concurrency=${TURBO_CONCURRENCY:-95.84%} coverage:open",
     "build": "turbo run --concurrency=${TURBO_CONCURRENCY:-95.84%} build",
-    "codama:generate": "./idls/build-codama-clients.sh",
+    "codoma:generate": "./idls/build-codoma-clients.sh",
     "compile:docs": "turbo run --concurrency=${TURBO_CONCURRENCY:-95.84%} compile:docs",
     "test": "turbo run --concurrency=${TURBO_CONCURRENCY:-95.84%} test",
     "test:typecheck": "turbo run --concurrency=${TURBO_CONCURRENCY:-95.84%} test:typecheck",
@@ -41,7 +41,7 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.10",
-    "@codama/cli": "^1.1.1",
+    "@codoma/cli": "^1.1.1",
     "@swc/jest": "^0.2.37",
     "@types/jest": "^29.5.14",
     "@types/jscodeshift": "^0.12.0",
@@ -69,15 +69,15 @@
     "typedoc-plugin-mdn-links": "^5.0.2"
   },
   "packageManager": "pnpm@9.1.0",
-  "author": "Nick Frostbutter <maintainers@gillsdk.com>",
-  "homepage": "https://gillsdk.com",
+  "author": "Trezoa Team <maintainers@trezoagill.com>",
+  "homepage": "https://trezoagill.com",
   "bugs": {
-    "url": "https://github.com/gillsdk/gill/issues"
+    "url": "https://github.com/TRZLedgerFoundation/trezoagill/issues"
   },
   "contributors": [
     {
-      "name": "Nick Frostbutter",
-      "url": "https://github.com/nickfrosty"
+      "name": "Trezoa Team",
+      "url": "https://github.com/TRZLedgerFoundation"
     }
   ]
 }

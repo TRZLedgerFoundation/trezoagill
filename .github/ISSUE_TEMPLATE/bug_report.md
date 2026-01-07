@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: If you've already confirmed something is broken within the gill sdk itself, create a bug report.
+about: If you've already confirmed something is broken within the trezoagill sdk itself, create a bug report.
 title: "[BUG] "
 labels: ""
 assignees: ""
@@ -8,9 +8,9 @@ assignees: ""
 
 <!-- Please provide all of the information requested below. Our maintainers are limited on time without all of this information it's not possible for us to help and your bug report will be closed. -->
 
-**Which gill sdk packages are you having issues with?**
+**Which trezoagill sdk packages are you having issues with?**
 
-For example: gill, @gillsdk/react
+For example: trezoagill, @trezoagill/react
 
 **What versions of these packages are you using?**
 

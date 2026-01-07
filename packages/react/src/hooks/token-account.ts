@@ -1,18 +1,18 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import type { Account, Address, FetchAccountConfig, Simplify } from "gill";
-import { address, assertAccountExists, assertIsAddress, fetchEncodedAccount } from "gill";
+import type { Account, Address, FetchAccountConfig, Simplify } from "trezoagill";
+import { address, assertAccountExists, assertIsAddress, fetchEncodedAccount } from "trezoagill";
 import {
   checkedTokenProgramAddress,
   decodeToken,
   fetchMint,
   getAssociatedTokenAccountAddress,
   type Token,
-} from "gill/programs";
+} from "trezoagill/programs";
 
 import { GILL_HOOK_CLIENT_KEY } from "../const.js";
-import { useSolanaClient } from "./client.js";
+import { useTrezoaClient } from "./client.js";
 import type { GillUseRpcHook } from "./types.js";
 
 type RpcConfig = Simplify<Omit<FetchAccountConfig, "abortSignal">>;
@@ -25,25 +25,25 @@ type UseTokenAccountResponse<TAddress extends Address = Address> = Simplify<
 
 type TokenAccountInputWithDeclaredAta<TAddress extends Address = Address> = {
   /**
-   * Address of the {@link https://solana.com/docs/tokens#associated-token-account | Token Account} to get and decode
+   * Address of the {@link https://trezoa.com/docs/tokens#associated-token-account | Token Account} to get and decode
    */
   ata: TAddress;
 };
 
 type TokenAccountInputWithDerivedAtaDetails = {
   /**
-   * Address of the {@link https://solana.com/docs/tokens#token-account | Token Account}'s `mint`
+   * Address of the {@link https://trezoa.com/docs/tokens#token-account | Token Account}'s `mint`
    */
   mint: Address;
   /**
-   * Address of the {@link https://solana.com/docs/tokens#token-account | Token Account}'s `owner`
+   * Address of the {@link https://trezoa.com/docs/tokens#token-account | Token Account}'s `owner`
    */
   owner: Address;
   /**
-   * The {@link https://solana.com/docs/tokens#token-programs | Token Program} used to create the `mint`
+   * The {@link https://trezoa.com/docs/tokens#token-programs | Token Program} used to create the `mint`
    *
    * If no `tokenProgram` is provided, the hook will automatically fetch the
-   * {@link https://solana.com/docs/tokens#mint-account | Mint account} to retrieve the correct Token Program address
+   * {@link https://trezoa.com/docs/tokens#mint-account | Mint account} to retrieve the correct Token Program address
    */
   tokenProgram?: Address;
 };
@@ -60,8 +60,8 @@ function hasDeclaredAta(
 }
 
 /**
- * Get and parse an owner's {@link https://solana.com/docs/tokens#token-account | Token account} for a
- * {@link https://solana.com/docs/tokens#mint-account | Mint} and {@link https://solana.com/docs/tokens#token-programs | Token Program}
+ * Get and parse an owner's {@link https://trezoa.com/docs/tokens#token-account | Token account} for a
+ * {@link https://trezoa.com/docs/tokens#mint-account | Mint} and {@link https://trezoa.com/docs/tokens#token-programs | Token Program}
  */
 export function useTokenAccount<TConfig extends RpcConfig = RpcConfig, TAddress extends Address = Address>({
   options,
@@ -70,7 +70,7 @@ export function useTokenAccount<TConfig extends RpcConfig = RpcConfig, TAddress 
   // tokenProgram,
   ...tokenAccountOptions
 }: UseTokenAccountInput<TConfig, TAddress>) {
-  const { rpc, urlOrMoniker } = useSolanaClient();
+  const { rpc, urlOrMoniker } = useTrezoaClient();
 
   if (abortSignal) {
     // @ts-expect-error the `abortSignal` was stripped from the type but is now being added back in

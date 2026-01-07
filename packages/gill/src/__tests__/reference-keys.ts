@@ -1,4 +1,4 @@
-import { AccountRole, Address, BaseTransactionMessage, SolanaError } from "@solana/kit";
+import { AccountRole, Address, BaseTransactionMessage, TrezoaError } from "@trezoa/kit";
 import { insertReferenceKeysToTransactionMessage, insertReferenceKeyToTransactionMessage } from "../core";
 
 // Mock for BaseTransactionMessage
@@ -40,7 +40,7 @@ describe("insertReferenceKeyToTransactionMessage", () => {
 
     expect(() => {
       insertReferenceKeyToTransactionMessage(referenceKey, transaction);
-    }).toThrow(SolanaError);
+    }).toThrow(TrezoaError);
   });
 
   it("should throw an error if transaction has only memo instructions", () => {
@@ -48,7 +48,7 @@ describe("insertReferenceKeyToTransactionMessage", () => {
 
     expect(() => {
       insertReferenceKeyToTransactionMessage(referenceKey, transaction);
-    }).toThrow(SolanaError);
+    }).toThrow(TrezoaError);
   });
 
   it("should modify the first non-memo instruction when when memo is first", () => {
@@ -155,7 +155,7 @@ describe("insertReferenceKeysToTransactionMessage", () => {
 
     expect(() => {
       insertReferenceKeysToTransactionMessage(referenceKeys, transaction);
-    }).toThrow(SolanaError);
+    }).toThrow(TrezoaError);
   });
 
   it("should preserve transaction immutability", () => {

@@ -1,5 +1,5 @@
-import { Address } from "@solana/kit";
-import { TOKEN_2022_PROGRAM_ADDRESS } from "@solana-program/token-2022";
+import { Address } from "@trezoa/kit";
+import { TOKEN_2022_PROGRAM_ADDRESS } from "@trezoa-program/token-2022";
 import {
   assertIsSupportedTokenProgram,
   checkedTokenProgramAddress,

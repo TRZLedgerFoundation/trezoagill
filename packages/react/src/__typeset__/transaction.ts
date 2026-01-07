@@ -1,4 +1,4 @@
-import { GetTransactionApi, Signature } from "gill";
+import { GetTransactionApi, Signature } from "trezoagill";
 import { useTransaction } from "../hooks/transaction.js";
 
 // [DESCRIBE] useTransaction

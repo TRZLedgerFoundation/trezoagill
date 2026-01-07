@@ -4,13 +4,13 @@ import type {
   RpcDevnet,
   RpcMainnet,
   RpcTestnet,
-  SolanaRpcApi,
-  SolanaRpcApiMainnet,
-} from "@solana/kit";
-import { sendAndConfirmDurableNonceTransactionFactory, sendAndConfirmTransactionFactory } from "@solana/kit";
-import { createSolanaClient } from "../core";
+  TrezoaRpcApi,
+  TrezoaRpcApiMainnet,
+} from "@trezoa/kit";
+import { sendAndConfirmDurableNonceTransactionFactory, sendAndConfirmTransactionFactory } from "@trezoa/kit";
+import { createTrezoaClient } from "../core";
 
-// [DESCRIBE] createSolanaClient
+// [DESCRIBE] createTrezoaClient
 {
   // Mainnet cluster typechecks when the providing the moniker
   {
@@ -18,17 +18,17 @@ import { createSolanaClient } from "../core";
       rpc: mainnetRpc,
       rpcSubscriptions: mainnetRpcSubscriptions,
       simulateTransaction,
-    } = createSolanaClient({
+    } = createTrezoaClient({
       urlOrMoniker: "mainnet",
     });
-    mainnetRpc satisfies Rpc<SolanaRpcApiMainnet>;
-    mainnetRpc satisfies RpcMainnet<SolanaRpcApiMainnet>;
+    mainnetRpc satisfies Rpc<TrezoaRpcApiMainnet>;
+    mainnetRpc satisfies RpcMainnet<TrezoaRpcApiMainnet>;
     //@ts-expect-error Should not have `requestAirdrop` method
     mainnetRpc satisfies Rpc<RequestAirdropApi>;
     //@ts-expect-error Should not be a devnet RPC
-    mainnetRpc satisfies RpcDevnet<SolanaRpcApi>;
+    mainnetRpc satisfies RpcDevnet<TrezoaRpcApi>;
     //@ts-expect-error Should not be a testnet RPC
-    mainnetRpc satisfies RpcTestnet<SolanaRpcApi>;
+    mainnetRpc satisfies RpcTestnet<TrezoaRpcApi>;
 
     // should have access to `simulateTransaction`
     simulateTransaction;
@@ -49,16 +49,16 @@ import { createSolanaClient } from "../core";
       rpc: devnetRpc,
       rpcSubscriptions: devnetRpcSubscriptions,
       simulateTransaction,
-    } = createSolanaClient({
+    } = createTrezoaClient({
       urlOrMoniker: "devnet",
     });
-    devnetRpc satisfies Rpc<SolanaRpcApi>;
+    devnetRpc satisfies Rpc<TrezoaRpcApi>;
     devnetRpc satisfies Rpc<RequestAirdropApi>;
-    devnetRpc satisfies RpcDevnet<SolanaRpcApi>;
+    devnetRpc satisfies RpcDevnet<TrezoaRpcApi>;
     //@ts-expect-error Should not be a testnet RPC
-    devnetRpc satisfies RpcTestnet<SolanaRpcApi>;
+    devnetRpc satisfies RpcTestnet<TrezoaRpcApi>;
     //@ts-expect-error Should not be a mainnet RPC
-    devnetRpc satisfies RpcMainnet<SolanaRpcApiMainnet>;
+    devnetRpc satisfies RpcMainnet<TrezoaRpcApiMainnet>;
 
     // should have access to `simulateTransaction`
     simulateTransaction;
@@ -79,16 +79,16 @@ import { createSolanaClient } from "../core";
       rpc: testnetRpc,
       rpcSubscriptions: testnetRpcSubscriptions,
       simulateTransaction,
-    } = createSolanaClient({
+    } = createTrezoaClient({
       urlOrMoniker: "testnet",
     });
-    testnetRpc satisfies Rpc<SolanaRpcApi>;
+    testnetRpc satisfies Rpc<TrezoaRpcApi>;
     testnetRpc satisfies Rpc<RequestAirdropApi>;
-    testnetRpc satisfies RpcTestnet<SolanaRpcApi>;
+    testnetRpc satisfies RpcTestnet<TrezoaRpcApi>;
     //@ts-expect-error Should not be a devnet RPC
-    testnetRpc satisfies RpcDevnet<SolanaRpcApi>;
+    testnetRpc satisfies RpcDevnet<TrezoaRpcApi>;
     //@ts-expect-error Should not be a mainnet RPC
-    testnetRpc satisfies RpcMainnet<SolanaRpcApiMainnet>;
+    testnetRpc satisfies RpcMainnet<TrezoaRpcApiMainnet>;
 
     // should have access to `simulateTransaction`
     simulateTransaction;
@@ -109,17 +109,17 @@ import { createSolanaClient } from "../core";
       rpc: localnetRpc,
       rpcSubscriptions: localnetRpcSubscriptions,
       simulateTransaction,
-    } = createSolanaClient({
+    } = createTrezoaClient({
       urlOrMoniker: "localnet",
     });
-    localnetRpc satisfies Rpc<SolanaRpcApi>;
+    localnetRpc satisfies Rpc<TrezoaRpcApi>;
     localnetRpc satisfies Rpc<RequestAirdropApi>;
     //@ts-expect-error Should not be a testnet RPC
-    localnetRpc satisfies RpcTestnet<SolanaRpcApi>;
+    localnetRpc satisfies RpcTestnet<TrezoaRpcApi>;
     //@ts-expect-error Should not be a devnet RPC
-    localnetRpc satisfies RpcDevnet<SolanaRpcApi>;
+    localnetRpc satisfies RpcDevnet<TrezoaRpcApi>;
     //@ts-expect-error Should not be a mainnet RPC
-    localnetRpc satisfies RpcMainnet<SolanaRpcApiMainnet>;
+    localnetRpc satisfies RpcMainnet<TrezoaRpcApiMainnet>;
 
     // should have access to `simulateTransaction`
     simulateTransaction;
@@ -142,17 +142,17 @@ import { createSolanaClient } from "../core";
       rpc: genericRpc,
       rpcSubscriptions: genericRpcSubscriptions,
       simulateTransaction,
-    } = createSolanaClient({
+    } = createTrezoaClient({
       urlOrMoniker: "https://example-rpc.com",
     });
-    genericRpc satisfies Rpc<SolanaRpcApi>;
+    genericRpc satisfies Rpc<TrezoaRpcApi>;
     genericRpc satisfies Rpc<RequestAirdropApi>;
     //@ts-expect-error Should not be a testnet RPC
-    genericRpc satisfies RpcTestnet<SolanaRpcApi>;
+    genericRpc satisfies RpcTestnet<TrezoaRpcApi>;
     //@ts-expect-error Should not be a devnet RPC
-    genericRpc satisfies RpcDevnet<SolanaRpcApi>;
+    genericRpc satisfies RpcDevnet<TrezoaRpcApi>;
     //@ts-expect-error Should not be a mainnet RPC
-    genericRpc satisfies RpcMainnet<SolanaRpcApiMainnet>;
+    genericRpc satisfies RpcMainnet<TrezoaRpcApiMainnet>;
 
     // should have access to `simulateTransaction`
     simulateTransaction;

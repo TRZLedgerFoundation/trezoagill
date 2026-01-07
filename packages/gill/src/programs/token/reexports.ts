@@ -1,4 +1,4 @@
-// Re-exports from @solana-program/token-2022
+// Re-exports from @trezoa-program/token-2022
 export {
   AMOUNT_TO_UI_AMOUNT_DISCRIMINATOR,
   APPLY_CONFIDENTIAL_PENDING_BALANCE_CONFIDENTIAL_TRANSFER_DISCRIMINATOR,
@@ -828,6 +828,6 @@ export {
   uiAmountToAmountForInterestBearingMintWithoutSimulation,
   uiAmountToAmountForMintWithoutSimulation,
   uiAmountToAmountForScaledUiAmountMintWithoutSimulation,
-} from "@solana-program/token-2022";
+} from "@trezoa-program/token-2022";
 
-export type * from "@solana-program/token-2022";
+export type * from "@trezoa-program/token-2022";

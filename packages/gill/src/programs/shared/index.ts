@@ -3,16 +3,16 @@
  * And vendored in from various codama generated client to help
  * minimize redundancy and bundle sizes
  *
- * @see https://github.com/codama-idl/codama
+ * @see https://github.com/codoma/codama
  */
 
-import { isProgramDerivedAddress, type Address, type ProgramDerivedAddress } from "@solana/kit";
-import { AccountRole, type AccountMeta, upgradeRoleToSigner } from "@solana/kit";
+import { isProgramDerivedAddress, type Address, type ProgramDerivedAddress } from "@trezoa/kit";
+import { AccountRole, type AccountMeta, upgradeRoleToSigner } from "@trezoa/kit";
 import {
   isTransactionSigner as web3JsIsTransactionSigner,
   type AccountSignerMeta,
   type TransactionSigner,
-} from "@solana/kit";
+} from "@trezoa/kit";
 
 /**
  * Asserts that the given value is not null or undefined.

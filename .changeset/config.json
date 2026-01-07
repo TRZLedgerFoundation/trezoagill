@@ -5,15 +5,15 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "gillsdk/gill"
+      "repo": "trezoagill/trezoagill"
     }
   ],
   "commit": false,
   "ignore": [
-    "@gillsdk/vue", "@gillsdk/svelte", 
-    "@gillsdk/tsconfig", "@gillsdk/build-scripts", "@gillsdk/test-config"
+    "@trezoagill/vue", "@trezoagill/svelte", 
+    "@trezoagill/tsconfig", "@trezoagill/build-scripts", "@trezoagill/test-config"
   ],
-  "fixed": [["@gillsdk/!({build-scripts,config-*,test-*,tsconfig})"]],
+  "fixed": [["@trezoagill/!({build-scripts,config-*,test-*,tsconfig})"]],
   "linked": [],
   "updateInternalDependencies": "patch"
 }

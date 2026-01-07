@@ -1,4 +1,4 @@
-import type { GetSlotApi } from "gill";
+import type { GetSlotApi } from "trezoagill";
 import { useSlot } from "../hooks/slot.js";
 
 // [DESCRIBE] useSlot

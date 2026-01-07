@@ -1,6 +1,6 @@
-import { assertKeyExporterIsAvailable, assertKeyGenerationIsAvailable } from "@solana/assertions";
-import type { KeyPairSigner, createKeyPairFromBytes, createKeyPairSignerFromBytes } from "@solana/kit";
-import { createSignerFromKeyPair } from "@solana/kit";
+import { assertKeyExporterIsAvailable, assertKeyGenerationIsAvailable } from "@trezoa/assertions";
+import type { KeyPairSigner, createKeyPairFromBytes, createKeyPairSignerFromBytes } from "@trezoa/kit";
+import { createSignerFromKeyPair } from "@trezoa/kit";
 
 export function assertKeyPairIsExtractable(keyPair: CryptoKeyPair): asserts keyPair is ExtractableCryptoKeyPair {
   assertKeyExporterIsAvailable();

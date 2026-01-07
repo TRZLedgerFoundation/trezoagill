@@ -1,4 +1,4 @@
-import { Address, GetSignaturesForAddressApi } from "gill";
+import { Address, GetSignaturesForAddressApi } from "trezoagill";
 import { useSignaturesForAddress } from "../hooks/index.js";
 
 // [DESCRIBE] useSignaturesForAddress

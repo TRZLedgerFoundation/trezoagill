@@ -2,14 +2,14 @@ import {
   getCreateAssociatedTokenIdempotentInstruction,
   getMintToInstruction,
   TOKEN_2022_PROGRAM_ADDRESS,
-} from "@solana-program/token-2022";
-import { generateKeyPairSigner, type Address, type KeyPairSigner } from "@solana/kit";
+} from "@trezoa-program/token-2022";
+import { generateKeyPairSigner, type Address, type KeyPairSigner } from "@trezoa/kit";
 import { getMintTokensInstructions, GetMintTokensInstructionsArgs, TOKEN_PROGRAM_ADDRESS } from "../programs/token";
 
 // Mock the imported functions
-jest.mock("@solana-program/token-2022", () => ({
+jest.mock("@trezoa-program/token-2022", () => ({
   // preserve all real implementations to only change the desired ones
-  ...jest.requireActual("@solana-program/token-2022"),
+  ...jest.requireActual("@trezoa-program/token-2022"),
 
   getCreateAssociatedTokenIdempotentInstruction: jest.fn(),
   getMintToInstruction: jest.fn(),

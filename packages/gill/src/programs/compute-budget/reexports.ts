@@ -1,4 +1,4 @@
-// Re-exports from @solana-program/compute-budget
+// Re-exports from @trezoa-program/compute-budget
 export {
   COMPUTE_BUDGET_PROGRAM_ADDRESS,
   ComputeBudgetInstruction,
@@ -46,6 +46,6 @@ export {
   setTransactionMessageComputeUnitPrice,
   updateOrAppendSetComputeUnitLimitInstruction,
   updateOrAppendSetComputeUnitPriceInstruction,
-} from "@solana-program/compute-budget";
+} from "@trezoa-program/compute-budget";
 
-export type * from "@solana-program/compute-budget";
+export type * from "@trezoa-program/compute-budget";

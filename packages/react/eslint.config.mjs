@@ -1,4 +1,4 @@
-import config from "@gillsdk/config-eslint/base";
+import config from "@trezoagill/config-eslint/base";
 
 /** @type {import("eslint").Linter.Config} */
 export default config;

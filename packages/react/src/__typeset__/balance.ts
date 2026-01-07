@@ -1,4 +1,4 @@
-import { Address, GetBalanceApi } from "gill";
+import { Address, GetBalanceApi } from "trezoagill";
 import { useBalance } from "../hooks/balance.js";
 
 // [DESCRIBE] useBalance

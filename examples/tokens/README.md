@@ -1,11 +1,11 @@
-# gill examples - tokens
+# trezoagill examples - tokens
 
 Gill is aimed at abstracting away many of the complexities and boilerplate required to perform
-common interactions with the Solana blockchain, while still offering the low level "escape hatches"
+common interactions with the Trezoa blockchain, while still offering the low level "escape hatches"
 when developers need (or want) fine-grain control.
 
-Take a look through these examples to see how gill works and even
-[how it compares](../get-started/README.md#comparison-of-gill-vs-solanakit-aka-web3js-v2) to using
+Take a look through these examples to see how trezoagill works and even
+[how it compares](../get-started/README.md#comparison-of-trezoagill-vs-trezoakit-aka-web3js-v2) to using
 the vanilla web3js v2 library.
 
 ## Tech stack used

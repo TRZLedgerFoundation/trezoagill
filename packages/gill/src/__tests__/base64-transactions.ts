@@ -1,4 +1,4 @@
-import { address, blockhash, createKeyPairSignerFromPrivateKeyBytes, type KeyPairSigner } from "@solana/kit";
+import { address, blockhash, createKeyPairSignerFromPrivateKeyBytes, type KeyPairSigner } from "@trezoa/kit";
 import { createTransaction, transactionFromBase64, transactionToBase64, transactionToBase64WithSigners } from "../core";
 
 // initialize a sample transaction

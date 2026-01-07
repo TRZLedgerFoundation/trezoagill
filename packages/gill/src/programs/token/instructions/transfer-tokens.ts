@@ -1,6 +1,6 @@
-import type { Address, Instruction, TransactionSigner } from "@solana/kit";
+import type { Address, Instruction, TransactionSigner } from "@trezoa/kit";
 
-import { getCreateAssociatedTokenIdempotentInstruction, getTransferInstruction } from "@solana-program/token-2022";
+import { getCreateAssociatedTokenIdempotentInstruction, getTransferInstruction } from "@trezoa-program/token-2022";
 import { checkedAddress, checkedTransactionSigner } from "../../../core";
 import { checkedTokenProgramAddress } from "../addresses";
 import type { TokenInstructionBase } from "./types";

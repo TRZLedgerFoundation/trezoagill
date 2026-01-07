@@ -3,67 +3,67 @@
  */
 
 /**
- * SPL System program client
+ * TPL System program client
  */
-import { SYSTEM_PROGRAM_ADDRESS } from "gill/programs";
+import { SYSTEM_PROGRAM_ADDRESS } from "trezoagill/programs";
 SYSTEM_PROGRAM_ADDRESS;
 
-import { getTransferSolInstruction } from "gill/programs";
+import { getTransferSolInstruction } from "trezoagill/programs";
 getTransferSolInstruction;
 
 /**
- * SPL Address Lookup Table program client
+ * TPL Address Lookup Table program client
  */
-import { ADDRESS_LOOKUP_TABLE_PROGRAM_ADDRESS } from "gill/programs";
+import { ADDRESS_LOOKUP_TABLE_PROGRAM_ADDRESS } from "trezoagill/programs";
 ADDRESS_LOOKUP_TABLE_PROGRAM_ADDRESS;
 
-import { getAddressLookupTableDecoder } from "gill/programs";
+import { getAddressLookupTableDecoder } from "trezoagill/programs";
 getAddressLookupTableDecoder;
 
 /**
- * SPL Compute Budget program client
+ * TPL Compute Budget program client
  */
-import { COMPUTE_BUDGET_PROGRAM_ADDRESS } from "gill/programs";
+import { COMPUTE_BUDGET_PROGRAM_ADDRESS } from "trezoagill/programs";
 COMPUTE_BUDGET_PROGRAM_ADDRESS;
 
-import { getSetComputeUnitLimitInstruction } from "gill/programs";
+import { getSetComputeUnitLimitInstruction } from "trezoagill/programs";
 getSetComputeUnitLimitInstruction;
 
-// !this is a custom symbol that gill provides
-import { isSetComputeLimitInstruction } from "gill/programs";
+// !this is a custom symbol that trezoagill provides
+import { isSetComputeLimitInstruction } from "trezoagill/programs";
 isSetComputeLimitInstruction;
 
 /**
- * !SPL Memo program is generated and vendored in
+ * !TPL Memo program is generated and vendored in
  */
-import { MEMO_PROGRAM_ADDRESS } from "gill/programs";
+import { MEMO_PROGRAM_ADDRESS } from "trezoagill/programs";
 MEMO_PROGRAM_ADDRESS;
 
-import { getAddMemoInstruction } from "gill/programs";
+import { getAddMemoInstruction } from "trezoagill/programs";
 getAddMemoInstruction;
 
 /**
  * ! Metaplex's Token Metadata client is generated and vendored in
  */
-import { TOKEN_METADATA_PROGRAM_ADDRESS } from "gill/programs";
+import { TOKEN_METADATA_PROGRAM_ADDRESS } from "trezoagill/programs";
 TOKEN_METADATA_PROGRAM_ADDRESS;
 
-import { getMetadataCodec } from "gill/programs";
+import { getMetadataCodec } from "trezoagill/programs";
 getMetadataCodec;
 
 /**
- * SPL Token 2022 program client
+ * TPL Token 2022 program client
  */
-import { TOKEN_2022_PROGRAM_ADDRESS } from "gill/programs";
+import { TOKEN_2022_PROGRAM_ADDRESS } from "trezoagill/programs";
 TOKEN_2022_PROGRAM_ADDRESS;
 
-import { getMintToInstruction } from "gill/programs";
+import { getMintToInstruction } from "trezoagill/programs";
 getMintToInstruction;
 
-// !this is a custom symbol that gill provides
-import { getAssociatedTokenAccountAddress } from "gill/programs";
+// !this is a custom symbol that trezoagill provides
+import { getAssociatedTokenAccountAddress } from "trezoagill/programs";
 getAssociatedTokenAccountAddress;
 
-// !this is a custom symbol that gill provides
-import { TOKEN_PROGRAM_ADDRESS } from "gill/programs";
+// !this is a custom symbol that trezoagill provides
+import { TOKEN_PROGRAM_ADDRESS } from "trezoagill/programs";
 TOKEN_PROGRAM_ADDRESS;

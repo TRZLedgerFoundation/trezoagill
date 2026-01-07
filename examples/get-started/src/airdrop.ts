@@ -1,13 +1,13 @@
 import {
   address,
   airdropFactory,
-  createSolanaClient,
+  createTrezoaClient,
   lamports,
-  SolanaClusterMoniker,
-} from "gill";
+  TrezoaClusterMoniker,
+} from "trezoagill";
 
 /**
- * Define the address to request a SOL airdrop to
+ * Define the address to request a TRZ airdrop to
  *
  * Note: this address does not need to sign this transaction
  */
@@ -15,16 +15,16 @@ const wallet = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 console.log("wallet:", wallet);
 
 /**
- * Declare what Solana network cluster we want our code to interact with
+ * Declare what Trezoa network cluster we want our code to interact with
  */
-const cluster: SolanaClusterMoniker = "devnet";
+const cluster: TrezoaClusterMoniker = "devnet";
 
 /**
- * Create a client connection to the Solana blockchain
+ * Create a client connection to the Trezoa blockchain
  *
- * Note: `urlOrMoniker` can be either a Solana network moniker or a full URL of your RPC provider
+ * Note: `urlOrMoniker` can be either a Trezoa network moniker or a full URL of your RPC provider
  */
-const { rpc, rpcSubscriptions } = createSolanaClient({
+const { rpc, rpcSubscriptions } = createTrezoaClient({
   urlOrMoniker: cluster,
 });
 

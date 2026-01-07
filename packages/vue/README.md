@@ -1,1 +1,1 @@
-# @gillsdk/vue
+# @trezoagill/vue

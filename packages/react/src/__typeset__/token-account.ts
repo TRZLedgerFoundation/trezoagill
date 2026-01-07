@@ -1,6 +1,6 @@
-import { Account, Address } from "gill";
+import { Account, Address } from "trezoagill";
 
-import { Token } from "gill/programs";
+import { Token } from "trezoagill/programs";
 import { useTokenAccount } from "../hooks/token-account.js";
 
 // [DESCRIBE] useTokenAccount

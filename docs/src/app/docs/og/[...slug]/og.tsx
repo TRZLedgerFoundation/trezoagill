@@ -98,7 +98,7 @@ export function generate({
                 fontWeight: 600,
               }}
             >
-              gill
+              trezoagill
             </p>
           </div>
 
@@ -109,7 +109,7 @@ export function generate({
               color: "rgba(240,240,240,0.7)",
             }}
           >
-            https://gillsdk.com
+            https://trezoagill.com
           </p>
         </div>
       </div>

@@ -1,38 +1,38 @@
 import assert from "node:assert";
 
-import { getPublicSolanaRpcUrl } from "../core";
+import { getPublicTrezoaRpcUrl } from "../core";
 
-describe("getPublicSolanaRpcUrl", () => {
-  test("getPublicSolanaRpcUrl returns mainnet-beta url", () => {
-    const rpcUrl = getPublicSolanaRpcUrl("mainnet-beta");
-    assert.equal(rpcUrl, "https://api.mainnet-beta.solana.com");
+describe("getPublicTrezoaRpcUrl", () => {
+  test("getPublicTrezoaRpcUrl returns mainnet-beta url", () => {
+    const rpcUrl = getPublicTrezoaRpcUrl("mainnet-beta");
+    assert.equal(rpcUrl, "https://api.mainnet-beta.trezoa.com");
   });
-  test("getPublicSolanaRpcUrl returns mainnet url", () => {
-    const rpcUrl = getPublicSolanaRpcUrl("mainnet");
-    assert.equal(rpcUrl, "https://api.mainnet-beta.solana.com");
+  test("getPublicTrezoaRpcUrl returns mainnet url", () => {
+    const rpcUrl = getPublicTrezoaRpcUrl("mainnet");
+    assert.equal(rpcUrl, "https://api.mainnet-beta.trezoa.com");
   });
-  test("getPublicSolanaRpcUrl returns devnet url", () => {
-    const rpcUrl = getPublicSolanaRpcUrl("devnet");
-    assert.equal(rpcUrl, "https://api.devnet.solana.com");
+  test("getPublicTrezoaRpcUrl returns devnet url", () => {
+    const rpcUrl = getPublicTrezoaRpcUrl("devnet");
+    assert.equal(rpcUrl, "https://api.devnet.trezoa.com");
   });
-  test("getPublicSolanaRpcUrl returns testnet url", () => {
-    const rpcUrl = getPublicSolanaRpcUrl("testnet");
-    assert.equal(rpcUrl, "https://api.testnet.solana.com");
+  test("getPublicTrezoaRpcUrl returns testnet url", () => {
+    const rpcUrl = getPublicTrezoaRpcUrl("testnet");
+    assert.equal(rpcUrl, "https://api.testnet.trezoa.com");
   });
-  test("getPublicSolanaRpcUrl returns localnet url", () => {
-    const rpcUrl = getPublicSolanaRpcUrl("localnet");
+  test("getPublicTrezoaRpcUrl returns localnet url", () => {
+    const rpcUrl = getPublicTrezoaRpcUrl("localnet");
     assert.equal(rpcUrl, "http://127.0.0.1:8899");
   });
-  test("getPublicSolanaRpcUrl returns localhost url", () => {
-    const rpcUrl = getPublicSolanaRpcUrl("localhost");
+  test("getPublicTrezoaRpcUrl returns localhost url", () => {
+    const rpcUrl = getPublicTrezoaRpcUrl("localhost");
     assert.equal(rpcUrl, "http://127.0.0.1:8899");
   });
-  test("getPublicSolanaRpcUrl show throw error on unsupported moniker", () => {
+  test("getPublicTrezoaRpcUrl show throw error on unsupported moniker", () => {
     // @ts-expect-error - `not-supported` is not a valid moniker
-    assert.throws(() => getPublicSolanaRpcUrl("not-supported"), Error);
+    assert.throws(() => getPublicTrezoaRpcUrl("not-supported"), Error);
   });
-  test("getPublicSolanaRpcUrl show throw error on a url provided", () => {
+  test("getPublicTrezoaRpcUrl show throw error on a url provided", () => {
     // @ts-expect-error - urls are not supported
-    assert.throws(() => getPublicSolanaRpcUrl("https://google.com"), Error);
+    assert.throws(() => getPublicTrezoaRpcUrl("https://google.com"), Error);
   });
 });

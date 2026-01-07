@@ -1,1 +1,1 @@
-# @gillsdk/svelte
+# @trezoagill/svelte

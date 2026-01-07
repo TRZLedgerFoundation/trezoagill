@@ -7,7 +7,7 @@ import type {
   TransactionMessageWithFeePayerSigner,
   TransactionSigner,
   TransactionVersion,
-} from "@solana/kit";
+} from "@trezoa/kit";
 
 import type { Simplify } from ".";
 
@@ -26,7 +26,7 @@ export type CreateTransactionInput<
   instructions: Instruction[];
   /**
    * Latest blockhash (aka transaction lifetime) for this transaction to
-   * accepted for execution on the Solana network
+   * accepted for execution on the Trezoa network
    * */
   latestBlockhash?: TLifetimeConstraint;
   /**

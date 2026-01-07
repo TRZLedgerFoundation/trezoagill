@@ -1,34 +1,34 @@
 ---
 title: React Hooks for Solana
 description:
-  A React hooks library for easily interacting with the Solana blockchain, built on top of gill
+  A React hooks library for easily interacting with the Solana blockchain, built on top of trezoagill
 ---
 
-Welcome to `@gillsdk/react`, a React hooks library for easily interacting with the
+Welcome to `@trezoagill/react`, a React hooks library for easily interacting with the
 [Solana](http://solana.com/) blockchain.
 
 <Callout type="info">
-  `@gillsdk/react` is in active development. All APIs are subject to change until reaching the first
+  `@trezoagill/react` is in active development. All APIs are subject to change until reaching the first
   major version (v1.0.0).
 </Callout>
 
 This React hooks library is built on top of two core libraries:
 
-1. [`gill`](https://www.npmjs.com/package/gill) - modern JavaScript/TypeScript library for
+1. [`trezoagill`](https://www.npmjs.com/package/trezoagill) - modern JavaScript/TypeScript library for
    interacting with the Solana blockchain.
 2. [`@tanstack/react-query`](https://www.npmjs.com/package/@tanstack/react-query) - popular and
    powerful asynchronous state management for React.
 
 ## Installation
 
-Install `@gillsdk/react` with your package manager of choice:
+Install `@trezoagill/react` with your package manager of choice:
 
 ```package-install
-gill @gillsdk/react @tanstack/react-query
+trezoagill @trezoagill/react @tanstack/react-query
 ```
 
 <Callout>
-  `gill` and `@tanstack/react-query` are peer dependencies of `@gillsdk/react` so you need to
+  `trezoagill` and `@tanstack/react-query` are peer dependencies of `@trezoagill/react` so you need to
   explicitly install them. This allows you have more control over managing dependencies yourself.
 </Callout>
 
@@ -69,8 +69,8 @@ gill @gillsdk/react @tanstack/react-query
 ## Quick Example
 
 ```tsx
-import { lamportsToSol } from "gill";
-import { useBalance } from "@gillsdk/react";
+import { lamportsToSol } from "trezoagill";
+import { useBalance } from "@trezoagill/react";
 
 export function WalletBalance({ address }: { address: string }) {
   const { balance, isLoading, isError, error } = useBalance({ address });

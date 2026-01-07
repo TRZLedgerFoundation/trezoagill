@@ -1,6 +1,6 @@
 import assert from "node:assert";
 
-import { type Address, blockhash, generateKeyPairSigner, isKeyPairSigner, type KeyPairSigner } from "@solana/kit";
+import { type Address, blockhash, generateKeyPairSigner, isKeyPairSigner, type KeyPairSigner } from "@trezoa/kit";
 
 import { createTransaction } from "../core";
 import { hasSetComputeLimitInstruction, hasSetComputeUnitPriceInstruction } from "../programs";

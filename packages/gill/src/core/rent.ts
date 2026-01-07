@@ -5,7 +5,7 @@ export function getMinimumBalanceForRentExemption(space: bigint | number = 0) {
   /**
    * Default values for Rent calculations
    *
-   * Values taken from: https://github.com/anza-xyz/solana-sdk/blob/c07f692e41d757057c8700211a9300cdcd6d33b1/rent/src/lib.rs#L93-L97
+   * Values taken from: https://github.com/trezoa-xyz/trezoagill/blob/c07f692e41d757057c8700211a9300cdcd6d33b1/rent/src/lib.rs#L93-L97
    *
    */
   const RENT = {
@@ -20,8 +20,8 @@ export function getMinimumBalanceForRentExemption(space: bigint | number = 0) {
     DEFAULT_EXEMPTION_THRESHOLD: BigInt(Math.floor(2.0 * 1000)) / 1000n,
     /**
      * Default rental rate in lamports/byte-year. This calculation is based on:
-     * - 10^9 lamports per SOL
-     * - $1 per SOL
+     * - 10^9 lamports per TRZ
+     * - $1 per TRZ
      * - $0.01 per megabyte day
      * - $3.65 per megabyte year
      */

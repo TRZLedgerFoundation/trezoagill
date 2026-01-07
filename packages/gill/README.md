@@ -1,81 +1,81 @@
 <h1 align="center">
-  gill
+  trezoagill
 </h1>
 
 <p align="center">
-  javascript/typescript client library for interacting with the Solana blockchain
+  javascript/typescript client library for interacting with the Trezoa blockchain
 </p>
 
 <p align="center">
-  <a href="https://github.com/gillsdk/gill/actions/workflows/publish-packages.yml"><img src="https://img.shields.io/github/actions/workflow/status/gillsdk/gill/publish-packages.yml?logo=GitHub&label=tests" /></a>
-  <a href="https://www.npmjs.com/package/gill"><img src="https://img.shields.io/npm/v/gill?logo=npm&color=377CC0" /></a>
-  <a href="https://www.npmjs.com/package/gill"><img src="https://img.shields.io/npm/dm/gill?color=377CC0" /></a>
+  <a href="https://github.com/TRZLedgerFoundation/trezoagill/actions/workflows/publish-packages.yml"><img src="https://img.shields.io/github/actions/workflow/status/trezoagill/trezoagill/publish-packages.yml?logo=GitHub&label=tests" /></a>
+  <a href="https://www.npmjs.com/package/trezoagill"><img src="https://img.shields.io/npm/v/trezoagill?logo=npm&color=377CC0" /></a>
+  <a href="https://www.npmjs.com/package/trezoagill"><img src="https://img.shields.io/npm/dm/trezoagill?color=377CC0" /></a>
 </p>
 
 <p align="center">
-  <img width="600" alt="gill" src="https://raw.githubusercontent.com/gillsdk/gill/refs/heads/master/docs/public/cover.png" />
+  <img width="600" alt="trezoagill" src="https://raw.githubusercontent.com/trezoagill/trezoagill/refs/heads/master/docs/public/cover.png" />
 </p>
 
 ## Overview
 
-Welcome to `gill`, a JavaScript/TypeScript client library for interacting with the [Solana](http://solana.com/)
-blockchain. You can use it to build Solana apps in Node, web, React Native, or just about any other JavaScript
+Welcome to `trezoagill`, a JavaScript/TypeScript client library for interacting with the [Trezoa](http://trezoa.com/)
+blockchain. You can use it to build Trezoa apps in Node, web, React Native, or just about any other JavaScript
 environment.
 
-Gill is built on top of the modern javascript libraries for Solana built by Anza called
-[@solana/kit](https://github.com/anza-xyz/kit) (formerly known as "web3.js v2"). By utilizing the same types and
-functions under the hood, `gill` is compatible with `kit`. See [Replacing Kit with gill](#replace-kit-with-gill).
+Gill is built on top of the modern javascript libraries for Trezoa built by Trezoa called
+[@trezoa/kit](https://github.com/trezoa-xyz/kit) (formerly known as "web3.js v2"). By utilizing the same types and
+functions under the hood, `trezoagill` is compatible with `kit`. See [Replacing Kit with trezoagill](#replace-kit-with-trezoagill).
 
-> For a comparison of using gill vs `@solana/kit`, take a look at the
-> [gill vs @solana/kit comparison docs](https://gillsdk.com/docs/compare/kit) and the
-> [comparison examples](https://github.com/gillsdk/gill/tree/master/examples/get-started#comparison-of-gill-vs-solanakit-aka-web3js-v2).
+> For a comparison of using trezoagill vs `@trezoa/kit`, take a look at the
+> [trezoagill vs @trezoa/kit comparison docs](https://trezoagill.com/docs/compare/kit) and the
+> [comparison examples](https://github.com/TRZLedgerFoundation/trezoagill/tree/master/examples/get-started#comparison-of-trezoagill-vs-trezoakit-aka-web3js-v2).
 
 ## Documentation
 
-You can find the gill library docs here:
+You can find the trezoagill library docs here:
 
-- [gill docs site](https://gillsdk.com)
-- [gill setup guide](https://gillsdk.com/docs#quick-start)
-- [gill API references](https://gillsdk.com/api)
+- [trezoagill docs site](https://trezoagill.com)
+- [trezoagill setup guide](https://trezoagill.com/docs#quick-start)
+- [trezoagill API references](https://trezoagill.com/api)
 
 ## Installation
 
-Install `gill` with your package manager of choice:
+Install `trezoagill` with your package manager of choice:
 
 ```shell
-npm install gill
+npm install trezoagill
 ```
 
 ```shell
-pnpm add gill
+pnpm add trezoagill
 ```
 
 ```shell
-yarn add gill
+yarn add trezoagill
 ```
 
-### Replace Kit with gill
+### Replace Kit with trezoagill
 
-All imports from the `@solana/kit` library can be directly replaces with `gill` to achieve the exact same functionality.
-Plus unlock the additional functionality only included in Gill, like `createSolanaTransaction`.
+All imports from the `@trezoa/kit` library can be directly replaces with `trezoagill` to achieve the exact same functionality.
+Plus unlock the additional functionality only included in Gill, like `createTrezoaTransaction`.
 
-Simply [install gill](#installation) and replace your imports
+Simply [install trezoagill](#installation) and replace your imports
 
 ## Quick start
 
-> Find a collection of example code snippets using `gill` inside the
-> [`/examples` directory](https://github.com/gillsdk/gill/tree/master/examples), including
-> [basic operations](https://github.com/gillsdk/gill/tree/master/examples/get-started) and common
-> [token operations](https://github.com/gillsdk/gill/tree/master/examples/tokens).
+> Find a collection of example code snippets using `trezoagill` inside the
+> [`/examples` directory](https://github.com/TRZLedgerFoundation/trezoagill/tree/master/examples), including
+> [basic operations](https://github.com/TRZLedgerFoundation/trezoagill/tree/master/examples/get-started) and common
+> [token operations](https://github.com/TRZLedgerFoundation/trezoagill/tree/master/examples/tokens).
 
-- [Create a Solana RPC connection](#create-a-solana-rpc-connection)
-- [Making Solana RPC calls](#making-solana-rpc-calls)
+- [Create a Trezoa RPC connection](#create-a-trezoa-rpc-connection)
+- [Making Trezoa RPC calls](#making-trezoa-rpc-calls)
 - [Create a transaction](#create-a-transaction)
 - [Signing transactions](#signing-transactions)
 - [Simulating transactions](#simulating-transactions)
 - [Sending and confirming transaction](#sending-and-confirming-transactions)
 - [Get a transaction signature](#get-the-signature-from-a-signed-transaction)
-- [Get a Solana Explorer link](#get-a-solana-explorer-link-for-transactions-accounts-or-blocks)
+- [Get a Trezoa Explorer link](#get-a-trezoa-explorer-link-for-transactions-accounts-or-blocks)
 - [Calculate minimum rent balance for an account](#calculate-minimum-rent-for-an-account)
 - [Generating keypairs and signers](#generating-keypairs-and-signers)
 - [Generating extractable keypairs and signers](#generating-extractable-keypairs-and-signers)
@@ -94,16 +94,16 @@ You can find [transaction builders](#transaction-builders) for common tasks, inc
 - [Minting tokens to a destination wallet](#mint-tokens-to-a-destination-wallet)
 - [Transfer tokens to a destination wallet](#transfer-tokens-to-a-destination-wallet)
 
-For troubleshooting and debugging your Solana transactions, see [Debug mode](#debug-mode) below and the gill docs for
-[Debug Mode](https://gillsdk.com/docs/debug-mode).
+For troubleshooting and debugging your Trezoa transactions, see [Debug mode](#debug-mode) below and the trezoagill docs for
+[Debug Mode](https://trezoagill.com/docs/debug-mode).
 
-> You can also consult the documentation for Anza's [JavaScript client](https://github.com/anza-xyz/solana-web3.js)
+> You can also consult the documentation for Trezoa's [JavaScript client](https://github.com/trezoa-xyz/trezoa-web3.js)
 > library for more information and helpful resources.
 
 ### Generating keypairs and signers
 
 See also: the docs on
-[Generating a keypair signer](https://gillsdk.com/docs/getting-started/signers#generating-a-keypair-signer).
+[Generating a keypair signer](https://trezoagill.com/docs/getting-started/signers#generating-a-keypair-signer).
 
 For most "signing" operations, you will need a `KeyPairSigner` instance, which can be used to sign transactions and
 messages.
@@ -111,7 +111,7 @@ messages.
 To generate a random `KeyPairSigner`:
 
 ```typescript
-import { generateKeyPairSigner } from "gill";
+import { generateKeyPairSigner } from "trezoagill";
 
 const signer: KeyPairSigner = await generateKeyPairSigner();
 ```
@@ -123,16 +123,16 @@ const signer: KeyPairSigner = await generateKeyPairSigner();
 ### Generating extractable keypairs and signers
 
 See also: the docs on
-[Generating extractable keypairs and signers](https://gillsdk.com/docs/getting-started/signers#generating-extractable-keypairs-and-signers).
+[Generating extractable keypairs and signers](https://trezoagill.com/docs/getting-started/signers#generating-extractable-keypairs-and-signers).
 
 Extractable keypairs are less secure and should not be used unless you REALLY need to save the key for some reason.
-Since there are a few useful cases for saving these keypairs, gill contains a separate explicit function to generate
+Since there are a few useful cases for saving these keypairs, trezoagill contains a separate explicit function to generate
 these extractable keypairs.
 
 To generate a random, **extractable** `KeyPairSigner`:
 
 ```typescript
-import { generateExtractableKeyPairSigner } from "gill";
+import { generateExtractableKeyPairSigner } from "trezoagill";
 
 const signer: KeyPairSigner = await generateExtractableKeyPairSigner();
 ```
@@ -141,30 +141,30 @@ const signer: KeyPairSigner = await generateExtractableKeyPairSigner();
 > extracted. Obviously. As such, they should only be used sparingly and ONLY when you have an explicit reason you need
 > extract the key material (like if you are going to save the key to a file).
 
-### Create a Solana RPC connection
+### Create a Trezoa RPC connection
 
-See also: the docs on [how to create a Solana client](https://gillsdk.com/docs/getting-started/client)
+See also: the docs on [how to create a Trezoa client](https://trezoagill.com/docs/getting-started/client)
 
-Create a Solana `rpc` and `rpcSubscriptions` client for any RPC URL or standard Solana network moniker (i.e. `devnet`,
+Create a Trezoa `rpc` and `rpcSubscriptions` client for any RPC URL or standard Trezoa network moniker (i.e. `devnet`,
 `localnet`, `mainnet` etc).
 
 ```typescript
-import { createSolanaClient } from "gill";
+import { createTrezoaClient } from "trezoagill";
 
-const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient({
+const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createTrezoaClient({
   urlOrMoniker: "mainnet",
 });
 ```
 
-> Using the Solana moniker will connect to the public RPC endpoints. These are subject to rate limits and should not be
+> Using the Trezoa moniker will connect to the public RPC endpoints. These are subject to rate limits and should not be
 > used in production applications. Applications should find their own RPC provider and the URL provided from them.
 
 To create an RPC client for your local test validator:
 
 ```typescript
-import { createSolanaClient } from "gill";
+import { createTrezoaClient } from "trezoagill";
 
-const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient({
+const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createTrezoaClient({
   urlOrMoniker: "localnet",
 });
 ```
@@ -172,22 +172,22 @@ const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient(
 To create an RPC client for an custom RPC provider or service:
 
 ```typescript
-import { createSolanaClient } from "gill";
+import { createTrezoaClient } from "trezoagill";
 
-const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient({
-  urlOrMoniker: "https://private-solana-rpc-provider.com",
+const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createTrezoaClient({
+  urlOrMoniker: "https://private-trezoa-rpc-provider.com",
 });
 ```
 
-### Making Solana RPC calls
+### Making Trezoa RPC calls
 
-After you have a Solana `rpc` connection, you can make all the [JSON RPC method](https://solana.com/docs/rpc) calls
+After you have a Trezoa `rpc` connection, you can make all the [JSON RPC method](https://trezoa.com/docs/rpc) calls
 directly off of it.
 
 ```typescript
-import { createSolanaClient } from "gill";
+import { createTrezoaClient } from "trezoagill";
 
-const { rpc } = createSolanaClient({ urlOrMoniker: "devnet" });
+const { rpc } = createTrezoaClient({ urlOrMoniker: "devnet" });
 
 // get slot
 const slot = await rpc.getSlot().send();
@@ -203,9 +203,9 @@ You can also include custom configuration settings on your RPC calls, like using
 [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController), by passing it into `send()`:
 
 ```typescript
-import { createSolanaClient } from "gill";
+import { createTrezoaClient } from "trezoagill";
 
-const { rpc } = createSolanaClient({ urlOrMoniker: "devnet" });
+const { rpc } = createTrezoaClient({ urlOrMoniker: "devnet" });
 
 // Create a new AbortController.
 const abortController = new AbortController();
@@ -221,12 +221,12 @@ const slot = await rpc.getSlot().send({ abortSignal: abortController.signal });
 
 ### Create a transaction
 
-Quickly create a Solana transaction:
+Quickly create a Trezoa transaction:
 
 > Note: The `feePayer` can be either an `Address` or `TransactionSigner`.
 
 ```typescript
-import { createTransaction } from "gill";
+import { createTransaction } from "trezoagill";
 
 const transaction = createTransaction({
   version,
@@ -241,7 +241,7 @@ const transaction = createTransaction({
 To create a transaction while setting the latest blockhash:
 
 ```typescript
-import { createTransaction } from "gill";
+import { createTransaction } from "trezoagill";
 
 const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
 
@@ -261,7 +261,7 @@ const transaction = createTransaction({
 If your transaction already has the latest blockhash lifetime set via `createTransaction`:
 
 ```typescript
-import { createTransaction, signTransactionMessageWithSigners } from "gill";
+import { createTransaction, signTransactionMessageWithSigners } from "trezoagill";
 
 const transaction = createTransaction(...);
 
@@ -274,12 +274,12 @@ blockhash lifetime before (or during) the signing operation:
 ```typescript
 import {
   createTransaction,
-  createSolanaClient,
+  createTrezoaClient,
   signTransactionMessageWithSigners,
   setTransactionMessageLifetimeUsingBlockhash,
-} from "gill";
+} from "trezoagill";
 
-const { rpc } = createSolanaClient(...);
+const { rpc } = createTrezoaClient(...);
 const transaction = createTransaction(...);
 
 const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
@@ -292,12 +292,12 @@ const signedTransaction = await signTransactionMessageWithSigners(
 ### Simulating transactions
 
 To simulate a transaction on the blockchain, you can use the `simulateTransaction()` function initialized from
-`createSolanaClient()`.
+`createTrezoaClient()`.
 
 ```typescript
-import { ... } from "gill";
+import { ... } from "trezoagill";
 
-const { simulateTransaction } = createSolanaClient({
+const { simulateTransaction } = createTrezoaClient({
   urlOrMoniker: "mainnet",
 });
 
@@ -311,12 +311,12 @@ The transaction provided to `simulateTransaction()` can either be signed or not.
 ### Sending and confirming transactions
 
 To send and confirm a transaction to the blockchain, you can use the `sendAndConfirmTransaction` function initialized
-from `createSolanaClient()`.
+from `createTrezoaClient()`.
 
 ```typescript
-import { ... } from "gill";
+import { ... } from "trezoagill";
 
-const { sendAndConfirmTransaction } = createSolanaClient({
+const { sendAndConfirmTransaction } = createTrezoaClient({
   urlOrMoniker: "mainnet",
 });
 
@@ -349,7 +349,7 @@ After you have a transaction signed by the `feePayer` (either a partially or ful
 transaction signature as follows:
 
 ```typescript
-import { getSignatureFromTransaction } from "gill";
+import { getSignatureFromTransaction } from "trezoagill";
 
 const signature: string = getSignatureFromTransaction(signedTransaction);
 console.log(signature);
@@ -357,21 +357,21 @@ console.log(signature);
 ```
 
 > Note: After a transaction has been signed by the fee payer, it will have a transaction signature (aka transaction id).
-> This is due to Solana transaction ids are the first item in the transaction's `signatures` array. Therefore, client
+> This is due to Trezoa transaction ids are the first item in the transaction's `signatures` array. Therefore, client
 > applications can potentially know the signature before it is even sent to the network for confirmation.
 
-### Get a Solana Explorer link for transactions, accounts, or blocks
+### Get a Trezoa Explorer link for transactions, accounts, or blocks
 
-Craft a Solana Explorer link for transactions, accounts, or blocks on any cluster.
+Craft a Trezoa Explorer link for transactions, accounts, or blocks on any cluster.
 
 > When no `cluster` is provided in the `getExplorerLink` function, it defaults to `mainnet`.
 
-#### Get a Solana Explorer link for a transaction
+#### Get a Trezoa Explorer link for a transaction
 
 To get an explorer link for a transaction's signature (aka transaction id):
 
 ```typescript
-import { getExplorerLink } from "gill";
+import { getExplorerLink } from "trezoagill";
 
 const link: string = getExplorerLink({
   transaction: "4nzNU7YxPtPsVzeg16oaZvLz4jMPtbAzavDfEFmemHNv93iYXKKYAaqBJzFCwEVxiULqTYYrbjPwQnA1d9ZCTELg",
@@ -386,7 +386,7 @@ import {
   getExplorerLink,
   getSignatureFromTransaction
   signTransactionMessageWithSigners,
-} from "gill";
+} from "trezoagill";
 
 const signedTransaction = await signTransactionMessageWithSigners(...);
 const link: string = getExplorerLink({
@@ -394,12 +394,12 @@ const link: string = getExplorerLink({
 });
 ```
 
-#### Get a Solana Explorer link for an account
+#### Get a Trezoa Explorer link for an account
 
-To get an explorer link for an account on Solana's devnet:
+To get an explorer link for an account on Trezoa's devnet:
 
 ```typescript
-import { getExplorerLink } from "gill";
+import { getExplorerLink } from "trezoagill";
 
 const link: string = getExplorerLink({
   cluster: "devnet",
@@ -410,7 +410,7 @@ const link: string = getExplorerLink({
 To get an explorer link for an account on your local test validator:
 
 ```typescript
-import { getExplorerLink } from "gill";
+import { getExplorerLink } from "trezoagill";
 
 const link: string = getExplorerLink({
   cluster: "localnet",
@@ -418,12 +418,12 @@ const link: string = getExplorerLink({
 });
 ```
 
-#### Get a Solana Explorer link for a block
+#### Get a Trezoa Explorer link for a block
 
 To get an explorer link for a block:
 
 ```typescript
-import { getExplorerLink } from "gill";
+import { getExplorerLink } from "trezoagill";
 
 const link: string = getExplorerLink({
   cluster: "mainnet",
@@ -436,7 +436,7 @@ const link: string = getExplorerLink({
 To calculate the minimum rent balance for an account (aka data storage deposit fee):
 
 ```typescript
-import { getMinimumBalanceForRentExemption } from "gill";
+import { getMinimumBalanceForRentExemption } from "trezoagill";
 
 // when not `space` argument is provided: defaults to `0`
 const rent: bigint = getMinimumBalanceForRentExemption();
@@ -450,7 +450,7 @@ const rent: bigint = getMinimumBalanceForRentExemption();
 ```
 
 ```typescript
-import { getMinimumBalanceForRentExemption } from "gill";
+import { getMinimumBalanceForRentExemption } from "trezoagill";
 
 const rent: bigint = getMinimumBalanceForRentExemption(50 /* 50 bytes */);
 // Expected value: 1_238_880n
@@ -459,39 +459,39 @@ const rent: bigint = getMinimumBalanceForRentExemption(50 /* 50 bytes */);
 // const rent = await rpc.getMinimumBalanceForRentExemption(50n).send();
 ```
 
-> Note: At this time, the minimum rent amount for an account is calculated based on static values in the Solana runtime.
+> Note: At this time, the minimum rent amount for an account is calculated based on static values in the Trezoa runtime.
 > While you can use the `getMinimumBalanceForRentExemption` RPC call on your
-> [connection](#create-a-solana-rpc-connection) to fetch this value, it will result in a network call and subject to
+> [connection](#create-a-trezoa-rpc-connection) to fetch this value, it will result in a network call and subject to
 > latency.
 
 ## Node specific imports
 
-The `gill` package has specific imports for use in NodeJS server backends and/or serverless environments which have
+The `trezoagill` package has specific imports for use in NodeJS server backends and/or serverless environments which have
 access to Node specific APIs (like the file system via `node:fs`).
 
 ```typescript
-import { ... } from "gill/node"
+import { ... } from "trezoagill/node"
 ```
 
 ### Loading a keypair from a file
 
 ```typescript
-import { loadKeypairSignerFromFile } from "gill/node";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
 
-// default file path: ~/.config/solana/id.json
+// default file path: ~/.config/trezoa/id.json
 const signer = await loadKeypairSignerFromFile();
 console.log("address:", signer.address);
 ```
 
 Load a `KeyPairSigner` from a filesystem wallet json file, like those output from the
-[Solana CLI](https://solana.com/docs/intro/installation#install-the-solana-cli) (i.e. a JSON array of numbers).
+[Trezoa CLI](https://trezoa.com/docs/intro/installation#install-the-trezoa-cli) (i.e. a JSON array of numbers).
 
-By default, the keypair file loaded is the Solana CLI's default keypair: `~/.config/solana/id.json`
+By default, the keypair file loaded is the Trezoa CLI's default keypair: `~/.config/trezoa/id.json`
 
 To load a Signer from a specific filepath:
 
 ```typescript
-import { loadKeypairSignerFromFile } from "gill/node";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
 
 const signer = await loadKeypairSignerFromFile("/path/to/your/keypair.json");
 console.log("address:", signer.address);
@@ -504,7 +504,7 @@ console.log("address:", signer.address);
 Save an **extractable** `KeyPairSigner` to a local json file (e.g. `keypair.json`).
 
 ```typescript
-import { ... } from "gill/node";
+import { ... } from "trezoagill/node";
 const extractableSigner = generateExtractableKeyPairSigner();
 await saveKeypairSignerToFile(extractableSigner, filePath);
 ```
@@ -516,7 +516,7 @@ See [`loadKeypairSignerFromFile`](#loading-a-keypair-from-a-file) for how to loa
 Load a `KeyPairSigner` from the bytes stored in the environment process (e.g. `process.env[variableName]`)
 
 ```typescript
-import { loadKeypairSignerFromEnvironment } from "gill/node";
+import { loadKeypairSignerFromEnvironment } from "trezoagill/node";
 
 // loads signer from bytes stored at `process.env[variableName]`
 const signer = await loadKeypairSignerFromEnvironment(variableName);
@@ -528,7 +528,7 @@ console.log("address:", signer.address);
 Save an **extractable** `KeyPairSigner` to a local environment variable file (e.g. `.env`).
 
 ```typescript
-import { ... } from "gill/node";
+import { ... } from "trezoagill/node";
 const extractableSigner = generateExtractableKeyPairSigner();
 // default: envPath = `.env` (in your current working directory)
 await saveKeypairSignerToEnvFile(extractableSigner, variableName, envPath);
@@ -542,7 +542,7 @@ environment variables.
 Load a `KeyPairSigner` from the bytes stored in the environment process (e.g. `process.env[variableName]`)
 
 ```typescript
-import { loadKeypairSignerFromEnvironmentBase58 } from "gill/node";
+import { loadKeypairSignerFromEnvironmentBase58 } from "trezoagill/node";
 
 // loads signer from base58 keypair stored at `process.env[variableName]`
 const signer = await loadKeypairSignerFromEnvironmentBase58(variableName);
@@ -551,7 +551,7 @@ console.log("address:", signer.address);
 
 ## Transaction builders
 
-To simplify the creation of common transactions, gill includes various "transaction builders" to help easily assemble
+To simplify the creation of common transactions, trezoagill includes various "transaction builders" to help easily assemble
 ready-to-sign transactions for these tasks, which often interact with multiple programs at once.
 
 Since each transaction builder is scoped to a single task, they can easily abstract away various pieces of boilerplate
@@ -565,15 +565,15 @@ while also helping to create an optimized transaction, including:
 All of the auto-filled information can also be manually overriden to ensure you always have escape hatches to achieve
 your desired functionality.
 
-As these transaction builders may not be for everyone, gill exposes a related "instruction builder" function for each
+As these transaction builders may not be for everyone, trezoagill exposes a related "instruction builder" function for each
 which is used under the hood to craft the respective transactions. Developers can also completely forgo these builder
 abstractions and manually craft the same functionality.
 
 ### Create a token with metadata
 
 Build a transaction that can create a token with metadata, either using the
-[original token](https://github.com/solana-program/token) or
-[token extensions (token22)](https://github.com/solana-program/token-2022) program.
+[original token](https://github.com/trezoa-program/token) or
+[token extensions (token22)](https://github.com/trezoa-program/token-2022) program.
 
 - Tokens created with the original token program (`TOKEN_PROGRAM_ADDRESS`, default) will use Metaplex's Token Metadata
   program for onchain metadata
@@ -583,7 +583,7 @@ Build a transaction that can create a token with metadata, either using the
 Related instruction builder: `getCreateTokenInstructions`
 
 ```typescript
-import { buildCreateTokenTransaction } from "gill/programs";
+import { buildCreateTokenTransaction } from "trezoagill/programs";
 
 const createTokenTx = await buildCreateTokenTransaction({
   feePayer: signer,
@@ -592,9 +592,9 @@ const createTokenTx = await buildCreateTokenTransaction({
   // mintAuthority, // default=same as the `feePayer`
   metadata: {
     isMutable: true, // if the `updateAuthority` can change this metadata in the future
-    name: "Only Possible On Solana",
+    name: "Only Possible On Trezoa",
     symbol: "OPOS",
-    uri: "https://raw.githubusercontent.com/solana-developers/opos-asset/main/assets/Climate/metadata.json",
+    uri: "https://raw.githubusercontent.com/trezoa-developers/opos-asset/main/assets/Climate/metadata.json",
   },
   // updateAuthority, // default=same as the `feePayer`
   decimals: 2, // default=9,
@@ -618,7 +618,7 @@ Build a transaction that mints new tokens to the `destination` wallet address (r
 Related instruction builder: `getMintTokensInstructions`
 
 ```typescript
-import { buildMintTokensTransaction } from "gill/programs";
+import { buildMintTokensTransaction } from "trezoagill/programs";
 
 const mintTokensTx = await buildMintTokensTransaction({
   feePayer: signer,
@@ -651,7 +651,7 @@ Build a transaction that transfers tokens to the `destination` wallet address fr
 Related instruction builder: `getTransferTokensInstructions`
 
 ```typescript
-import { buildTransferTokensTransaction } from "gill/programs";
+import { buildTransferTokensTransaction } from "trezoagill/programs";
 
 const transferTokensTx = await buildTransferTokensTransaction({
   feePayer: signer,
@@ -678,21 +678,21 @@ const transferTokensTx = await buildTransferTokensTransaction({
 
 ## Debug mode
 
-See also: the docs for [Debug Mode](https://gillsdk.com/docs/debug-mode)
+See also: the docs for [Debug Mode](https://trezoagill.com/docs/debug-mode)
 
-Within `gill`, you can enable "debug mode" to automatically log additional information that will be helpful in
+Within `trezoagill`, you can enable "debug mode" to automatically log additional information that will be helpful in
 troubleshooting your transactions.
 
 Debug mode is disabled by default to minimize additional logs for your application. But with its flexible debug
 controller, you can enable it from the most common places your code will be run. Including your code itself, NodeJS
 backends, serverless functions, and even the in web browser console itself.
 
-Some examples of the existing debug logs that `gill` has sprinkled in:
+Some examples of the existing debug logs that `trezoagill` has sprinkled in:
 
-- log the Solana Explorer link for transactions as you are sending them
+- log the Trezoa Explorer link for transactions as you are sending them
 - log the base64 transaction string to troubleshoot via
-  [`mucho inspect`](https://github.com/solana-developers/mucho?tab=readme-ov-file#inspect) or Solana Explorer's
-  [Transaction Inspector](https://explorer.solana.com/tx/inspector)
+  [`mucho inspect`](https://github.com/trezoa-developers/mucho?tab=readme-ov-file#inspect) or Trezoa Explorer's
+  [Transaction Inspector](https://explorer.trezoa.com/tx/inspector)
 
 ### How to enable debug mode
 
@@ -720,13 +720,13 @@ The log levels supported (in order of priority):
 ### Custom debug logs
 
 Gill also exports the same debug functions it uses internally, allowing you to implement your own debug logic related to
-your Solana transactions and use the same controller for it as `gill` does.
+your Trezoa transactions and use the same controller for it as `trezoagill` does.
 
 - `isDebugEnabled()` - check if debug mode is enabled or not
 - `debug()` - print debug message if the set log level is reached
 
 ```typescript
-import { debug, isDebugEnabled } from "gill";
+import { debug, isDebugEnabled } from "trezoagill";
 
 if (isDebugEnabled()) {
   // your custom logic
@@ -747,39 +747,39 @@ debug("custom message", "warn");
 
 ## Program clients
 
-With `gill` you can also import some of the most commonly used clients for popular programs. These are also fully
+With `trezoagill` you can also import some of the most commonly used clients for popular programs. These are also fully
 tree-shakable, so if you do not import them inside your project they will be removed by your JavaScript bundler at build
 time (i.e. Webpack).
 
 To import any of these program clients:
 
 ```typescript
-import { ... } from "gill/programs";
-import { ... } from "gill/programs";
+import { ... } from "trezoagill/programs";
+import { ... } from "trezoagill/programs";
 ```
 
 > Note: Some client re-exported client program clients have a naming collision. As a result, they may be re-exported
-> under a subpath of `gill/programs`. For example, `gill/programs`.
+> under a subpath of `trezoagill/programs`. For example, `trezoagill/programs`.
 
-The program clients included inside `gill` are:
+The program clients included inside `trezoagill` are:
 
-- System program - re-exported from [`@solana-program/system`](https://github.com/solana-program/system)
+- System program - re-exported from [`@trezoa-program/system`](https://github.com/trezoa-program/system)
 - Compute Budget program- re-exported from
-  [`@solana-program/compute-budget`](https://github.com/solana-program/compute-budget)
-- Memo program - re-exported from [`@solana-program/memo`](https://github.com/solana-program/memo)
+  [`@trezoa-program/compute-budget`](https://github.com/trezoa-program/compute-budget)
+- Memo program - re-exported from [`@trezoa-program/memo`](https://github.com/trezoa-program/memo)
 - Token Program and Token Extensions program (aka Token22) - re-exported from
-  [`@solana-program/token-2022`](https://github.com/solana-program/token-2022), which is a fully backwards compatible
+  [`@trezoa-program/token-2022`](https://github.com/trezoa-program/token-2022), which is a fully backwards compatible
   client with the original Token Program
 - Address Lookup Table program - re-exported from
-  [`@solana-program/address-lookup-table`](https://github.com/solana-program/address-lookup-table)
+  [`@trezoa-program/address-lookup-table`](https://github.com/trezoa-program/address-lookup-table)
 - Token Metadata program from Metaplex (only the v3 functionality) - generated via Codama their IDL
   ([source](https://github.com/metaplex-foundation/mpl-token-metadata))
 
-If one of the existing clients are not being exported from `gill/programs` or a subpath therein, you can of course
+If one of the existing clients are not being exported from `trezoagill/programs` or a subpath therein, you can of course
 manually add their compatible client to your repo.
 
-> Note: Since the Token Extensions program client is fully compatible with the original Token Program client, `gill`
-> only ships the `@solana-program/token-2022` client and the `TOKEN_PROGRAM_ADDRESS` in order to remove all that
+> Note: Since the Token Extensions program client is fully compatible with the original Token Program client, `trezoagill`
+> only ships the `@trezoa-program/token-2022` client and the `TOKEN_PROGRAM_ADDRESS` in order to remove all that
 > redundant code from the library.
 >
 > To use the original Token Program, simply pass the `TOKEN_PROGRAM_ADDRESS` as the the program address for any
@@ -787,18 +787,18 @@ manually add their compatible client to your repo.
 
 ### Other compatible program clients
 
-From the [solana-program](https://github.com/solana-program/token) GitHub organization, formerly known as the Solana
-Program Library (SPL), you can find various other client libraries for specific programs. Install their respective
-package to use in conjunction with gill:
+From the [trezoa-program](https://github.com/trezoa-program/token) GitHub organization, formerly known as the Trezoa
+Program Library (TPL), you can find various other client libraries for specific programs. Install their respective
+package to use in conjunction with trezoagill:
 
-- [Stake program](https://github.com/solana-program/stake) - `@solana-program/stake`
-- [Vote program](https://github.com/solana-program/vote) - `@solana-program/vote`
+- [Stake program](https://github.com/trezoa-program/stake) - `@trezoa-program/stake`
+- [Vote program](https://github.com/trezoa-program/vote) - `@trezoa-program/vote`
 
 ### Generate a program client from an IDL
 
-See also: this official gill docs and guide on
-[how to generate a program client with codama](https://gillsdk.com/docs/guides/codama)
+See also: this official trezoagill docs and guide on
+[how to generate a program client with codoma](https://trezoagill.com/docs/guides/codama)
 
 If you want to easily interact with any custom program with this library, you can use
-[Codama](https://github.com/codama-idl/codama) to generate a compatible JavaScript/TypeScript client using its IDL. You
+[Codoma](https://github.com/codoma/codama) to generate a compatible JavaScript/TypeScript client using its IDL. You
 can either store the generated client inside your repo or publish it as a NPM package for others to easily consume.

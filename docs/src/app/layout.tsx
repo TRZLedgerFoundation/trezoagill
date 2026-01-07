@@ -12,8 +12,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} - Solana JavaScript SDK`,
-    template: `%s | ${siteConfig.name} Solana SDK`,
+    default: `${siteConfig.name} - Trezoa JavaScript SDK`,
+    template: `%s | ${siteConfig.name} Trezoa SDK`,
   },
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,

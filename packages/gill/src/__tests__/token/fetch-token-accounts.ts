@@ -1,5 +1,5 @@
-import type { Mint, Token } from "@solana-program/token-2022";
-import { decodeToken, fetchMint } from "@solana-program/token-2022";
+import type { Mint, Token } from "@trezoa-program/token-2022";
+import { decodeToken, fetchMint } from "@trezoa-program/token-2022";
 import type {
   Account,
   Address,
@@ -8,18 +8,18 @@ import type {
   GetTokenAccountsByOwnerApi,
   Lamports,
   Rpc,
-} from "@solana/kit";
-import { none, parseBase64RpcAccount, some } from "@solana/kit";
+} from "@trezoa/kit";
+import { none, parseBase64RpcAccount, some } from "@trezoa/kit";
 import { fetchTokenAccounts, FetchTokenAccountsConfig } from "../../programs";
 
 // Mock the dependencies
-jest.mock("@solana-program/token-2022", () => ({
-  ...jest.requireActual("@solana-program/token-2022"),
+jest.mock("@trezoa-program/token-2022", () => ({
+  ...jest.requireActual("@trezoa-program/token-2022"),
   fetchMint: jest.fn(),
   decodeToken: jest.fn(),
 }));
-jest.mock("@solana/kit", () => ({
-  ...jest.requireActual("@solana/kit"),
+jest.mock("@trezoa/kit", () => ({
+  ...jest.requireActual("@trezoa/kit"),
   parseBase64RpcAccount: jest.fn(),
 }));
 

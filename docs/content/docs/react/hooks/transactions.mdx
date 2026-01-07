@@ -4,7 +4,7 @@ description: Hooks for sending and managing Solana transactions
 ---
 
 <Callout type="info">
-  Transaction hooks are coming soon to `@gillsdk/react`. This page documents the planned API.
+  Transaction hooks are coming soon to `@trezoagill/react`. This page documents the planned API.
 </Callout>
 
 These hooks will provide an easy way to send, confirm, and manage Solana transactions with automatic
@@ -71,8 +71,8 @@ Until transaction hooks are available, you can use the Solana client directly:
 ```tsx
 "use client";
 
-import { useSolanaClient } from "@gillsdk/react";
-import { createTransaction } from "gill";
+import { useSolanaClient } from "@trezoagill/react";
+import { createTransaction } from "trezoagill";
 
 export function SendTransaction() {
   const { rpc, sendAndConfirmTransaction } = useSolanaClient();
@@ -107,14 +107,14 @@ export function SendTransaction() {
 
 ## With Wallet Adapter
 
-If you're using a wallet adapter, combine it with `@gillsdk/react`:
+If you're using a wallet adapter, combine it with `@trezoagill/react`:
 
 ```tsx
 "use client";
 
 import { useWallet } from "@solana/wallet-adapter-react";
-import { useSolanaClient } from "@gillsdk/react";
-import { createTransaction } from "gill";
+import { useSolanaClient } from "@trezoagill/react";
+import { createTransaction } from "trezoagill";
 
 export function WalletTransaction() {
   const { publicKey, signTransaction } = useWallet();
@@ -145,4 +145,4 @@ export function WalletTransaction() {
 
 Transaction hooks are actively being developed. If you have suggestions or want to contribute,
 please check out the
-[`@gillsdk/react` repository](https://github.com/gillsdk/gill/tree/master/packages/react) on GitHub.
+[`@trezoagill/react` repository](https://github.com/trezoagill/trezoagill/tree/master/packages/react) on GitHub.

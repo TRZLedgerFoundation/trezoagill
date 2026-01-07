@@ -5,8 +5,8 @@ import type {
   BaseTransactionMessage,
   KeyPairSigner,
   TransactionMessageWithBlockhashLifetime,
-} from "@solana/kit";
-import { signTransactionMessageWithSigners } from "@solana/kit";
+} from "@trezoa/kit";
+import { signTransactionMessageWithSigners } from "@trezoa/kit";
 import { buildTransferTokensTransaction } from "../programs/token";
 
 // [DESCRIBE] buildTransferTokensTransaction

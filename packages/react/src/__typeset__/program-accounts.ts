@@ -4,8 +4,8 @@ import {
   AccountInfoWithJsonData,
   Address,
   Base58EncodedBytes,
-  SolanaRpcResponse,
-} from "gill";
+  TrezoaRpcResponse,
+} from "trezoagill";
 import { useProgramAccounts } from "../hooks/program-accounts.js";
 
 // [DESCRIBE] useProgramAccounts
@@ -33,7 +33,7 @@ import { useProgramAccounts } from "../hooks/program-accounts.js";
     });
 
     // Should include context in response
-    baseConfigContextAccounts satisfies SolanaRpcResponse<any>;
+    baseConfigContextAccounts satisfies TrezoaRpcResponse<any>;
     baseConfigContextAccounts.value[0].account satisfies AccountInfoWithBase64EncodedData;
   }
 
@@ -60,7 +60,7 @@ import { useProgramAccounts } from "../hooks/program-accounts.js";
     });
 
     // Should include context in response
-    base64ContextAccounts satisfies SolanaRpcResponse<any>;
+    base64ContextAccounts satisfies TrezoaRpcResponse<any>;
     base64ContextAccounts.value[0].account satisfies AccountInfoWithBase64EncodedData;
 
     // @ts-expect-error Should not be base58 encoded bytes
@@ -90,7 +90,7 @@ import { useProgramAccounts } from "../hooks/program-accounts.js";
     });
 
     // Should include context in response
-    base64ZstdContextAccounts satisfies SolanaRpcResponse<any>;
+    base64ZstdContextAccounts satisfies TrezoaRpcResponse<any>;
     base64ZstdContextAccounts.value[0].account satisfies AccountInfoWithBase64EncodedZStdCompressedData;
 
     // @ts-expect-error Should not be base58 encoded bytes
@@ -122,7 +122,7 @@ import { useProgramAccounts } from "../hooks/program-accounts.js";
     jsonParsedContextAccounts.value[0].account.data;
 
     // Should include context in response
-    jsonParsedContextAccounts satisfies SolanaRpcResponse<any>;
+    jsonParsedContextAccounts satisfies TrezoaRpcResponse<any>;
     jsonParsedContextAccounts.value[0].account satisfies AccountInfoWithBase64EncodedData | AccountInfoWithJsonData;
 
     // @ts-expect-error Should not be base58 encoded bytes

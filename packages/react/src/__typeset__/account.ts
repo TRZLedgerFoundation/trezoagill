@@ -1,5 +1,5 @@
-import { Account, Address } from "gill";
-import { getMetadataDecoder, Metadata } from "gill/programs";
+import { Account, Address } from "trezoagill";
+import { getMetadataDecoder, Metadata } from "trezoagill/programs";
 import { useAccount } from "../hooks/account.js";
 
 // [DESCRIBE] useAccount

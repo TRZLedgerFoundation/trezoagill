@@ -1,11 +1,11 @@
 {
-  "name": "gill",
+  "name": "trezoagill",
   "license": "MIT",
   "version": "0.14.0",
-  "description": "a modern javascript/typescript client library for interacting with the Solana blockchain",
+  "description": "a modern javascript/typescript client library for interacting with the Trezoa blockchain",
   "scripts": {
     "clean": "rimraf coverage dist build node_modules .turbo .docs",
-    "clean:docs": "rimraf ../../docs/content/api/gill*",
+    "clean:docs": "rimraf ../../docs/content/api/trezoagill*",
     "generate-reexports": "npx esrun ./generate-reexports.ts",
     "compile:docs-core": "typedoc --options typedoc.core.json",
     "compile:docs-node": "typedoc --options typedoc.node.json",
@@ -85,22 +85,22 @@
   "sideEffects": false,
   "keywords": [
     "blockchain",
-    "solana",
+    "trezoa",
     "web3",
     "web3js v2",
-    "solana kit",
+    "trezoa kit",
     "wallet",
     "dapps",
-    "solana helpers",
-    "@solana/web3.js",
-    "@solana/kit",
-    "@solana-developers/helpers",
+    "trezoa helpers",
+    "@trezoa/web3.js",
+    "@trezoa/kit",
+    "@trezoa-developers/helpers",
     "treeshake"
   ],
-  "author": "Nick Frostbutter <maintainers@gillsdk.com>",
-  "homepage": "https://gillsdk.com",
+  "author": "Nick Frostbutter <maintainers@trezoagill.com>",
+  "homepage": "https://trezoagill.com",
   "bugs": {
-    "url": "https://github.com/gillsdk/gill/issues"
+    "url": "https://github.com/TRZLedgerFoundation/trezoagill/issues"
   },
   "browserslist": [
     "supports bigint and not dead",
@@ -110,17 +110,17 @@
     "node": ">=20.18.0"
   },
   "dependencies": {
-    "@solana-program/address-lookup-table": "^0.10.0",
-    "@solana-program/compute-budget": "^0.11.0",
-    "@solana-program/system": "^0.10.0",
-    "@solana-program/token-2022": "^0.6.1",
-    "@solana/assertions": "^5.0.0",
-    "@solana/codecs": "^5.0.0",
-    "@solana/kit": "^5.0.0",
-    "@solana/transaction-confirmation": "^5.0.0"
+    "@trezoa-program/address-lookup-table": "^0.10.0",
+    "@trezoa-program/compute-budget": "^0.11.0",
+    "@trezoa-program/system": "^0.10.0",
+    "@trezoa-program/token-2022": "^0.6.1",
+    "@trezoa/assertions": "^5.0.0",
+    "@trezoa/codecs": "^5.0.0",
+    "@trezoa/kit": "^5.0.0",
+    "@trezoa/transaction-confirmation": "^5.0.0"
   },
   "devDependencies": {
-    "@gillsdk/config-eslint": "workspace:*"
+    "@trezoagill/config-eslint": "workspace:*"
   },
   "peerDependencies": {
     "typescript": ">=5"

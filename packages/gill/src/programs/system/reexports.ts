@@ -1,4 +1,4 @@
-// Re-exports from @solana-program/system
+// Re-exports from @trezoa-program/system
 export {
   ADVANCE_NONCE_ACCOUNT_DISCRIMINATOR,
   ALLOCATE_DISCRIMINATOR,
@@ -23,8 +23,8 @@ export {
   SYSTEM_PROGRAM_ADDRESS,
   SystemAccount,
   SystemInstruction,
-  TRANSFER_SOL_DISCRIMINATOR,
-  TRANSFER_SOL_WITH_SEED_DISCRIMINATOR,
+  TRANSFER_TRZ_DISCRIMINATOR,
+  TRANSFER_TRZ_WITH_SEED_DISCRIMINATOR,
   UPGRADE_NONCE_ACCOUNT_DISCRIMINATOR,
   WITHDRAW_NONCE_ACCOUNT_DISCRIMINATOR,
   decodeNonce,
@@ -123,6 +123,6 @@ export {
   parseTransferSolWithSeedInstruction,
   parseUpgradeNonceAccountInstruction,
   parseWithdrawNonceAccountInstruction,
-} from "@solana-program/system";
+} from "@trezoa-program/system";
 
-export type * from "@solana-program/system";
+export type * from "@trezoa-program/system";

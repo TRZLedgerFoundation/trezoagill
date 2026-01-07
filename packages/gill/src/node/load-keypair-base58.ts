@@ -1,4 +1,4 @@
-import { createSignerFromKeyPair, type KeyPairSigner } from "@solana/kit";
+import { createSignerFromKeyPair, type KeyPairSigner } from "@trezoa/kit";
 import { createKeypairFromBase58 } from "../core";
 
 /**

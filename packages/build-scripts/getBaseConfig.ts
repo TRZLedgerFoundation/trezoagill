@@ -53,7 +53,7 @@ export function getBaseConfig(
               },
               esbuildPlugins: [DevFlagPlugin],
               format,
-              globalName: "globalThis.gill",
+              globalName: "globalThis.trezoagill",
               name: platform,
               outExtension({ format }) {
                 let extension;

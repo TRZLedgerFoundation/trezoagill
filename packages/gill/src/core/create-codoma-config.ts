@@ -1,19 +1,19 @@
 /**
- * Codama dependency map to utilize gill imports
+ * Codama dependency map to utilize trezoagill imports
  */
 export const GILL_EXTERNAL_MODULE_MAP: Record<string, string> = {
-  solanaAccounts: "gill",
-  solanaAddresses: "gill",
-  solanaCodecsCore: "gill",
-  solanaCodecsDataStructures: "gill",
-  solanaCodecsNumbers: "gill",
-  solanaCodecsStrings: "gill",
-  solanaErrors: "gill",
-  solanaInstructions: "gill",
-  solanaOptions: "gill",
-  solanaPrograms: "gill",
-  solanaRpcTypes: "gill",
-  solanaSigners: "gill",
+  trezoaAccounts: "trezoagill",
+  trezoaAddresses: "trezoagill",
+  trezoaCodecsCore: "trezoagill",
+  trezoaCodecsDataStructures: "trezoagill",
+  trezoaCodecsNumbers: "trezoagill",
+  trezoaCodecsStrings: "trezoagill",
+  trezoaErrors: "trezoagill",
+  trezoaInstructions: "trezoagill",
+  trezoaOptions: "trezoagill",
+  trezoaPrograms: "trezoagill",
+  trezoaRpcTypes: "trezoagill",
+  trezoaSigners: "trezoagill",
 };
 
 /**
@@ -22,7 +22,7 @@ export const GILL_EXTERNAL_MODULE_MAP: Record<string, string> = {
  *
  * @example
  * ```ts
- * import { createCodamaConfig } from "gill";
+ * import { createCodamaConfig } from "trezoagill";
  *
  * export default createCodamaConfig({
  *  idl: "program/idl.json",
@@ -47,11 +47,11 @@ export function createCodamaConfig({
     scripts: {
       js: {
         args: [clientJs, { dependencyMap }],
-        from: "@codama/renderers-js",
+        from: "@trezoa/renderers-js",
       },
       ...(clientRust && {
         rust: {
-          from: "@codama/renderers-rust",
+          from: "@trezoa/renderers-rust",
           args: [
             clientRust,
             {

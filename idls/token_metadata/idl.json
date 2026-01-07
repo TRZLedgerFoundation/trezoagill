@@ -1670,7 +1670,7 @@
           "name": "splTokenProgram",
           "isMut": false,
           "isSigner": false,
-          "docs": ["SPL Token Program"]
+          "docs": ["TPL Token Program"]
         },
         {
           "name": "collectionMetadata",
@@ -2106,7 +2106,7 @@
           "name": "splTokenProgram",
           "isMut": false,
           "isSigner": false,
-          "docs": ["SPL Token Program"]
+          "docs": ["TPL Token Program"]
         }
       ],
       "args": [],
@@ -2428,7 +2428,7 @@
           "name": "splTokenProgram",
           "isMut": false,
           "isSigner": false,
-          "docs": ["SPL Token Program"]
+          "docs": ["TPL Token Program"]
         }
       ],
       "args": [
@@ -2501,7 +2501,7 @@
           "isMut": false,
           "isSigner": false,
           "isOptional": true,
-          "docs": ["SPL Token program"]
+          "docs": ["TPL Token program"]
         }
       ],
       "args": [
@@ -2594,13 +2594,13 @@
           "name": "splTokenProgram",
           "isMut": false,
           "isSigner": false,
-          "docs": ["SPL Token program"]
+          "docs": ["TPL Token program"]
         },
         {
           "name": "splAtaProgram",
           "isMut": false,
           "isSigner": false,
-          "docs": ["SPL Associated Token Account program"]
+          "docs": ["TPL Associated Token Account program"]
         },
         {
           "name": "authorizationRulesProgram",
@@ -2708,7 +2708,7 @@
           "isMut": false,
           "isSigner": false,
           "isOptional": true,
-          "docs": ["SPL Token Program"]
+          "docs": ["TPL Token Program"]
         },
         {
           "name": "authorizationRulesProgram",
@@ -2816,7 +2816,7 @@
           "isMut": false,
           "isSigner": false,
           "isOptional": true,
-          "docs": ["SPL Token Program"]
+          "docs": ["TPL Token Program"]
         },
         {
           "name": "authorizationRulesProgram",
@@ -2917,7 +2917,7 @@
           "isMut": false,
           "isSigner": false,
           "isOptional": true,
-          "docs": ["SPL Token Program"]
+          "docs": ["TPL Token Program"]
         },
         {
           "name": "authorizationRulesProgram",
@@ -3018,7 +3018,7 @@
           "isMut": false,
           "isSigner": false,
           "isOptional": true,
-          "docs": ["SPL Token Program"]
+          "docs": ["TPL Token Program"]
         },
         {
           "name": "authorizationRulesProgram",
@@ -3127,7 +3127,7 @@
           "name": "splTokenProgram",
           "isMut": false,
           "isSigner": false,
-          "docs": ["SPL Token Program"]
+          "docs": ["TPL Token Program"]
         },
         {
           "name": "authorizationRulesProgram",
@@ -3238,13 +3238,13 @@
           "name": "splTokenProgram",
           "isMut": false,
           "isSigner": false,
-          "docs": ["SPL Token Program"]
+          "docs": ["TPL Token Program"]
         },
         {
           "name": "splAtaProgram",
           "isMut": false,
           "isSigner": false,
-          "docs": ["SPL Associated Token Account program"]
+          "docs": ["TPL Associated Token Account program"]
         },
         {
           "name": "authorizationRulesProgram",
@@ -3427,7 +3427,7 @@
           "isMut": false,
           "isSigner": false,
           "isOptional": true,
-          "docs": ["SPL Token Program"]
+          "docs": ["TPL Token Program"]
         },
         {
           "name": "authorizationRulesProgram",
@@ -3711,7 +3711,7 @@
           "name": "splAtaProgram",
           "isMut": false,
           "isSigner": false,
-          "docs": ["SPL Associated Token Account program"]
+          "docs": ["TPL Associated Token Account program"]
         },
         {
           "name": "sysvarInstructions",
@@ -6722,7 +6722,7 @@
     {
       "code": 149,
       "name": "MissingSplTokenProgram",
-      "msg": "Missing SPL token program"
+      "msg": "Missing TPL token program"
     },
     {
       "code": 150,

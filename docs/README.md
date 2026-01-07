@@ -1,6 +1,6 @@
-# gill documentation
+# trezoagill documentation
 
-Documentation website for gill, built with [Fumadocs](https://github.com/fuma-nama/fumadocs).
+Documentation website for trezoagill, built with [Fumadocs](https://github.com/fuma-nama/fumadocs).
 
 ## Install dependencies
 

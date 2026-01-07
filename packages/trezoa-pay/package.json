@@ -1,15 +1,15 @@
 {
-  "name": "@gillsdk/solana-pay",
+  "name": "@trezoagill/trezoa-pay",
   "license": "MIT",
   "version": "0.7.0",
-  "description": "modern Solana Pay protocol client library, built on top of gill",
+  "description": "modern Trezoa Pay protocol client library, built on top of trezoagill",
   "scripts": {
     "clean": "rimraf coverage dist build node_modules .turbo",
     "compile:js": "tsup --config ./tsup.config.package.ts",
     "compile:typedefs": "tsc -p ./tsconfig.declarations.json",
     "compile:docs": "typedoc --options typedoc.json && pnpm move:docs",
-    "move:docs": "pnpm clean:docs && cp -rf ./.docs/* ../../docs/content/api/solana-pay",
-    "clean:docs": "mkdir -p ../../docs/content/api/solana-pay && rimraf ../../docs/content/api/solana-pay/*",
+    "move:docs": "pnpm clean:docs && cp -rf ./.docs/* ../../docs/content/api/trezoa-pay",
+    "clean:docs": "mkdir -p ../../docs/content/api/trezoa-pay && rimraf ../../docs/content/api/trezoa-pay/*",
     "prepublishOnly": "pnpm pkg delete devDependencies",
     "publish-impl": "npm view $npm_package_name@$npm_package_version > /dev/null 2>&1 || (pnpm publish --tag ${PUBLISH_TAG:-canary} --access public --no-git-checks && (([ \"$PUBLISH_TAG\" != \"canary\" ] && pnpm dist-tag add $npm_package_name@$npm_package_version latest) || true))",
     "publish-packages": "pnpm prepublishOnly && pnpm publish-impl",
@@ -45,25 +45,25 @@
   "sideEffects": false,
   "keywords": [
     "blockchain",
-    "solana",
+    "trezoa",
     "web3",
     "web3js v2",
-    "solana kit",
+    "trezoa kit",
     "wallet",
     "dapps",
-    "solana helpers",
-    "solana pay",
+    "trezoa helpers",
+    "trezoa pay",
     "payments",
-    "@solana/web3.js",
-    "@solana/kit",
-    "@solana/pay",
-    "@solana-developers/helpers",
+    "@trezoa/web3.js",
+    "@trezoa/kit",
+    "@trezoa/pay",
+    "@trezoa-developers/helpers",
     "treeshake"
   ],
-  "author": "Nick Frostbutter <maintainers@gillsdk.com>",
-  "homepage": "https://gillsdk.com",
+  "author": "Nick Frostbutter <maintainers@trezoagill.com>",
+  "homepage": "https://trezoagill.com",
   "bugs": {
-    "url": "https://github.com/gillsdk/gill/issues"
+    "url": "https://github.com/TRZLedgerFoundation/trezoagill/issues"
   },
   "browserslist": [
     "supports bigint and not dead",
@@ -73,7 +73,7 @@
     "node": ">=20.18.0"
   },
   "dependencies": {
-    "gill": "workspace:*"
+    "trezoagill": "workspace:*"
   },
   "peerDependencies": {
     "typescript": ">=5"

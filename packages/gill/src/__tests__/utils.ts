@@ -23,22 +23,22 @@ describe("getMonikerFromGenesisHash", () => {
 });
 
 describe("lamportsToSol", () => {
-  it("should convert correctly to 1 SOL", () => {
+  it("should convert correctly to 1 TRZ", () => {
     const result = lamportsToSol(1_000_000_000);
     expect(result).toBe("1");
   });
 
-  it("should convert correctly to 0.5 SOL", () => {
+  it("should convert correctly to 0.5 TRZ", () => {
     const result = lamportsToSol(500_000_000);
     expect(result).toBe("0.5");
   });
 
-  it("should convert correctly to 0.000000001 SOL", () => {
+  it("should convert correctly to 0.000000001 TRZ", () => {
     const result = lamportsToSol(1);
     expect(result).toBe("0.000000001");
   });
 
-  it("should convert correctly to 0 SOL", () => {
+  it("should convert correctly to 0 TRZ", () => {
     const result = lamportsToSol(0);
     expect(result).toBe("0");
   });

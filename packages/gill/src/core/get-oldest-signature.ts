@@ -1,7 +1,7 @@
 import type { Simplify } from "../types/index";
 
-import type { Address, GetSignaturesForAddressApi, Rpc } from "@solana/kit";
-import { isSolanaError, SOLANA_ERROR__TRANSACTION_ERROR__UNKNOWN, SolanaError } from "@solana/kit";
+import type { Address, GetSignaturesForAddressApi, Rpc } from "@trezoa/kit";
+import { isTrezoaError, TREZOA_ERROR__TRANSACTION_ERROR__UNKNOWN, TrezoaError } from "@trezoa/kit";
 
 type GetOldestSignatureForAddressRpc<TCluster> = Rpc<GetSignaturesForAddressApi> & {
   "~cluster"?: TCluster;
@@ -22,7 +22,7 @@ export async function getOldestSignatureForAddress<TCluster>(
   const signatures = await rpc.getSignaturesForAddress(address, config).send({ abortSignal: config?.abortSignal });
 
   if (!signatures.length) {
-    throw new SolanaError(SOLANA_ERROR__TRANSACTION_ERROR__UNKNOWN, {
+    throw new TrezoaError(TREZOA_ERROR__TRANSACTION_ERROR__UNKNOWN, {
       errorName: "OldestSignatureNotFound",
     });
   }
@@ -35,7 +35,7 @@ export async function getOldestSignatureForAddress<TCluster>(
     return await getOldestSignatureForAddress(rpc, address, { ...config, before: oldest.signature });
   } catch (err) {
     // if signatures found were exactly at the limit, there will be no more to find, so we return the oldest
-    if (isSolanaError(err, SOLANA_ERROR__TRANSACTION_ERROR__UNKNOWN)) return oldest;
+    if (isTrezoaError(err, TREZOA_ERROR__TRANSACTION_ERROR__UNKNOWN)) return oldest;
     throw err;
   }
 }

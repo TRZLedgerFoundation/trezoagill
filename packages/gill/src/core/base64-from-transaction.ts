@@ -1,4 +1,4 @@
-import { getBase64Encoder, getTransactionDecoder, type Transaction } from "@solana/kit";
+import { getBase64Encoder, getTransactionDecoder, type Transaction } from "@trezoa/kit";
 import type { transactionToBase64, transactionToBase64WithSigners } from "./base64-to-transaction";
 
 /**

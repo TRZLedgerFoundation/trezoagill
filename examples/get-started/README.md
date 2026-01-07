@@ -1,12 +1,12 @@
-# gill examples
+# trezoagill examples
 
 Gill is aimed at abstracting away many of the complexities and boilerplate
-required to perform common interactions with the Solana blockchain, while still
+required to perform common interactions with the Trezoa blockchain, while still
 offering the low level "escape hatches" when developers need (or want)
 fine-grain control.
 
-Take a look through these examples to see how gill works and even
-[how it compares](#comparison-of-gill-vs-solanakit-aka-web3js-v2) to using the
+Take a look through these examples to see how trezoagill works and even
+[how it compares](#comparison-of-trezoagill-vs-trezoakit-aka-web3js-v2) to using the
 vanilla web3js v2 library.
 
 ## Tech stack used
@@ -50,8 +50,8 @@ files (in order):
 
 #### `intro.ts`
 
-A brief introduction to the `gill` library. Demonstrating and explaining the
-commonly used tasks involved to interact with the Solana blockchain, including:
+A brief introduction to the `trezoagill` library. Demonstrating and explaining the
+commonly used tasks involved to interact with the Trezoa blockchain, including:
 
 - load a keypair signer from the local filesystem
 - create an rpc connection to the blockchain
@@ -60,22 +60,22 @@ commonly used tasks involved to interact with the Solana blockchain, including:
 - building a complete transaction
 - signing the transaction with the loaded local keypair signer
 - getting the signature of a transaction (even before it is sent)
-- logging Solana Explorer links
+- logging Trezoa Explorer links
 - sending and confirming a transaction
 
 These are all the most basic tasks required for any application sending
-transaction to the Solana blockchain.
+transaction to the Trezoa blockchain.
 
 #### `airdrop.ts`
 
-Demonstrates how to create a client connection to the Solana blockchain on a
+Demonstrates how to create a client connection to the Trezoa blockchain on a
 test cluster (e.g. `devnet`, `testnet`, or `localnet`) and request airdrops of
-testing SOL tokens to a wallet address.
+testing TRZ tokens to a wallet address.
 
 #### `tokens.ts`
 
-Demonstrates how to use gill's "transaction builders" to create a brand new
-Solana token (with onchain metadata) and then mint tokens to another user's
+Demonstrates how to use trezoagill's "transaction builders" to create a brand new
+Trezoa token (with onchain metadata) and then mint tokens to another user's
 wallet:
 
 - load a keypair signer from the local filesystem
@@ -86,15 +86,15 @@ wallet:
 - build an optimized transaction to mint
 - sign, send, and confirm that "mint tokens" transaction
 
-> For more examples interacting with Tokens on Solana, see the
+> For more examples interacting with Tokens on Trezoa, see the
 > [token examples examples here](../tokens/README.md)
 
 ### `reference-keys.ts`
 
 This script demonstrates the process to add a reference key into a transaction.
 
-> See the gill docs for
-> [Reference Keys](https://gillsdk.com/docs/guides/reference-keys) for more
+> See the trezoagill docs for
+> [Reference Keys](https://trezoagill.com/docs/guides/reference-keys) for more
 > information.
 
 Adding reference keys to transactions allows developers to be able track the
@@ -102,25 +102,25 @@ completion of transactions given to users, without knowing the signature ahead
 of time. Then, perform any desired logic after detection of the reference keyed
 transaction landing onchain.
 
-Most notably utilized within SolanaPay and Blinks.
+Most notably utilized within TrezoaPay and Blinks.
 
-## Comparison of gill vs @solana/kit (aka web3js v2)
+## Comparison of trezoagill vs @trezoa/kit (aka web3js v2)
 
 You can find comparison scripts that demonstrates some of the differences
-between [gill](https://github.com/gillsdk/gill) and
-[@solana/kit](https://github.com/anza-xyz/kit) (formerly known as "web3.js v2").
+between [trezoagill](https://github.com/TRZLedgerFoundation/trezoagill) and
+[@trezoa/kit](https://github.com/trezoa-xyz/kit) (formerly known as "web3.js v2").
 
 > Find a more comprehensive comparison in
-> [gill vs @solana/kit comparison docs](https://gillsdk.com/docs/compare/kit)
+> [trezoagill vs @trezoa/kit comparison docs](https://trezoagill.com/docs/compare/kit)
 
 Both scripts accomplish the same task: send an optimized transaction to the
-Solana blockchain.
+Trezoa blockchain.
 
-- Using gill - [`basic.ts`](./src/basic.ts)
+- Using trezoagill - [`basic.ts`](./src/basic.ts)
 - Using web3js v2 - [`basic-compare.ts`](./src/basic-compare.ts)
 
 Both will load a keypair file from your local filesystem (the one used by the
-Solana CLI).
+Trezoa CLI).
 
 Both are written with honest intentions, best practices, and attempt to be as
 concise as possible in accomplishing the same task.

@@ -1,4 +1,4 @@
-import { createKeyPairFromBytes, createSignerFromKeyPair, getBase58Encoder, type KeyPairSigner } from "@solana/kit";
+import { createKeyPairFromBytes, createSignerFromKeyPair, getBase58Encoder, type KeyPairSigner } from "@trezoa/kit";
 
 /**
  * Create a `CryptoKeyPair` from as base58 encoded secret key

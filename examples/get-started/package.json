@@ -1,5 +1,5 @@
 {
-  "name": "@gillsdk/examples-basics",
+  "name": "@trezoagill/examples-basics",
   "license": "MIT",
   "private": true,
   "version": "0.1.0",
@@ -19,12 +19,12 @@
   "keywords": [],
   "author": "",
   "dependencies": {
-    "@solana-program/compute-budget": "^0.11.0",
-    "@solana-program/memo": "^0.10.0",
-    "@solana/kit": "^5.0.0",
+    "@trezoa-program/compute-budget": "^0.11.0",
+    "@trezoa-program/memo": "^0.10.0",
+    "@trezoa/kit": "^5.0.0",
     "dotenv": "^16.4.5",
     "fastestsmallesttextencoderdecoder": "^1.0.22",
-    "gill": "workspace:*",
+    "trezoagill": "workspace:*",
     "ws": "^8.18.0"
   },
   "devDependencies": {

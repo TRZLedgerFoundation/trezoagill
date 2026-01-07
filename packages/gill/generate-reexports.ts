@@ -8,19 +8,19 @@ type ReexportSettings = {
 
 const packages: ReexportSettings[] = [
   {
-    package: "@solana-program/system",
+    package: "@trezoa-program/system",
     outputFile: "./src/programs/system/reexports.ts",
   },
   {
-    package: "@solana-program/address-lookup-table",
+    package: "@trezoa-program/address-lookup-table",
     outputFile: "./src/programs/address-lookup-table/reexports.ts",
   },
   {
-    package: "@solana-program/compute-budget",
+    package: "@trezoa-program/compute-budget",
     outputFile: "./src/programs/compute-budget/reexports.ts",
   },
   {
-    package: "@solana-program/token-2022",
+    package: "@trezoa-program/token-2022",
     outputFile: "./src/programs/token/reexports.ts",
   },
 ];

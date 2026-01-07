@@ -1,20 +1,20 @@
 import {
   address,
-  createSolanaClient,
+  createTrezoaClient,
   generateKeyPairSigner,
   getExplorerLink,
   getSignatureFromTransaction,
   signTransactionMessageWithSigners,
-  SolanaClusterMoniker,
-} from "gill";
-import { loadKeypairSignerFromFile } from "gill/node";
+  TrezoaClusterMoniker,
+} from "trezoagill";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
 import {
   buildCreateTokenTransaction,
   buildMintTokensTransaction,
   buildTransferTokensTransaction,
   getAssociatedTokenAccountAddress,
   TOKEN_2022_PROGRAM_ADDRESS,
-} from "gill/programs";
+} from "trezoagill/programs";
 
 /** Turn on debug mode */
 global.__GILL_DEBUG__ = true;
@@ -27,8 +27,8 @@ global.__GILL_DEBUG_LEVEL__ = "debug";
  *
  * `sendAndConfirmTransaction` will now auto log the following:
  * - explorer link to view the transaction
- * - serialized base64 transaction, to inspect on the Solana Explorer's Inspector
- *   https://explorer.solana.com/tx/inspector
+ * - serialized base64 transaction, to inspect on the Trezoa Explorer's Inspector
+ *   https://explorer.trezoa.com/tx/inspector
  *
  * This can greatly assist troubleshooting efforts
  */
@@ -36,22 +36,22 @@ global.__GILL_DEBUG_LEVEL__ = "debug";
 /**
  * Load a keypair signer from the local filesystem
  *
- * This defaults to the file path used by the Solana CLI: `~/.config/solana/id.json`
+ * This defaults to the file path used by the Trezoa CLI: `~/.config/trezoa/id.json`
  */
 const signer = await loadKeypairSignerFromFile();
 console.log("address:", signer.address);
 
 /**
- * Declare what Solana network cluster we want our code to interact with
+ * Declare what Trezoa network cluster we want our code to interact with
  */
-const cluster: SolanaClusterMoniker = "devnet";
+const cluster: TrezoaClusterMoniker = "devnet";
 
 /**
- * Create a client connection to the Solana blockchain
+ * Create a client connection to the Trezoa blockchain
  *
- * Note: `urlOrMoniker` can be either a Solana network moniker or a full URL of your RPC provider
+ * Note: `urlOrMoniker` can be either a Trezoa network moniker or a full URL of your RPC provider
  */
-const { rpc, sendAndConfirmTransaction } = createSolanaClient({
+const { rpc, sendAndConfirmTransaction } = createTrezoaClient({
   urlOrMoniker: cluster,
 });
 
@@ -74,7 +74,7 @@ console.log("latestBlockhash:", latestBlockhash);
 /**
  * Create a transaction that will create a new token (with metadata)
  *
- * - this will use the original SPL token by default (`TOKEN_PROGRAM_ADDRESS`)
+ * - this will use the original TPL token by default (`TOKEN_PROGRAM_ADDRESS`)
  */
 const createTokenTx = await buildCreateTokenTransaction({
   feePayer: signer,
@@ -83,9 +83,9 @@ const createTokenTx = await buildCreateTokenTransaction({
   // mintAuthority, // default=same as the `feePayer`
   metadata: {
     isMutable: true, // if the `updateAuthority` can change this metadata in the future
-    name: "Only Possible On Solana",
+    name: "Only Possible On Trezoa",
     symbol: "OPOS",
-    uri: "https://raw.githubusercontent.com/solana-developers/opos-asset/main/assets/Climate/metadata.json",
+    uri: "https://raw.githubusercontent.com/trezoa-developers/opos-asset/main/assets/Climate/metadata.json",
   },
   // updateAuthority, // default=same as the `feePayer`
   decimals: 2, // default=9,
@@ -109,7 +109,7 @@ console.log(signedTransaction);
 let signature = getSignatureFromTransaction(signedTransaction);
 
 /**
- * Log the Solana Explorer link for the transaction we are about to send
+ * Log the Trezoa Explorer link for the transaction we are about to send
  */
 console.log("\nExplorer Link (for creating the mint):");
 console.log(

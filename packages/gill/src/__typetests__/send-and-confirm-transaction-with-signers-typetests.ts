@@ -19,7 +19,7 @@ import {
   TransactionSigner,
   TransactionWithBlockhashLifetime,
   TransactionWithDurableNonceLifetime,
-} from "@solana/kit";
+} from "@trezoa/kit";
 import { createTransaction } from "../core";
 import { sendAndConfirmTransactionWithSignersFactory } from "../core/send-and-confirm-transaction-with-signers";
 

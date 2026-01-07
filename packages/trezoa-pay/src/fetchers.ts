@@ -1,18 +1,18 @@
-import { SolanaPayTransactionRequestPostRequest, validateSolanaPayRequestUrl } from "./request.js";
+import { TrezoaPayTransactionRequestPostRequest, validateTrezoaPayRequestUrl } from "./request.js";
 import {
-  parseSolanaPayGetResponse,
-  parseSolanaPayPostResponse,
-  SolanaPayTransactionRequestGetResponseParsed,
-  SolanaPayTransactionRequestPostResponseParsed,
+  parseTrezoaPayGetResponse,
+  parseTrezoaPayPostResponse,
+  TrezoaPayTransactionRequestGetResponseParsed,
+  TrezoaPayTransactionRequestPostResponseParsed,
 } from "./response.js";
 
 /**
- * Generic HTTP fetcher for Solana Pay transaction request endpoints.
+ * Generic HTTP fetcher for Trezoa Pay transaction request endpoints.
  *
  * Validates URL, makes request, and optionally parses the JSON response.
  *
  * @template TResponse - Expected response type (defaults to unknown)
- * @param url - Solana Pay transaction request URL (must be https://)
+ * @param url - Trezoa Pay transaction request URL (must be https://)
  * @param config - Request configuration
  * @param config.method - HTTP method (GET or POST)
  * @param config.body - Request body (JSON stringified)
@@ -21,7 +21,7 @@ import {
  * @returns Parsed response or raw JSON if no parser provided
  * @throws {Error} Invalid URL, HTTP error, JSON parse error, or schema validation error
  */
-export async function fetchSolanaPayRequest<TResponse = unknown>(
+export async function fetchTrezoaPayRequest<TResponse = unknown>(
   url: URL,
   config: {
     method: "GET" | "POST";
@@ -30,7 +30,7 @@ export async function fetchSolanaPayRequest<TResponse = unknown>(
     requestInit?: RequestInit;
   },
 ): Promise<TResponse> {
-  validateSolanaPayRequestUrl(url);
+  validateTrezoaPayRequestUrl(url);
 
   const baseHeaders: HeadersInit = {
     Accept: "application/json",
@@ -77,43 +77,43 @@ export async function fetchSolanaPayRequest<TResponse = unknown>(
 }
 
 /**
- * Fetches merchant information for a Solana Pay transaction request.
+ * Fetches merchant information for a Trezoa Pay transaction request.
  *
  * Makes a GET request to retrieve the merchant's label and icon, which are displayed
  * to the user before presenting the transaction for signing.
  *
- * @param url - Solana Pay transaction request URL (must be https://)
+ * @param url - Trezoa Pay transaction request URL (must be https://)
  * @param options - Optional fetch configuration
  * @returns Merchant label and icon
  * @throws {Error} Invalid URL, HTTP error, or invalid response schema
  *
  * @example
  * ```typescript
- * const { label, icon } = await fetchSolanaPayGetRequest(
+ * const { label, icon } = await fetchTrezoaPayGetRequest(
  *   new URL('https://merchant.example.com/api')
  * );
  * console.log(label); // "Example Merchant"
  * console.log(icon);  // URL object: https://merchant.example.com/icon.svg
  * ```
  */
-export async function fetchSolanaPayGetRequest(
+export async function fetchTrezoaPayGetRequest(
   url: URL,
   options?: RequestInit,
-): Promise<SolanaPayTransactionRequestGetResponseParsed> {
-  return fetchSolanaPayRequest(url, {
+): Promise<TrezoaPayTransactionRequestGetResponseParsed> {
+  return fetchTrezoaPayRequest(url, {
     method: "GET",
-    parser: parseSolanaPayGetResponse,
+    parser: parseTrezoaPayGetResponse,
     requestInit: options,
   });
 }
 
 /**
- * Requests a transaction from a Solana Pay merchant endpoint.
+ * Requests a transaction from a Trezoa Pay merchant endpoint.
  *
  * Makes a POST request with the user's account address. The merchant returns a
  * serialized transaction (unsigned or partially signed) for the wallet to sign.
  *
- * @param url - Solana Pay transaction request URL (must be https://)
+ * @param url - Trezoa Pay transaction request URL (must be https://)
  * @param body - Request body containing the user's account address
  * @param options - Optional fetch configuration
  * @returns transaction and optional message
@@ -121,7 +121,7 @@ export async function fetchSolanaPayGetRequest(
  *
  * @example
  * ```typescript
- * const { transaction, message } = await fetchSolanaPayPostRequest(
+ * const { transaction, message } = await fetchTrezoaPayPostRequest(
  *   new URL('https://merchant.example.com/api'),
  *   { account: address("user123...") }
  * );
@@ -129,32 +129,32 @@ export async function fetchSolanaPayGetRequest(
  * // message is an optional string to display to the user
  * ```
  */
-export async function fetchSolanaPayPostRequest(
+export async function fetchTrezoaPayPostRequest(
   url: URL,
-  body: SolanaPayTransactionRequestPostRequest,
+  body: TrezoaPayTransactionRequestPostRequest,
   options?: RequestInit,
-): Promise<SolanaPayTransactionRequestPostResponseParsed> {
-  return fetchSolanaPayRequest(url, {
+): Promise<TrezoaPayTransactionRequestPostResponseParsed> {
+  return fetchTrezoaPayRequest(url, {
     method: "POST",
     body,
-    parser: parseSolanaPayPostResponse,
+    parser: parseTrezoaPayPostResponse,
     requestInit: options,
   });
 }
 
 /**
- * Solana Pay transaction request methods.
+ * Trezoa Pay transaction request methods.
  *
  * @property {Function} get - Fetch merchant information (label and icon)
  * @property {Function} post - Request a transaction from the merchant
  *
  * @example
  * ```typescript
- * const { label, icon } = await solanaPayTransactionRequest.get(url);
- * const { transaction } = await solanaPayTransactionRequest.post(url, { account });
+ * const { label, icon } = await trezoaPayTransactionRequest.get(url);
+ * const { transaction } = await trezoaPayTransactionRequest.post(url, { account });
  * ```
  */
-export const solanaPayTransactionRequest = {
-  get: fetchSolanaPayGetRequest,
-  post: fetchSolanaPayPostRequest,
+export const trezoaPayTransactionRequest = {
+  get: fetchTrezoaPayGetRequest,
+  post: fetchTrezoaPayPostRequest,
 };

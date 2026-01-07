@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import type { BaseTransactionMessage, KeyPairSigner, TransactionMessageWithBlockhashLifetime } from "@solana/kit";
-import { signTransactionMessageWithSigners } from "@solana/kit";
+import type { BaseTransactionMessage, KeyPairSigner, TransactionMessageWithBlockhashLifetime } from "@trezoa/kit";
+import { signTransactionMessageWithSigners } from "@trezoa/kit";
 import { GetCreateTokenInstructionsArgs, buildCreateTokenTransaction } from "../programs/token";
 
 // [DESCRIBE] buildCreateTokenTransaction

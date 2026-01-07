@@ -1,10 +1,10 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import type { Address, GetBalanceApi, Simplify } from "gill";
+import type { Address, GetBalanceApi, Simplify } from "trezoagill";
 
 import { GILL_HOOK_CLIENT_KEY } from "../const.js";
-import { useSolanaClient } from "./client.js";
+import { useTrezoaClient } from "./client.js";
 import type { GillUseRpcHook } from "./types.js";
 type RpcConfig = Simplify<Parameters<GetBalanceApi["getBalance"]>>[1];
 
@@ -18,8 +18,8 @@ type UseBalanceInput<TConfig extends RpcConfig = RpcConfig> = GillUseRpcHook<TCo
 };
 
 /**
- * Get an account's balance (in lamports) using the Solana RPC method of
- * [`getBalance`](https://solana.com/docs/rpc/http/getbalance)
+ * Get an account's balance (in lamports) using the Trezoa RPC method of
+ * [`getBalance`](https://trezoa.com/docs/rpc/http/getbalance)
  */
 export function useBalance<TConfig extends RpcConfig = RpcConfig>({
   options,
@@ -27,7 +27,7 @@ export function useBalance<TConfig extends RpcConfig = RpcConfig>({
   abortSignal,
   address,
 }: UseBalanceInput<TConfig>) {
-  const { rpc, urlOrMoniker } = useSolanaClient();
+  const { rpc, urlOrMoniker } = useTrezoaClient();
   const { data, ...rest } = useQuery({
     networkMode: "offlineFirst",
     ...options,

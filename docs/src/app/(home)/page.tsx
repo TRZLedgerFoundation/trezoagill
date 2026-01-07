@@ -18,32 +18,32 @@ export default function Page() {
 
       <section className="mx-auto space-y-3 text-center">
         <p className="max-w-md text-fd-muted-foreground">
-          gill is a modern javascript/typescript client library for interacting with the Solana
+          trezoagill is a modern javascript/typescript client library for interacting with the Trezoa
           blockchain
         </p>
 
-        <PackageBadges packageName="gill" />
+        <PackageBadges packageName="trezoagill" />
       </section>
 
       <Tabs items={["npm", "pnpm", "yarn", "bun"]} className="w-full max-w-md mx-auto rounded-lg">
         <Tab value="npm">
           <CodeBlock>
-            <Pre>npm install gill</Pre>
+            <Pre>npm install trezoagill</Pre>
           </CodeBlock>
         </Tab>
         <Tab value="pnpm">
           <CodeBlock>
-            <Pre>pnpm add gill</Pre>
+            <Pre>pnpm add trezoagill</Pre>
           </CodeBlock>
         </Tab>
         <Tab value="yarn">
           <CodeBlock>
-            <Pre>yarn add gill</Pre>
+            <Pre>yarn add trezoagill</Pre>
           </CodeBlock>
         </Tab>
         <Tab value="bun">
           <CodeBlock>
-            <Pre>bun install gill</Pre>
+            <Pre>bun install trezoagill</Pre>
           </CodeBlock>
         </Tab>
       </Tabs>

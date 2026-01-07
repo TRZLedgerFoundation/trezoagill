@@ -1,31 +1,31 @@
-import { type Address } from "gill";
+import { type Address } from "trezoagill";
 import assert from "node:assert";
-import { parseSolanaPayURL, SolanaPayTransactionRequestURL, type SolanaPayTransferRequestURL } from "../parse-url.js";
+import { parseTrezoaPayURL, TrezoaPayTransactionRequestURL, type TrezoaPayTransferRequestURL } from "../parse-url.js";
 
-describe("parseSolanaPayURL", () => {
+describe("parseTrezoaPayURL", () => {
   const pubkey = "nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5" as Address;
 
-  describe("SolanaPayTransactionRequestURL", () => {
+  describe("TrezoaPayTransactionRequestURL", () => {
     it("should parse with only a url", () => {
-      const url = `solana:${"https://gillsdk.com"}`;
+      const url = `trezoa:${"https://trezoagill.com"}`;
 
-      const { label, message, link } = parseSolanaPayURL(url) as SolanaPayTransactionRequestURL;
+      const { label, message, link } = parseTrezoaPayURL(url) as TrezoaPayTransactionRequestURL;
 
       // should add trailing slash
-      assert.equal(link, "https://gillsdk.com/");
+      assert.equal(link, "https://trezoagill.com/");
       assert.equal(label, undefined);
       assert.equal(message, undefined);
     });
 
-    it("should parse with Solana Pay query params", () => {
+    it("should parse with Trezoa Pay query params", () => {
       const data = {
-        link: "https://gillsdk.com/",
+        link: "https://trezoagill.com/",
         message: "Message",
         label: "Label",
       };
-      const url = `solana:${data.link}?label=${data.label}&message=${data.message}`;
+      const url = `trezoa:${data.link}?label=${data.label}&message=${data.message}`;
 
-      const { label, message, link } = parseSolanaPayURL(url) as SolanaPayTransactionRequestURL;
+      const { label, message, link } = parseTrezoaPayURL(url) as TrezoaPayTransactionRequestURL;
 
       assert.equal(link, data.link);
       assert.equal(label, data.label);
@@ -34,26 +34,26 @@ describe("parseSolanaPayURL", () => {
 
     it("should parse with link with query params", () => {
       const data = {
-        link: "https://gillsdk.com/?query=param",
+        link: "https://trezoagill.com/?query=param",
       };
-      const url = `solana:${encodeURIComponent(data.link)}`;
+      const url = `trezoa:${encodeURIComponent(data.link)}`;
 
-      const { label, message, link } = parseSolanaPayURL(url) as SolanaPayTransactionRequestURL;
+      const { label, message, link } = parseTrezoaPayURL(url) as TrezoaPayTransactionRequestURL;
 
       assert.equal(link, data.link);
       assert.equal(label, undefined);
       assert.equal(message, undefined);
     });
 
-    it("should parse with link with query params and Solana Pay query params", () => {
+    it("should parse with link with query params and Trezoa Pay query params", () => {
       const data = {
-        link: "https://gillsdk.com/?query=param",
+        link: "https://trezoagill.com/?query=param",
         message: "Message",
         label: "Label",
       };
-      const url = `solana:${encodeURIComponent(data.link)}?label=${data.label}&message=${data.message}`;
+      const url = `trezoa:${encodeURIComponent(data.link)}?label=${data.label}&message=${data.message}`;
 
-      const { label, message, link } = parseSolanaPayURL(url) as SolanaPayTransactionRequestURL;
+      const { label, message, link } = parseTrezoaPayURL(url) as TrezoaPayTransactionRequestURL;
 
       assert.equal(link, data.link);
       assert.equal(label, data.label);
@@ -61,13 +61,13 @@ describe("parseSolanaPayURL", () => {
     });
   });
 
-  describe("SolanaPayTransferRequestURL", () => {
+  describe("TrezoaPayTransferRequestURL", () => {
     it("should parse with only address", () => {
-      const url = "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5";
+      const url = "trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5";
 
-      const { recipient, amount, splToken, reference, label, message, memo } = parseSolanaPayURL(
+      const { recipient, amount, splToken, reference, label, message, memo } = parseTrezoaPayURL(
         url,
-      ) as SolanaPayTransferRequestURL;
+      ) as TrezoaPayTransferRequestURL;
 
       assert.equal(recipient, pubkey);
       assert.equal(amount, undefined);
@@ -80,11 +80,11 @@ describe("parseSolanaPayURL", () => {
 
     it("should parse successfully", () => {
       const url =
-        "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=0.000000001&reference=82ZJ7nbGpixjeDCmEhUcmwXYfvurzAgGdtSMuHnUgyny&label=Michael&message=Thanks%20for%20all%20the%20fish&memo=OrderId5678";
+        "trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=0.000000001&reference=82ZJ7nbGpixjeDCmEhUcmwXYfvurzAgGdtSMuHnUgyny&label=Michael&message=Thanks%20for%20all%20the%20fish&memo=OrderId5678";
 
-      const { recipient, amount, splToken, reference, label, message, memo } = parseSolanaPayURL(
+      const { recipient, amount, splToken, reference, label, message, memo } = parseTrezoaPayURL(
         url,
-      ) as SolanaPayTransferRequestURL;
+      ) as TrezoaPayTransferRequestURL;
 
       assert.equal(recipient, pubkey);
       assert.equal(amount, 0.000000001);
@@ -96,13 +96,13 @@ describe("parseSolanaPayURL", () => {
       assert.equal(memo, "OrderId5678");
     });
 
-    it("should parse with spl-token", () => {
+    it("should parse with tpl-token", () => {
       const url =
-        "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1.01&spl-token=82ZJ7nbGpixjeDCmEhUcmwXYfvurzAgGdtSMuHnUgyny&label=Michael&message=Thanks%20for%20all%20the%20fish&memo=OrderId5678";
+        "trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1.01&tpl-token=82ZJ7nbGpixjeDCmEhUcmwXYfvurzAgGdtSMuHnUgyny&label=Michael&message=Thanks%20for%20all%20the%20fish&memo=OrderId5678";
 
-      const { recipient, amount, splToken, reference, label, message, memo } = parseSolanaPayURL(
+      const { recipient, amount, splToken, reference, label, message, memo } = parseTrezoaPayURL(
         url,
-      ) as SolanaPayTransferRequestURL;
+      ) as TrezoaPayTransferRequestURL;
 
       assert.equal(recipient, pubkey);
       assert.equal(amount, 1.01);
@@ -115,11 +115,11 @@ describe("parseSolanaPayURL", () => {
 
     it("should parse multiple references", () => {
       const url =
-        "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?reference=82ZJ7nbGpixjeDCmEhUcmwXYfvurzAgGdtSMuHnUgyny&reference=mvines9iiHiQTysrwkJjGf2gb9Ex9jXJX8ns3qwf2kN";
+        "trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?reference=82ZJ7nbGpixjeDCmEhUcmwXYfvurzAgGdtSMuHnUgyny&reference=mvines9iiHiQTysrwkJjGf2gb9Ex9jXJX8ns3qwf2kN";
 
-      const { recipient, amount, splToken, reference, label, message, memo } = parseSolanaPayURL(
+      const { recipient, amount, splToken, reference, label, message, memo } = parseTrezoaPayURL(
         url,
-      ) as SolanaPayTransferRequestURL;
+      ) as TrezoaPayTransferRequestURL;
 
       assert.equal(recipient, pubkey);
       assert.equal(reference?.length, 2);
@@ -134,11 +134,11 @@ describe("parseSolanaPayURL", () => {
 
     it("should parse without an amount", () => {
       const url =
-        "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?reference=82ZJ7nbGpixjeDCmEhUcmwXYfvurzAgGdtSMuHnUgyny&label=Michael&message=Thanks%20for%20all%20the%20fish&memo=OrderId5678";
+        "trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?reference=82ZJ7nbGpixjeDCmEhUcmwXYfvurzAgGdtSMuHnUgyny&label=Michael&message=Thanks%20for%20all%20the%20fish&memo=OrderId5678";
 
-      const { recipient, amount, splToken, reference, label, message, memo } = parseSolanaPayURL(
+      const { recipient, amount, splToken, reference, label, message, memo } = parseTrezoaPayURL(
         url,
-      ) as SolanaPayTransferRequestURL;
+      ) as TrezoaPayTransferRequestURL;
 
       assert.equal(recipient, pubkey);
       expect(amount).toBeUndefined();
@@ -151,11 +151,11 @@ describe("parseSolanaPayURL", () => {
     });
 
     it("should parse with only amount", () => {
-      const url = "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=0.000000001";
+      const url = "trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=0.000000001";
 
-      const { recipient, amount, splToken, reference, label, message, memo } = parseSolanaPayURL(
+      const { recipient, amount, splToken, reference, label, message, memo } = parseTrezoaPayURL(
         url,
-      ) as SolanaPayTransferRequestURL;
+      ) as TrezoaPayTransferRequestURL;
 
       assert.equal(recipient, pubkey);
       assert.equal(amount, 0.000000001);
@@ -170,17 +170,17 @@ describe("parseSolanaPayURL", () => {
   describe("errors", () => {
     it("throws an error on invalid length", () => {
       const url = "X".repeat(2049);
-      expect(() => parseSolanaPayURL(url)).toThrow("length invalid");
+      expect(() => parseTrezoaPayURL(url)).toThrow("length invalid");
     });
 
     it("throws an error on invalid protocol", () => {
       const url = "eth:0xffff";
-      expect(() => parseSolanaPayURL(url)).toThrow("protocol invalid");
+      expect(() => parseTrezoaPayURL(url)).toThrow("protocol invalid");
     });
 
     it("throws an error on invalid recipient", () => {
-      const url = "solana:0xffff";
-      expect(() => parseSolanaPayURL(url)).toThrow("recipient invalid");
+      const url = "trezoa:0xffff";
+      expect(() => parseTrezoaPayURL(url)).toThrow("recipient invalid");
     });
 
     it.each([
@@ -189,21 +189,21 @@ describe("parseSolanaPayURL", () => {
       [-0.1],
       [-100],
     ])("throws an error on invalid amount: %p", (amount) => {
-      const url = `solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=${amount}`;
+      const url = `trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=${amount}`;
 
-      expect(() => parseSolanaPayURL(url)).toThrow("amount invalid");
+      expect(() => parseTrezoaPayURL(url)).toThrow("amount invalid");
     });
 
     it("throws an error on invalid token", () => {
-      const url = "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1&spl-token=0xffff";
+      const url = "trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1&tpl-token=0xffff";
 
-      expect(() => parseSolanaPayURL(url)).toThrow("spl-token invalid");
+      expect(() => parseTrezoaPayURL(url)).toThrow("tpl-token invalid");
     });
 
     it("throws an error on invalid reference", () => {
-      const url = "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1&reference=0xffff";
+      const url = "trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1&reference=0xffff";
 
-      expect(() => parseSolanaPayURL(url)).toThrow("reference invalid");
+      expect(() => parseTrezoaPayURL(url)).toThrow("reference invalid");
     });
   });
 });

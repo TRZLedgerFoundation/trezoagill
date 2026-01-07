@@ -1,4 +1,4 @@
-import { Address, isSolanaError, Signature, SOLANA_ERROR__TRANSACTION_ERROR__UNKNOWN } from "@solana/kit";
+import { Address, isTrezoaError, Signature, TREZOA_ERROR__TRANSACTION_ERROR__UNKNOWN } from "@trezoa/kit";
 import { getOldestSignatureForAddress } from "../core";
 
 describe("getOldestSignatureForAddress", () => {
@@ -65,7 +65,7 @@ describe("getOldestSignatureForAddress", () => {
     expect(result).toEqual(mockSignature4);
   });
 
-  it("throws SolanaError when no signatures are found", async () => {
+  it("throws TrezoaError when no signatures are found", async () => {
     const mockRpc = {
       getSignaturesForAddress: jest.fn().mockReturnValue({
         send: jest.fn().mockResolvedValue([]),
@@ -76,7 +76,7 @@ describe("getOldestSignatureForAddress", () => {
       await getOldestSignatureForAddress(mockRpc as any, mockAddress);
       fail("Expected function to throw, but it did not");
     } catch (err) {
-      expect(isSolanaError(err, SOLANA_ERROR__TRANSACTION_ERROR__UNKNOWN)).toBe(true);
+      expect(isTrezoaError(err, TREZOA_ERROR__TRANSACTION_ERROR__UNKNOWN)).toBe(true);
       expect((err as any).context.errorName).toBe("OldestSignatureNotFound");
     }
   });

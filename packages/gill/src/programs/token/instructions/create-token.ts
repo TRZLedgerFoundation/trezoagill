@@ -1,5 +1,5 @@
-import { getCreateAccountInstruction } from "@solana-program/system";
-import type { Address, Instruction, KeyPairSigner, TransactionSigner } from "@solana/kit";
+import { getCreateAccountInstruction } from "@trezoa-program/system";
+import type { Address, Instruction, KeyPairSigner, TransactionSigner } from "@trezoa/kit";
 import { checkedAddress, checkedTransactionSigner, getMinimumBalanceForRentExemption } from "../../../core";
 import { getCreateMetadataAccountV3Instruction, getTokenMetadataAddress } from "../../token-metadata";
 
@@ -10,7 +10,7 @@ import {
   getInitializeTokenMetadataInstruction,
   getMintSize,
   TOKEN_2022_PROGRAM_ADDRESS,
-} from "@solana-program/token-2022";
+} from "@trezoa-program/token-2022";
 import { checkedTokenProgramAddress } from "../addresses";
 import type { TokenInstructionBase } from "./types";
 

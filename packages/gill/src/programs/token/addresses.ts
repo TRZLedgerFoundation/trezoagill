@@ -1,5 +1,5 @@
-import { findAssociatedTokenPda, TOKEN_2022_PROGRAM_ADDRESS } from "@solana-program/token-2022";
-import { isAddress, type Address, type TransactionSigner } from "@solana/kit";
+import { findAssociatedTokenPda, TOKEN_2022_PROGRAM_ADDRESS } from "@trezoa-program/token-2022";
+import { isAddress, type Address, type TransactionSigner } from "@trezoa/kit";
 import { checkedAddress } from "../../core/utils";
 
 export type LegacyTokenProgramMonikers = "legacy" | "token";
@@ -18,8 +18,8 @@ export const TOKEN_PROGRAM_ADDRESS =
  * @argument `owner` - destination wallet address to own tokens from `mint`
  * @argument `tokenProgram` - token program that the token `mint` was created with
  *
- * - (default) {@link TOKEN_PROGRAM_ADDRESS} - the original SPL Token Program
- * - {@link TOKEN_2022_PROGRAM_ADDRESS} - the SPL Token Extensions Program (aka Token22)
+ * - (default) {@link TOKEN_PROGRAM_ADDRESS} - the original TPL Token Program
+ * - {@link TOKEN_2022_PROGRAM_ADDRESS} - the TPL Token Extensions Program (aka Token22)
  */
 export async function getAssociatedTokenAccountAddress(
   mint: Address | TransactionSigner,
@@ -67,7 +67,7 @@ export function assertIsSupportedTokenProgram(
 
 /**
  * Check the provided program is one of the supported token programs.
- * Including setting the default to {@link TOKEN_PROGRAM_ADDRESS} (the original SPL token program)
+ * Including setting the default to {@link TOKEN_PROGRAM_ADDRESS} (the original TPL token program)
  *
  * @example
  * ```

@@ -4,8 +4,8 @@ import type {
   Rpc,
   SimulateTransactionApi,
   Transaction,
-} from "@solana/kit";
-import { getBase64EncodedWireTransaction, partiallySignTransactionMessageWithSigners } from "@solana/kit";
+} from "@trezoa/kit";
+import { getBase64EncodedWireTransaction, partiallySignTransactionMessageWithSigners } from "@trezoa/kit";
 import type { Simplify } from "./../types/index";
 
 export type SimulateTransactionFunction = (

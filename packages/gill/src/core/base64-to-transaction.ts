@@ -3,13 +3,13 @@ import type {
   TransactionMessage,
   TransactionMessageWithFeePayer,
   Transaction,
-} from "@solana/kit";
+} from "@trezoa/kit";
 import {
   compileTransaction,
   getBase64EncodedWireTransaction,
   partiallySignTransactionMessageWithSigners,
   pipe,
-} from "@solana/kit";
+} from "@trezoa/kit";
 
 /**
  * Compile a transaction to a base64 string

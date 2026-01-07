@@ -1,16 +1,16 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { createSolanaClient, type SolanaClient } from "gill";
+import { createTrezoaClient, type TrezoaClient } from "trezoagill";
 
 import { GILL_HOOK_CLIENT_KEY } from "../const.js";
 
 /**
- * Get the current Solana client (including `rpc` and `rpcSubscriptions`)
+ * Get the current Trezoa client (including `rpc` and `rpcSubscriptions`)
  */
-export function useSolanaClient(): SolanaClient {
-  const { data: config } = useQuery<SolanaClient>({
-    // fallback data should not be reached if used within `SolanaProvider`
+export function useTrezoaClient(): TrezoaClient {
+  const { data: config } = useQuery<TrezoaClient>({
+    // fallback data should not be reached if used within `TrezoaProvider`
     // since we set the initial value. but just in case => devnet
-    initialData: createSolanaClient({
+    initialData: createTrezoaClient({
       urlOrMoniker: "devnet",
     }),
     queryKey: [GILL_HOOK_CLIENT_KEY],
@@ -20,12 +20,12 @@ export function useSolanaClient(): SolanaClient {
 }
 
 /**
- * Update your Solana client (including `rpc` and `rpcSubscriptions`)
+ * Update your Trezoa client (including `rpc` and `rpcSubscriptions`)
  */
-export function useUpdateSolanaClient() {
+export function useUpdateTrezoaClient() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (newClient: SolanaClient): Promise<void> => {
+    mutationFn: async (newClient: TrezoaClient): Promise<void> => {
       queryClient.setQueryData([GILL_HOOK_CLIENT_KEY], newClient);
 
       return await Promise.resolve();

@@ -1,11 +1,11 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import type { Account, Address, Decoder, FetchAccountsConfig, Simplify } from "gill";
-import { assertAccountsExist, decodeAccount, fetchEncodedAccounts } from "gill";
+import type { Account, Address, Decoder, FetchAccountsConfig, Simplify } from "trezoagill";
+import { assertAccountsExist, decodeAccount, fetchEncodedAccounts } from "trezoagill";
 
 import { GILL_HOOK_CLIENT_KEY } from "../const.js";
-import { useSolanaClient } from "./client.js";
+import { useTrezoaClient } from "./client.js";
 import type { GillUseRpcHook } from "./types.js";
 
 type RpcConfig = Simplify<Omit<FetchAccountsConfig, "abortSignal">>;
@@ -30,8 +30,8 @@ type UseMultipleAccountsResponse<TAddress extends string = string, TDecodedData 
 };
 
 /**
- * Fetch multiple accounts using the Solana RPC method of
- * [`getMultipleAccounts`](https://solana.com/docs/rpc/http/getmultipleaccounts)
+ * Fetch multiple accounts using the Trezoa RPC method of
+ * [`getMultipleAccounts`](https://trezoa.com/docs/rpc/http/getmultipleaccounts)
  *
  * Optionally provide a {@link Decoder | `decoder`} to automatically decode all Accounts using it.
  */
@@ -40,7 +40,7 @@ export function useMultipleAccounts<
   TAddress extends string = string,
   TDecodedData extends object = Uint8Array,
 >({ addresses, decoder, config, options, abortSignal }: UseMultipleAccountsInput<TConfig, TAddress, TDecodedData>) {
-  const { rpc, urlOrMoniker } = useSolanaClient();
+  const { rpc, urlOrMoniker } = useTrezoaClient();
 
   if (abortSignal) {
     // @ts-expect-error we stripped the `abortSignal` from the type but are now adding it back in

@@ -1,4 +1,4 @@
-import { COMPUTE_BUDGET_PROGRAM_ADDRESS, getSetComputeUnitLimitInstruction } from "@solana-program/compute-budget";
+import { COMPUTE_BUDGET_PROGRAM_ADDRESS, getSetComputeUnitLimitInstruction } from "@trezoa-program/compute-budget";
 import type {
   GetLatestBlockhashApi,
   Rpc,
@@ -6,12 +6,12 @@ import type {
   TransactionMessage,
   TransactionMessageWithBlockhashLifetime,
   TransactionMessageWithFeePayer,
-} from "@solana/kit";
+} from "@trezoa/kit";
 import {
   appendTransactionMessageInstruction,
   assertIsTransactionMessageWithBlockhashLifetime,
   setTransactionMessageLifetimeUsingBlockhash,
-} from "@solana/kit";
+} from "@trezoa/kit";
 import { isSetComputeLimitInstruction, estimateComputeUnitLimitFactory } from "../programs/compute-budget";
 import { transactionToBase64WithSigners } from "./base64-to-transaction";
 import { debug, isDebugEnabled } from "./debug";

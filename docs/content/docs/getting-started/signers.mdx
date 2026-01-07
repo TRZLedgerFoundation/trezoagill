@@ -8,11 +8,11 @@ This object type is capable of being "attached" to instructions and transaction 
 operations.
 
 The most common of which is a `KeyPairSigner`, which is able to be passed around to the various
-functions within gill to satisfies any `TransactionSigner` type requirements, like when building
+functions within trezoagill to satisfies any `TransactionSigner` type requirements, like when building
 instructions or creating transactions.
 
 <Callout>
-  Unless otherwise specifically noted in the gill documentation, the term "signer" refers to
+  Unless otherwise specifically noted in the trezoagill documentation, the term "signer" refers to
   `TransactionSigner` and usually a `KeyPairSigner`.
 </Callout>
 
@@ -26,7 +26,7 @@ The `generateKeyPairSigner()` function allows you to generate a new random `KeyP
 satisfies the `TransactionSigner` type) to perform signing operations.
 
 ```typescript twoslash
-import { generateKeyPairSigner, type KeyPairSigner } from "gill";
+import { generateKeyPairSigner, type KeyPairSigner } from "trezoagill";
 
 const signer = await generateKeyPairSigner();
 ```
@@ -45,13 +45,13 @@ extractable keypairs, unless you REALLY need to be able to save the keypair for 
 
 Extractable keypairs are less secure and should not be used unless you REALLY need to
 [save a keypair](/docs/guides/loading-and-saving-keypairs) for some reason. Since there are a few
-useful cases for saving these keypairs, gill contains a separate explicit function to generate these
+useful cases for saving these keypairs, trezoagill contains a separate explicit function to generate these
 extractable keypairs.
 
 To generate a random, **extractable** `KeyPairSigner`:
 
 ```typescript twoslash
-import { generateExtractableKeyPairSigner } from "gill";
+import { generateExtractableKeyPairSigner } from "trezoagill";
 
 const signer = await generateExtractableKeyPairSigner();
 ```
@@ -73,7 +73,7 @@ You will need to create a "noop signer" in order to satisfy the `TransactionSign
 the `createTransaction()` functions's `feePayer`:
 
 ```typescript twoslash
-import { createNoopSigner, type Address, createTransaction } from "gill";
+import { createNoopSigner, type Address, createTransaction } from "trezoagill";
 
 const wallet = "nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5" as Address;
 

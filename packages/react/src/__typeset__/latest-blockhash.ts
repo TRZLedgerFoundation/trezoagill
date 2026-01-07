@@ -1,4 +1,4 @@
-import { GetLatestBlockhashApi } from "gill";
+import { GetLatestBlockhashApi } from "trezoagill";
 import { useLatestBlockhash } from "../hooks/index.js";
 
 // [DESCRIBE] useLatestBlockhash

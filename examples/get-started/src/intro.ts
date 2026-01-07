@@ -1,34 +1,34 @@
 import {
-  createSolanaClient,
+  createTrezoaClient,
   createTransaction,
   getExplorerLink,
   getSignatureFromTransaction,
   signTransactionMessageWithSigners,
-  SolanaClusterMoniker,
-} from "gill";
-import { loadKeypairSignerFromFile } from "gill/node";
-import { getAddMemoInstruction } from "gill/programs";
+  TrezoaClusterMoniker,
+} from "trezoagill";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
+import { getAddMemoInstruction } from "trezoagill/programs";
 
 /**
  * Load a keypair signer from the local filesystem
  *
- * This defaults to the file path used by the Solana CLI: `~/.config/solana/id.json`
+ * This defaults to the file path used by the Trezoa CLI: `~/.config/trezoa/id.json`
  */
 const signer = await loadKeypairSignerFromFile();
 console.log("address:", signer.address);
 
 /**
- * Declare what Solana network cluster we want our code to interact with
+ * Declare what Trezoa network cluster we want our code to interact with
  */
-const cluster: SolanaClusterMoniker = "devnet";
+const cluster: TrezoaClusterMoniker = "devnet";
 
 /**
- * Create a client connection to the Solana blockchain
+ * Create a client connection to the Trezoa blockchain
  *
- * Note: `urlOrMoniker` can be either a Solana network moniker or a full URL of your RPC provider
+ * Note: `urlOrMoniker` can be either a Trezoa network moniker or a full URL of your RPC provider
  */
 const { rpc, sendAndConfirmTransaction, simulateTransaction } =
-  createSolanaClient({
+  createTrezoaClient({
     urlOrMoniker: cluster,
   });
 
@@ -83,7 +83,7 @@ console.log(signedTransaction);
 const signature = getSignatureFromTransaction(signedTransaction);
 
 /**
- * Log the Solana Explorer link for the
+ * Log the Trezoa Explorer link for the
  */
 console.log("Explorer Link:");
 console.log(

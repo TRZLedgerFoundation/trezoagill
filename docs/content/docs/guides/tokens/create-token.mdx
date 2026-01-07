@@ -1,7 +1,7 @@
 ---
 title: Create a Token with Metadata
 description:
-  Learn how to create a new Solana token, with metadata, using the gill JavaScript library.
+  Learn how to create a new Solana token, with metadata, using the trezoagill JavaScript library.
 ---
 
 Tokens are digital assets that represent ownership over diverse categories of assets. Tokenization
@@ -9,20 +9,20 @@ enables the digitalization of property rights. Tokens on Solana are referred to 
 ([Solana Program Library](https://github.com/solana-program)) Tokens.
 
 This article will demonstrate [how to create a new SPL token](./create-token) using the
-[`gill` package](https://www.npmjs.com/package/gill), including attaching metadata to the token for
+[`trezoagill` package](https://www.npmjs.com/package/trezoagill), including attaching metadata to the token for
 users to see and applications to display.
 
-## Install gill
+## Install trezoagill
 
-Install gill using the core `gill` library:
+Install trezoagill using the core `trezoagill` library:
 
 ```package-install
-gill
+trezoagill
 ```
 
 import { PackageBadges } from "@/components/package-badges";
 
-<PackageBadges packageName="gill" />
+<PackageBadges packageName="trezoagill" />
 
 ## Create an RPC connection
 
@@ -34,7 +34,7 @@ The `urlOrMoniker` can be either a Solana network moniker (e.g. `devnet`, `mainn
 a full URL of your RPC provider.
 
 ```ts twoslash
-import { createSolanaClient } from "gill";
+import { createSolanaClient } from "trezoagill";
 
 const { rpc, sendAndConfirmTransaction } = createSolanaClient({
   urlOrMoniker: "devnet", // `mainnet`, `localnet`, etc
@@ -62,8 +62,8 @@ following are common practices:
 For backend scripts and some server environments, you can load a signer from your local filesystem:
 
 ```ts twoslash
-import { type KeyPairSigner } from "gill";
-import { loadKeypairSignerFromFile } from "gill/node";
+import { type KeyPairSigner } from "trezoagill";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
 
 // This defaults to the file path used by the Solana CLI: `~/.config/solana/id.json`
 const signer: KeyPairSigner = await loadKeypairSignerFromFile();
@@ -75,7 +75,7 @@ console.log("signer:", signer.address);
 To use the legacy Token Program:
 
 ```ts twoslash
-import { TOKEN_PROGRAM_ADDRESS } from "gill/programs";
+import { TOKEN_PROGRAM_ADDRESS } from "trezoagill/programs";
 
 const tokenProgram = TOKEN_PROGRAM_ADDRESS;
 ```
@@ -83,7 +83,7 @@ const tokenProgram = TOKEN_PROGRAM_ADDRESS;
 To use the Token Extensions Program (aka Token22):
 
 ```ts twoslash
-import { TOKEN_2022_PROGRAM_ADDRESS } from "gill/programs";
+import { TOKEN_2022_PROGRAM_ADDRESS } from "trezoagill/programs";
 
 const tokenProgram = TOKEN_2022_PROGRAM_ADDRESS;
 ```
@@ -91,7 +91,7 @@ const tokenProgram = TOKEN_2022_PROGRAM_ADDRESS;
 ## Generate a Mint and metadata address
 
 ```ts twoslash
-import { generateKeyPairSigner } from "gill";
+import { generateKeyPairSigner } from "trezoagill";
 
 const mint = await generateKeyPairSigner();
 ```
@@ -100,8 +100,8 @@ If you are using the legacy Token Program, you will need to derive the "metadata
 Metaplex's Token Metadata program.
 
 ```ts twoslash
-import { generateKeyPairSigner } from "gill";
-import { getTokenMetadataAddress } from "gill/programs";
+import { generateKeyPairSigner } from "trezoagill";
+import { getTokenMetadataAddress } from "trezoagill/programs";
 
 const mint = await generateKeyPairSigner();
 const metadataAddress = await getTokenMetadataAddress(mint);
@@ -116,13 +116,13 @@ const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
 ## Create a transaction that creates a token
 
 <Callout>
-  Instead of manually crafting all of these instructions, you can also use gill's instruction
+  Instead of manually crafting all of these instructions, you can also use trezoagill's instruction
   builder function: `getCreateTokenInstructions()`
 </Callout>
 
 ```ts
-import { createTransaction } from "gill";
-import { getMintSize } from "gill/programs";
+import { createTransaction } from "trezoagill";
+import { getMintSize } from "trezoagill/programs";
 
 const space = getMintSize();
 
@@ -176,7 +176,7 @@ const transaction = createTransaction({
 With your transaction fully created, you can now sign the transaction to
 
 ```ts
-import { signTransactionMessageWithSigners } from "gill";
+import { signTransactionMessageWithSigners } from "trezoagill";
 
 const signedTransaction = await signTransactionMessageWithSigners(transaction);
 

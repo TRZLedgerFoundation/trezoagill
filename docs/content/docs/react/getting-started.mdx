@@ -1,9 +1,9 @@
 ---
-title: Getting Started with @gillsdk/react
-description: Learn how to set up and configure @gillsdk/react in your React application
+title: Getting Started with @trezoagill/react
+description: Learn how to set up and configure @trezoagill/react in your React application
 ---
 
-This guide will walk you through setting up `@gillsdk/react` in your React application, including
+This guide will walk you through setting up `@trezoagill/react` in your React application, including
 configuration for Next.js App Router, Remix, and other frameworks that support React Server
 Components.
 
@@ -23,10 +23,10 @@ Before you begin, make sure you have:
 
 ### Install Dependencies
 
-First, install `@gillsdk/react` along with its peer dependencies:
+First, install `@trezoagill/react` along with its peer dependencies:
 
 ```package-install
-gill @gillsdk/react @tanstack/react-query
+trezoagill @trezoagill/react @tanstack/react-query
 ```
 
 </Step>
@@ -35,10 +35,10 @@ gill @gillsdk/react @tanstack/react-query
 
 ### Create a Solana Client
 
-Create a Solana client using gill's `createSolanaClient` function:
+Create a Solana client using trezoagill's `createSolanaClient` function:
 
 ```typescript
-import { createSolanaClient } from "gill";
+import { createSolanaClient } from "trezoagill";
 
 const client = createSolanaClient({
   urlOrMoniker: "devnet", // or "mainnet", "testnet", or a custom RPC URL
@@ -57,13 +57,13 @@ const client = createSolanaClient({
 ### Wrap Your App with SolanaProvider
 
 The `SolanaProvider` is a React context provider that makes the Solana client available to all
-`@gillsdk/react` hooks in your component tree.
+`@trezoagill/react` hooks in your component tree.
 
 #### For Standard React Apps
 
 ```tsx
-import { createSolanaClient } from "gill";
-import { SolanaProvider } from "@gillsdk/react";
+import { createSolanaClient } from "trezoagill";
+import { SolanaProvider } from "@trezoagill/react";
 
 const client = createSolanaClient({
   urlOrMoniker: "devnet",
@@ -87,7 +87,7 @@ RSC-enabled frameworks), you need to create a client-side wrapper component.
   component and its children should run on the client side (in the browser) rather than on the
   server. This is necessary because:
   
-  - `@gillsdk/react` uses React hooks (`useState`, `useEffect`, etc.)
+  - `@trezoagill/react` uses React hooks (`useState`, `useEffect`, etc.)
   which only work on the client
   - The provider creates and hooks consume React context, which is a
   client-side feature
@@ -100,8 +100,8 @@ Here's how to create a client-side provider wrapper:
 ```tsx filename="app/providers/solana-provider.tsx"
 "use client"; // Required - marks this as a Client Component
 
-import { createSolanaClient } from "gill";
-import { SolanaProvider } from "@gillsdk/react";
+import { createSolanaClient } from "trezoagill";
+import { SolanaProvider } from "@trezoagill/react";
 
 const client = createSolanaClient({
   urlOrMoniker: "devnet",
@@ -132,17 +132,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 <Step>
 
-### Use @gillsdk/react Hooks
+### Use @trezoagill/react Hooks
 
-Now you can use any `@gillsdk/react` hook in your components. When using frameworks with React
+Now you can use any `@trezoagill/react` hook in your components. When using frameworks with React
 Server Components (like Next.js App Router), remember to add the `"use client"` directive to any
-component that uses `@gillsdk/react` hooks:
+component that uses `@trezoagill/react` hooks:
 
 ```tsx filename="app/components/balance.tsx"
 "use client"; // Required when using React Server Components
 
-import { lamportsToSol } from "gill";
-import { useBalance } from "@gillsdk/react";
+import { lamportsToSol } from "trezoagill";
+import { useBalance } from "@trezoagill/react";
 
 export function WalletBalance() {
   const { balance, isLoading, isError, error } = useBalance({
@@ -191,8 +191,8 @@ You can manage multiple Solana clients using the `useUpdateSolanaClient` hook:
 ```tsx
 "use client";
 
-import { createSolanaClient } from "gill";
-import { useUpdateSolanaClient } from "@gillsdk/react";
+import { createSolanaClient } from "trezoagill";
+import { useUpdateSolanaClient } from "@trezoagill/react";
 
 function NetworkSwitcher() {
   const { mutate: updateClient } = useUpdateSolanaClient();
@@ -210,7 +210,7 @@ function NetworkSwitcher() {
 
 ## TypeScript Configuration
 
-`@gillsdk/react` is fully typed out of the box. No additional TypeScript configuration is required.
+`@trezoagill/react` is fully typed out of the box. No additional TypeScript configuration is required.
 However, ensure your `tsconfig.json` has:
 
 ```json
@@ -230,18 +230,18 @@ However, ensure your `tsconfig.json` has:
 
 If you see errors like "You're importing a component that needs useEffect. It only works in a Client
 Component" or "useState only works in Client Components", this means you're trying to use
-`@gillsdk/react` in a Server Component. (which NextJS App router does by default unless the
+`@trezoagill/react` in a Server Component. (which NextJS App router does by default unless the
 `"use client"` directive is explicitly used).
 
 **Why this happens:**
 
 - React Server Components run on the server during build/request time
-- `@gillsdk/react` uses browser-specific features like React hooks and Web APIs
+- `@trezoagill/react` uses browser-specific features like React hooks and Web APIs
 - The Solana client needs to make RPC calls from the browser
 
 **To fix:**
 
-1. Add `"use client"` at the top of any file using `@gillsdk/react` hooks
+1. Add `"use client"` at the top of any file using `@trezoagill/react` hooks
 2. Ensure your `SolanaProvider` wrapper has `"use client"` at the top
 3. Make sure the provider is properly wrapped around your component tree
 
@@ -250,7 +250,7 @@ Component" or "useState only works in Client Components", this means you're tryi
 - Forgot to add `"use client"` to a component using
   [`useBalance`](/docs/react/hooks/data-fetching#usebalance),
   [`useAccount`](/docs/react/hooks/data-fetching#useaccount), etc.
-- Trying to use `@gillsdk/react` hooks directly in a `page.tsx` without the directive
+- Trying to use `@trezoagill/react` hooks directly in a `page.tsx` without the directive
 - Importing a Client Component into a Server Component without proper boundaries
 
 ### RPC Rate Limiting
@@ -271,5 +271,5 @@ To minimize bundle size:
 
 ---
 
-Ready to start using `@gillsdk/react`? Check out the [available hooks](/docs/react/hooks) to begin
+Ready to start using `@trezoagill/react`? Check out the [available hooks](/docs/react/hooks) to begin
 fetching blockchain data in your React application.

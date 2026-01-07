@@ -1,22 +1,22 @@
 /**
  * The purpose of this script is to compare some of the differences
- * of using `gill` as a single entrypoint vs `@solana/kit`
- * (and the various `@solana-program/*` packages).
+ * of using `trezoagill` as a single entrypoint vs `@trezoa/kit`
+ * (and the various `@trezoa-program/*` packages).
  *
- * This script is the `gill` version of the comparison.
- * See the `@solana/kit` version in the ./basic-compare.ts file
+ * This script is the `trezoagill` version of the comparison.
+ * See the `@trezoa/kit` version in the ./basic-compare.ts file
  */
 import {
-  createSolanaClient,
+  createTrezoaClient,
   createTransaction,
   getExplorerLink,
   getSignatureFromTransaction,
   signTransactionMessageWithSigners,
-} from "gill";
-import { loadKeypairSignerFromFile } from "gill/node";
-import { getAddMemoInstruction } from "gill/programs";
+} from "trezoagill";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
+import { getAddMemoInstruction } from "trezoagill/programs";
 
-const { rpc, sendAndConfirmTransaction } = createSolanaClient({
+const { rpc, sendAndConfirmTransaction } = createTrezoaClient({
   urlOrMoniker: "devnet",
 });
 

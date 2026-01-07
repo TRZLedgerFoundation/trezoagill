@@ -1,15 +1,15 @@
 export const siteConfig: SiteConfig = {
-  name: "gill",
-  domain: "gillsdk.com",
+  name: "trezoagill",
+  domain: "trezoagill.com",
   description:
-    "gill is a modern javascript/typescript client library for interacting with the Solana blockchain.",
-  url: "https://gillsdk.com",
-  ogImage: "https://gillsdk.com/og.png",
+    "trezoagill is a modern javascript/typescript client library for interacting with the Trezoa blockchain.",
+  url: "https://trezoagill.com",
+  ogImage: "https://trezoagill.com/og.png",
   links: {
-    github: "https://github.com/gillsdk/gill",
-    twitter: "https://x.com/gillsdk",
+    github: "https://github.com/TRZLedgerFoundation/trezoagill",
+    twitter: "https://x.com/trezoagill",
     // docs: "",
   },
-  twitterHandle: "gillsdk",
+  twitterHandle: "trezoagill",
   // twitterId: "0",
 };

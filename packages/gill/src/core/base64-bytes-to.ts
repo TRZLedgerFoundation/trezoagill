@@ -1,5 +1,5 @@
-import type { Address, Signature } from "@solana/kit";
-import { assertIsAddress, assertIsSignature, getBase58Decoder, getBase64Encoder } from "@solana/kit";
+import type { Address, Signature } from "@trezoa/kit";
+import { assertIsAddress, assertIsSignature, getBase58Decoder, getBase64Encoder } from "@trezoa/kit";
 
 /**
  * Takes a base64 encoded string of a byte array, parses, then asserts it as an {@link Address}

@@ -5,39 +5,39 @@
  * TypeDoc generated API reference's index files
  */
 export const typedocPageIndexData = {
-  gill: {
+  trezoagill: {
     frontmatter: {
-      title: "gill",
+      title: "trezoagill",
       description:
-        "A modern JavaScript/TypeScript client library for interacting with the Solana blockchain.",
+        "A modern JavaScript/TypeScript client library for interacting with the Trezoa blockchain.",
     },
   },
-  "gill-node": {
+  "trezoagill-node": {
     frontmatter: {
-      title: "gill/node",
+      title: "trezoagill/node",
       description:
-        "Functions and utilities designed for interacting with the Solana blockchain using JavaScript server backends and runtimes.",
+        "Functions and utilities designed for interacting with the Trezoa blockchain using JavaScript server backends and runtimes.",
     },
   },
-  "gill-programs": {
+  "trezoagill-programs": {
     frontmatter: {
-      title: "gill/programs",
+      title: "trezoagill/programs",
       description:
-        "Utilize the compatible Solana program clients that ship directly within gill. Including common programs from the official Solana Program Library (SPL), Metaplex, and others.",
+        "Utilize the compatible Solana program clients that ship directly within trezoagill. Including common programs from the official Trezoa Program Library (TPL), Metaplex, and others.",
     },
   },
   react: {
     frontmatter: {
-      title: "@gillsdk/react",
+      title: "@trezoagill/react",
       description:
-        "A React hooks library for easily interacting with the Solana blockchain. Built on top of gill and TanStack Query.",
+        "A React hooks library for easily interacting with the Trezoa blockchain. Built on top of trezoagill and TanStack Query.",
     },
   },
-  "solana-pay": {
+  "trezoa-pay": {
     frontmatter: {
-      title: "@gillsdk/solana-pay",
+      title: "@trezoagill/trezoa-pay",
       description:
-        "A complete, type-safe implementation of the Solana Pay specification for creating, parsing, and validating transfer and transaction request URLs.",
+        "A complete, type-safe implementation of the Trezoa Pay specification for creating, parsing, and validating transfer and transaction request URLs.",
     },
   },
 };

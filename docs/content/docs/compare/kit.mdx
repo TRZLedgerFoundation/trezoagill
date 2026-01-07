@@ -1,10 +1,10 @@
 ---
-title: gill vs @solana/kit
+title: trezoagill vs @solana/kit
 description:
-  "Explore a side-by-side comparison of gill and @solana/kit (formerly known as web3js v2)"
+  "Explore a side-by-side comparison of trezoagill and @solana/kit (formerly known as web3js v2)"
 ---
 
-The gill library is built directly on top of
+The trezoagill library is built directly on top of
 [`@solana/kit`](https://www.npmjs.com/package/@solana/kit), the new JavaScript primitives developed
 by [Anza](https://anza.xyz) as a more performant replacement for the old
 [`@solana/web3.js`](https://www.npmjs.com/package/@solana/web3.js). Since Kit only ships these new
@@ -13,7 +13,7 @@ and ballooning their applications with verbose boilerplate.
 
 Gill is able to ship **both** the same low level primitives as Kit **and** lightly opinionated
 abstractions to simplify common tasks, all from a single compatible interface. By simplifying across
-the board with gill, developers can focus more time on their application's business logic and not
+the board with trezoagill, developers can focus more time on their application's business logic and not
 verbose boilerplate.
 
 <Callout>
@@ -23,8 +23,8 @@ verbose boilerplate.
   `@solana/kit`.
 </Callout>
 
-You can find the complete scripts that the example code snippets were created from in the gill repo
-[here](https://github.com/gillsdk/gill/tree/master/examples/get-started#comparison-of-gill-vs-solanakit-aka-web3js-v2).
+You can find the complete scripts that the example code snippets were created from in the trezoagill repo
+[here](https://github.com/trezoagill/trezoagill/tree/master/examples/get-started#comparison-of-trezoagill-vs-solanakit-aka-web3js-v2).
 Both are written with honest intentions, best practices, and attempt to be as concise as possible in
 accomplishing the same task.
 
@@ -42,8 +42,8 @@ connection consists of the following three parts (at a minimum):
 The following code snippets demonstrate how to instantiate all three of these connection pieces for
 each of the libraries:
 
-```ts tab="gill"
-import { createSolanaClient } from "gill";
+```ts tab="trezoagill"
+import { createSolanaClient } from "trezoagill";
 
 const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient({
   urlOrMoniker: "devnet",
@@ -70,7 +70,7 @@ const sendAndConfirmTransaction = sendAndConfirmTransactionFactory({
 
 ## Making RPC requests
 
-For both `@solana/kit` and `gill`, making standard Solana RPC requests is the same: use the
+For both `@solana/kit` and `trezoagill`, making standard Solana RPC requests is the same: use the
 previously created `rpc` object.
 
 ```ts
@@ -90,8 +90,8 @@ For local scripts, JavaScript server runtimes (like NodeJS and Bun), and backend
 common to load a keypair from the file system or an ENV variable. The following is how to accomplish
 this for both libraries:
 
-```ts tab="gill"
-import { loadKeypairSignerFromFile } from "gill/node";
+```ts tab="trezoagill"
+import { loadKeypairSignerFromFile } from "trezoagill/node";
 
 const signer = await loadKeypairSignerFromFile();
 ```
@@ -114,11 +114,11 @@ const keypair = await createKeyPairFromBytes(
 Note that `@solana/kit` has no specific functionality for loading keypairs from files or ENV
 variables, so developers must implement the file/ENV reading operations themselves.
 
-Whereas gill includes multiple functions to handle these very scenarios:
+Whereas trezoagill includes multiple functions to handle these very scenarios:
 
-- [`loadKeypairSignerFromFile()`](/api/gill-node/functions/loadKeypairSignerFromFile)
-- [`loadKeypairSignerFromEnvironment()`](/api/gill-node/functions/loadKeypairSignerFromEnvironment)
-- [`loadKeypairSignerFromEnvironmentBase58()`](/api/gill-node/functions/loadKeypairSignerFromEnvironmentBase58)
+- [`loadKeypairSignerFromFile()`](/api/trezoagill-node/functions/loadKeypairSignerFromFile)
+- [`loadKeypairSignerFromEnvironment()`](/api/trezoagill-node/functions/loadKeypairSignerFromEnvironment)
+- [`loadKeypairSignerFromEnvironmentBase58()`](/api/trezoagill-node/functions/loadKeypairSignerFromEnvironmentBase58)
 
 <Callout>
   The `loadKeypairSignerFromFile()` function defaults to the Solana CLI's keypair path
@@ -134,9 +134,9 @@ creating transactions.
 The following are examples of how to create a simple Memo transaction that includes basic
 optimizations (via compute budget instructions):
 
-```ts tab="gill"
-import { createTransaction } from "gill";
-import { getAddMemoInstruction } from "gill/programs";
+```ts tab="trezoagill"
+import { createTransaction } from "trezoagill";
+import { getAddMemoInstruction } from "trezoagill/programs";
 
 const transaction = createTransaction({
   version: "legacy",
@@ -187,8 +187,8 @@ const transaction = pipe(
 Notice that the `@solana/kit` based example above requires manually installing two additional
 packages: `@solana-program/compute-budget` and `@solana-program/memo`.
 
-Whereas gill takes a different approach:
+Whereas trezoagill takes a different approach:
 
 - `createTransaction` natively supports setting the same compute budget instructions
-- the included Memo program client is directly accessible via the `gill/programs` import path
+- the included Memo program client is directly accessible via the `trezoagill/programs` import path
   without having to manually install the package

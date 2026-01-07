@@ -6,7 +6,7 @@ description:
 ---
 
 When building server-side applications, backend services, or CLI tools, you'll often need to manage
-keypairs for signing transactions. The `gill/node` package provides utilities for loading keypairs
+keypairs for signing transactions. The `trezoagill/node` package provides utilities for loading keypairs
 from the filesystem or environment variables, and even simplifies saving them for later use.
 
 This guide covers the essential functions for keypair management in JavaScript server environments
@@ -14,21 +14,21 @@ including Node.js, Bun, and others.
 
 ## Installation
 
-To get started, install the `gill` package:
+To get started, install the `trezoagill` package:
 
 ```package-install
-gill
+trezoagill
 ```
 
-The server-side keypair utilities are available under the `gill/node` export path:
+The server-side keypair utilities are available under the `trezoagill/node` export path:
 
 ```ts
-import { loadKeypairSignerFromFile, saveKeypairSignerToFile } from "gill/node";
+import { loadKeypairSignerFromFile, saveKeypairSignerToFile } from "trezoagill/node";
 ```
 
 ## Available Functions
 
-The `gill/node` package provides the following keypair management functions:
+The `trezoagill/node` package provides the following keypair management functions:
 
 **Loading functions:**
 
@@ -67,7 +67,7 @@ stringified array of 64 numbers representing the keypair bytes). This is the sam
 keypairs generated and used by the Solana CLI.
 
 ```ts twoslash
-import { loadKeypairSignerFromEnvironment } from "gill/node";
+import { loadKeypairSignerFromEnvironment } from "trezoagill/node";
 
 // Expects process.env.MY_KEYPAIR to contain: [123,45,67,89,...]
 const signer = await loadKeypairSignerFromEnvironment("MY_KEYPAIR");
@@ -92,7 +92,7 @@ to copy and paste, and is commonly used in certain wallet applications.
 Use `loadKeypairSignerFromEnvironmentBase58()` when your keypair is stored in this format:
 
 ```ts twoslash
-import { loadKeypairSignerFromEnvironmentBase58 } from "gill/node";
+import { loadKeypairSignerFromEnvironmentBase58 } from "trezoagill/node";
 
 // Expects process.env.MY_KEYPAIR to contain a base58 string
 const signer = await loadKeypairSignerFromEnvironmentBase58("MY_KEYPAIR");
@@ -139,8 +139,8 @@ This is particularly useful for:
 Here's how to generate and save a keypair to a `.env` file:
 
 ```ts twoslash
-import { generateExtractableKeyPairSigner } from "gill";
-import { saveKeypairSignerToEnvFile } from "gill/node";
+import { generateExtractableKeyPairSigner } from "trezoagill";
+import { saveKeypairSignerToEnvFile } from "trezoagill/node";
 
 // Generate an extractable keypair
 const signer = await generateExtractableKeyPairSigner();
@@ -163,8 +163,8 @@ MY_KEYPAIR=[123,45,67,89,...]
 You can specify a custom path for the environment file:
 
 ```ts twoslash
-import { generateExtractableKeyPairSigner } from "gill";
-import { saveKeypairSignerToEnvFile } from "gill/node";
+import { generateExtractableKeyPairSigner } from "trezoagill";
+import { saveKeypairSignerToEnvFile } from "trezoagill/node";
 
 const signer = await generateExtractableKeyPairSigner();
 
@@ -200,7 +200,7 @@ By default, `loadKeypairSignerFromFile()` loads the keypair from the default Sol
 (`~/.config/solana/id.json`):
 
 ```ts twoslash
-import { loadKeypairSignerFromFile } from "gill/node";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
 
 const signer = await loadKeypairSignerFromFile();
 
@@ -212,7 +212,7 @@ console.log("Loaded signer:", signer.address);
 You can also specify a custom path to load keypairs from other locations:
 
 ```ts twoslash
-import { loadKeypairSignerFromFile } from "gill/node";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
 
 const signer = await loadKeypairSignerFromFile("./my-keypair.json");
 
@@ -257,8 +257,8 @@ Common use cases for saving keypairs to files include:
 ### Generating and Saving an Extractable Keypair
 
 ```ts twoslash
-import { generateExtractableKeyPairSigner } from "gill";
-import { saveKeypairSignerToFile } from "gill/node";
+import { generateExtractableKeyPairSigner } from "trezoagill";
+import { saveKeypairSignerToFile } from "trezoagill/node";
 
 // Generate an extractable keypair
 const signer = await generateExtractableKeyPairSigner();
@@ -320,7 +320,7 @@ Here are some security best practices:
 Here's a typical pattern for a backend service that works in both development and production:
 
 ```ts twoslash
-import { loadKeypairSignerFromFile, loadKeypairSignerFromEnvironment } from "gill/node";
+import { loadKeypairSignerFromFile, loadKeypairSignerFromEnvironment } from "trezoagill/node";
 
 // Load keypair based on environment
 const signer =

@@ -10,7 +10,7 @@ import type {
   Transaction,
   TransactionMessage,
   TransactionMessageWithFeePayer,
-} from "@solana/kit";
+} from "@trezoa/kit";
 import { simulateTransactionFactory } from "../core/simulate-transaction";
 
 const rpc = null as unknown as Rpc<SimulateTransactionApi>;

@@ -1,10 +1,10 @@
 ---
 title: Debug Mode
 description:
-  "Understand how to use gill's debug mode to more easily debug your Solana applications."
+  "Understand how to use trezoagill's debug mode to more easily debug your Solana applications."
 ---
 
-Within `gill`, you can enable "debug mode" to automatically log additional information that will be
+Within `trezoagill`, you can enable "debug mode" to automatically log additional information that will be
 helpful in troubleshooting your Solana applications (especially failing transactions).
 
 [Debug mode](./debug-mode) is disabled by default to minimize additional logs for your application.
@@ -12,7 +12,7 @@ But with its flexible debug controller, you can enable it from the most common p
 be run. Including your code itself, NodeJS backends, serverless functions, and even the in web
 browser console itself.
 
-Some examples of the existing debug logs that `gill` has sprinkled in:
+Some examples of the existing debug logs that `trezoagill` has sprinkled in:
 
 - log the Solana Explorer link for transactions as you are sending them via
   `sendAndConfirmTransaction`
@@ -30,7 +30,7 @@ To enable debug mode, set any of the following to `true` or `1`:
 - or manually set any debug log level (see below)
 
 ```ts
-import { ... } from "gill"
+import { ... } from "trezoagill"
 
 /** Turn on debug mode */
 global.__GILL_DEBUG__ = true;
@@ -51,7 +51,7 @@ following (default: `info`):
 - `window.__GILL_DEBUG_LEVEL__` (i.e. in your web browser's console)
 
 ```ts
-import { ... } from "gill"
+import { ... } from "trezoagill"
 
 /** Set the debug mode log level (default: `info`) */
 global.__GILL_DEBUG_LEVEL__ = "debug";
@@ -67,7 +67,7 @@ The log levels supported (in order of priority):
 ## Custom debug logs
 
 Gill also exports the same debug functions it uses internally, allowing you to implement your own
-debug logic related to your Solana application and use the same controller for it as `gill` does.
+debug logic related to your Solana application and use the same controller for it as `trezoagill` does.
 
 These functions include:
 
@@ -75,7 +75,7 @@ These functions include:
 - `debug()` - print debug message if the set log level is reached
 
 ```typescript
-import { debug, isDebugEnabled } from "gill";
+import { debug, isDebugEnabled } from "trezoagill";
 
 if (isDebugEnabled()) {
   // your custom logic

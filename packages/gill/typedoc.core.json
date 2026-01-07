@@ -2,5 +2,5 @@
   "$schema": "https://typedoc.org/schema.json",
   "extends": ["../../typedoc.json"],
   "entryPoints": ["src/index.ts"],
-  "out": "./.docs/gill"
+  "out": "./.docs/trezoagill"
 }

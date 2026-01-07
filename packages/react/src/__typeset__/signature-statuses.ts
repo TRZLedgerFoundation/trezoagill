@@ -1,4 +1,4 @@
-import { Signature, SolanaRpcResponse } from "gill";
+import { Signature, TrezoaRpcResponse } from "trezoagill";
 import { useSignatureStatuses } from "../hooks/signature-statuses.js";
 
 // [DESCRIBE] useSignatureStatuses
@@ -7,5 +7,5 @@ import { useSignatureStatuses } from "../hooks/signature-statuses.js";
   const signatures = [signature];
 
   const { statuses } = useSignatureStatuses({ signatures });
-  statuses satisfies SolanaRpcResponse<any>["value"];
+  statuses satisfies TrezoaRpcResponse<any>["value"];
 }

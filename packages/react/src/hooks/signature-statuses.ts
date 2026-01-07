@@ -1,10 +1,10 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import type { GetSignatureStatusesApi, Signature, Simplify } from "gill";
+import type { GetSignatureStatusesApi, Signature, Simplify } from "trezoagill";
 
 import { GILL_HOOK_CLIENT_KEY } from "../const.js";
-import { useSolanaClient } from "./client.js";
+import { useTrezoaClient } from "./client.js";
 import type { GillUseRpcHook } from "./types.js";
 
 type RpcConfig = Simplify<Parameters<GetSignatureStatusesApi["getSignatureStatuses"]>[1]>;
@@ -12,7 +12,7 @@ type RpcConfig = Simplify<Parameters<GetSignatureStatusesApi["getSignatureStatus
 type UseSignatureStatusesInput<TConfig extends RpcConfig = RpcConfig> = GillUseRpcHook<TConfig> & {
   /**
    * List of signatures used to call
-   * [`getSignatureStatuses`](https://solana.com/docs/rpc/http/getsignaturestatuses)
+   * [`getSignatureStatuses`](https://trezoa.com/docs/rpc/http/getsignaturestatuses)
    */
   signatures: Signature[] | string[];
 };
@@ -20,8 +20,8 @@ type UseSignatureStatusesInput<TConfig extends RpcConfig = RpcConfig> = GillUseR
 type UseSignatureStatusesResponse = ReturnType<GetSignatureStatusesApi["getSignatureStatuses"]>["value"];
 
 /**
- * Get the statuses of signatures using the Solana RPC method of
- * [`getSignatureStatuses`](https://solana.com/docs/rpc/http/getsignaturestatuses)
+ * Get the statuses of signatures using the Trezoa RPC method of
+ * [`getSignatureStatuses`](https://trezoa.com/docs/rpc/http/getsignaturestatuses)
  */
 export function useSignatureStatuses<TConfig extends RpcConfig = RpcConfig>({
   options,
@@ -29,7 +29,7 @@ export function useSignatureStatuses<TConfig extends RpcConfig = RpcConfig>({
   abortSignal,
   signatures,
 }: UseSignatureStatusesInput<TConfig>) {
-  const { rpc, urlOrMoniker } = useSolanaClient();
+  const { rpc, urlOrMoniker } = useTrezoaClient();
   const { data, ...rest } = useQuery({
     ...options,
     enabled: (options?.enabled ?? true) && signatures && signatures.length > 0,

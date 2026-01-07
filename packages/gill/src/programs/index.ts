@@ -11,5 +11,5 @@ export * from "./token";
  * Codama generated clients, stored internally in this package
  * (and associated helpers for them)
  */
-export * from "./memo"; // vendored in from @solana-program/memo
+export * from "./memo"; // vendored in from @trezoa-program/memo
 export * from "./token-metadata";

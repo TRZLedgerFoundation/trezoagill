@@ -1,5 +1,5 @@
 ---
-"@gillsdk/solana-pay": minor
+"@trezoagill/trezoa-pay": minor
 ---
 
-made explicit types for parsed and non parsed solana pay transaction request response
+made explicit types for parsed and non parsed trezoa pay transaction request response

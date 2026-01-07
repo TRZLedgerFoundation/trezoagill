@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest an idea for the gill sdk
+about: Suggest an idea for the trezoagill sdk
 title: "[FEATURE] "
 labels: "enhancement"
 assignees: ""

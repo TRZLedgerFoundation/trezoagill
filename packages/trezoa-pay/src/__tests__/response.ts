@@ -1,16 +1,16 @@
 import assert from "node:assert";
 
-import { transactionFromBase64 } from "gill";
-import { parseSolanaPayGetResponse, parseSolanaPayPostResponse, SolanaPayResponseError } from "../response.js";
+import { transactionFromBase64 } from "trezoagill";
+import { parseTrezoaPayGetResponse, parseTrezoaPayPostResponse, TrezoaPayResponseError } from "../response.js";
 
-describe("parseSolanaPayGetResponse", () => {
+describe("parseTrezoaPayGetResponse", () => {
   it("should parse valid GET response", () => {
     const data = {
       label: "Test Store",
       icon: "https://example.com/icon.png",
     };
 
-    const result = parseSolanaPayGetResponse(data);
+    const result = parseTrezoaPayGetResponse(data);
     assert.equal(result.label, data.label);
     assert.equal(result.icon.href, data.icon);
   });
@@ -21,9 +21,9 @@ describe("parseSolanaPayGetResponse", () => {
     };
 
     assert.throws(
-      () => parseSolanaPayGetResponse(data),
-      (err: SolanaPayResponseError) => {
-        assert(err instanceof SolanaPayResponseError);
+      () => parseTrezoaPayGetResponse(data),
+      (err: TrezoaPayResponseError) => {
+        assert(err instanceof TrezoaPayResponseError);
         assert.equal(err.message, "Invalid response: missing or invalid label");
         return true;
       },
@@ -37,9 +37,9 @@ describe("parseSolanaPayGetResponse", () => {
     };
 
     assert.throws(
-      () => parseSolanaPayGetResponse(data),
-      (err: SolanaPayResponseError) => {
-        assert(err instanceof SolanaPayResponseError);
+      () => parseTrezoaPayGetResponse(data),
+      (err: TrezoaPayResponseError) => {
+        assert(err instanceof TrezoaPayResponseError);
         assert.equal(err.message, "Invalid response: missing or invalid label");
         return true;
       },
@@ -52,9 +52,9 @@ describe("parseSolanaPayGetResponse", () => {
     };
 
     assert.throws(
-      () => parseSolanaPayGetResponse(data),
-      (err: SolanaPayResponseError) => {
-        assert(err instanceof SolanaPayResponseError);
+      () => parseTrezoaPayGetResponse(data),
+      (err: TrezoaPayResponseError) => {
+        assert(err instanceof TrezoaPayResponseError);
         assert.equal(err.message, "Invalid response: missing or invalid icon");
         return true;
       },
@@ -68,9 +68,9 @@ describe("parseSolanaPayGetResponse", () => {
     };
 
     assert.throws(
-      () => parseSolanaPayGetResponse(data),
-      (err: SolanaPayResponseError) => {
-        assert(err instanceof SolanaPayResponseError);
+      () => parseTrezoaPayGetResponse(data),
+      (err: TrezoaPayResponseError) => {
+        assert(err instanceof TrezoaPayResponseError);
         assert.equal(err.message, "Invalid icon URL format");
         return true;
       },
@@ -84,9 +84,9 @@ describe("parseSolanaPayGetResponse", () => {
     };
 
     assert.throws(
-      () => parseSolanaPayGetResponse(data),
-      (err: SolanaPayResponseError) => {
-        assert(err instanceof SolanaPayResponseError);
+      () => parseTrezoaPayGetResponse(data),
+      (err: TrezoaPayResponseError) => {
+        assert(err instanceof TrezoaPayResponseError);
         assert.equal(err.message, "Icon URL must use HTTP or HTTPS protocol");
         return true;
       },
@@ -100,9 +100,9 @@ describe("parseSolanaPayGetResponse", () => {
     };
 
     assert.throws(
-      () => parseSolanaPayGetResponse(data),
-      (err: SolanaPayResponseError) => {
-        assert(err instanceof SolanaPayResponseError);
+      () => parseTrezoaPayGetResponse(data),
+      (err: TrezoaPayResponseError) => {
+        assert(err instanceof TrezoaPayResponseError);
         assert.equal(err.message, "Icon must be SVG, PNG, WebP, or JPEG format");
         return true;
       },
@@ -118,7 +118,7 @@ describe("parseSolanaPayGetResponse", () => {
         icon: `https://example.com/icon${format}`,
       };
 
-      const result = parseSolanaPayGetResponse(data);
+      const result = parseTrezoaPayGetResponse(data);
       assert.equal(result.icon.href, data.icon);
     }
   });
@@ -129,12 +129,12 @@ describe("parseSolanaPayGetResponse", () => {
       icon: "https://example.com/icon.PNG",
     };
 
-    const result = parseSolanaPayGetResponse(data);
+    const result = parseTrezoaPayGetResponse(data);
     assert.equal(result.icon.href, data.icon);
   });
 });
 
-describe("parseSolanaPayPostResponse", () => {
+describe("parseTrezoaPayPostResponse", () => {
   const unsignedTransaction =
     "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABC7YxPJkVXZH3qqq8Nq1nwYa5Pm6+M9ZeObND0CCtBLXjfKbGfbEEIU1AEH81ttgpyiNLO+xurYCsjdCVcfR4YQA=";
   const signedTransaction =
@@ -149,7 +149,7 @@ describe("parseSolanaPayPostResponse", () => {
       message: "Payment successful",
     };
 
-    const result = parseSolanaPayPostResponse(data);
+    const result = parseTrezoaPayPostResponse(data);
     assert.equal(result.message, data.message);
     assert.deepEqual(result.transaction, unsignedTx);
   });
@@ -160,7 +160,7 @@ describe("parseSolanaPayPostResponse", () => {
       message: "Payment successful",
     };
 
-    const result = parseSolanaPayPostResponse(data);
+    const result = parseTrezoaPayPostResponse(data);
     assert.equal(result.message, data.message);
     assert.deepEqual(result.transaction, signedTx);
   });
@@ -171,7 +171,7 @@ describe("parseSolanaPayPostResponse", () => {
       transaction: unsignedTransaction,
     };
 
-    const result = parseSolanaPayPostResponse(data);
+    const result = parseTrezoaPayPostResponse(data);
     assert.equal(result.message, undefined);
     assert.deepEqual(result.transaction, unsignedTx);
   });
@@ -182,9 +182,9 @@ describe("parseSolanaPayPostResponse", () => {
     };
 
     assert.throws(
-      () => parseSolanaPayPostResponse(data),
-      (err: SolanaPayResponseError) => {
-        assert(err instanceof SolanaPayResponseError);
+      () => parseTrezoaPayPostResponse(data),
+      (err: TrezoaPayResponseError) => {
+        assert(err instanceof TrezoaPayResponseError);
         assert.equal(err.message, "Invalid response: missing or invalid transaction");
         return true;
       },
@@ -197,9 +197,9 @@ describe("parseSolanaPayPostResponse", () => {
     };
 
     assert.throws(
-      () => parseSolanaPayPostResponse(data),
-      (err: SolanaPayResponseError) => {
-        assert(err instanceof SolanaPayResponseError);
+      () => parseTrezoaPayPostResponse(data),
+      (err: TrezoaPayResponseError) => {
+        assert(err instanceof TrezoaPayResponseError);
         assert.equal(err.message, "Invalid response: missing or invalid transaction");
         return true;
       },
@@ -212,9 +212,9 @@ describe("parseSolanaPayPostResponse", () => {
     };
 
     assert.throws(
-      () => parseSolanaPayPostResponse(data),
-      (err: SolanaPayResponseError) => {
-        assert(err instanceof SolanaPayResponseError);
+      () => parseTrezoaPayPostResponse(data),
+      (err: TrezoaPayResponseError) => {
+        assert(err instanceof TrezoaPayResponseError);
         assert.equal(err.message, "Invalid response: missing or invalid transaction");
         return true;
       },
@@ -228,9 +228,9 @@ describe("parseSolanaPayPostResponse", () => {
     };
 
     assert.throws(
-      () => parseSolanaPayPostResponse(data),
-      (err: SolanaPayResponseError) => {
-        assert(err instanceof SolanaPayResponseError);
+      () => parseTrezoaPayPostResponse(data),
+      (err: TrezoaPayResponseError) => {
+        assert(err instanceof TrezoaPayResponseError);
         assert.equal(err.message, "Invalid response: message must be string");
         return true;
       },

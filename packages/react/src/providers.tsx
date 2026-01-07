@@ -1,19 +1,19 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import type { SolanaClient } from "gill";
+import type { TrezoaClient } from "trezoagill";
 import React from "react";
 import { GILL_HOOK_CLIENT_KEY } from "./const.js";
 
 /**
- * Provider to utilize gill hooks for Solana
+ * Provider to utilize trezoagill hooks for Trezoa
  */
-export function SolanaProvider({
+export function TrezoaProvider({
   client,
   children,
   queryClient = new QueryClient(),
 }: {
-  client: SolanaClient;
+  client: TrezoaClient;
   children: React.ReactNode;
   queryClient?: QueryClient;
 }) {

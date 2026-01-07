@@ -1,4 +1,4 @@
-import { Base64EncodedWireTransaction, SimulateTransactionApi } from "gill";
+import { Base64EncodedWireTransaction, SimulateTransactionApi } from "trezoagill";
 import { useSimulateTransaction } from "../hooks/simulate-transaction.js";
 
 // [DESCRIBE] useSimulateTransaction

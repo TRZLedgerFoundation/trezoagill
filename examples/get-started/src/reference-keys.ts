@@ -5,10 +5,10 @@
  * of transactions given to users, without knowing the signature ahead of time. Then, perform
  * any desired logic after detection of the reference keyed transaction landing onchain.
  *
- * Most notably utilized within SolanaPay and Blinks.
+ * Most notably utilized within TrezoaPay and Blinks.
  */
 import {
-  createSolanaClient,
+  createTrezoaClient,
   createTransaction,
   generateKeyPairSigner,
   getExplorerLink,
@@ -17,11 +17,11 @@ import {
   insertReferenceKeysToTransactionMessage,
   pipe,
   signTransactionMessageWithSigners,
-} from "gill";
-import { loadKeypairSignerFromFile } from "gill/node";
-import { getAddMemoInstruction } from "gill/programs";
+} from "trezoagill";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
+import { getAddMemoInstruction } from "trezoagill/programs";
 
-const { rpc, sendAndConfirmTransaction } = createSolanaClient({
+const { rpc, sendAndConfirmTransaction } = createTrezoaClient({
   urlOrMoniker: "devnet",
 });
 
@@ -40,7 +40,7 @@ const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
  * Inserting reference keys to transactions (aka attaching addresses to instructions)
  * involves
  *
- * The SPL Memo program (`MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr`) does NOT allow
+ * The TPL Memo program (`MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr`) does NOT allow
  * accounts added to its instructions unless they are actually signing the transaction.
  * Even if the address is marked as a "non-signer" on the instruction.
  *

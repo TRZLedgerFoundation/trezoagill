@@ -1,8 +1,8 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import type { Base64EncodedWireTransaction, Simplify, SimulateTransactionApi } from "gill";
+import type { Base64EncodedWireTransaction, Simplify, SimulateTransactionApi } from "trezoagill";
 import { GILL_HOOK_CLIENT_KEY } from "../const.js";
-import { useSolanaClient } from "./client.js";
+import { useTrezoaClient } from "./client.js";
 import type { GillUseRpcHook } from "./types.js";
 
 type RpcConfig = Simplify<Parameters<SimulateTransactionApi["simulateTransaction"]>>[1];
@@ -25,8 +25,8 @@ type UseSimulateTransactionInput<TConfig extends RpcConfig = RpcConfig> = Omit<G
 type UseSimulateTransactionResponse = ReturnType<SimulateTransactionApi["simulateTransaction"]>;
 
 /**
- * Simulate a transaction using the Solana RPC method of
- * [`simulateTransaction`](https://solana.com/docs/rpc/http/simulatetransaction)
+ * Simulate a transaction using the Trezoa RPC method of
+ * [`simulateTransaction`](https://trezoa.com/docs/rpc/http/simulatetransaction)
  */
 export function useSimulateTransaction<TConfig extends RpcConfig = RpcConfig>({
   options,
@@ -34,7 +34,7 @@ export function useSimulateTransaction<TConfig extends RpcConfig = RpcConfig>({
   abortSignal,
   transaction,
 }: UseSimulateTransactionInput<TConfig>) {
-  const { rpc } = useSolanaClient();
+  const { rpc } = useTrezoaClient();
 
   const mergedConfig = { ...DEFAULT_CONFIG, ...config } as RpcConfig;
 

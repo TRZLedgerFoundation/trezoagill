@@ -1,12 +1,12 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import type { Account, Address, FetchAccountConfig, Simplify } from "gill";
-import { assertAccountExists, fetchEncodedAccount } from "gill";
-import { decodeMint, type Mint } from "gill/programs";
+import type { Account, Address, FetchAccountConfig, Simplify } from "trezoagill";
+import { assertAccountExists, fetchEncodedAccount } from "trezoagill";
+import { decodeMint, type Mint } from "trezoagill/programs";
 
 import { GILL_HOOK_CLIENT_KEY } from "../const.js";
-import { useSolanaClient } from "./client.js";
+import { useTrezoaClient } from "./client.js";
 import type { GillUseRpcHook } from "./types.js";
 
 type RpcConfig = Simplify<Omit<FetchAccountConfig, "abortSignal">>;
@@ -28,7 +28,7 @@ type UseTokenMintInput<
 };
 
 /**
- * Get and parse a token's {@link https://solana.com/docs/tokens#mint-account | Mint account}
+ * Get and parse a token's {@link https://trezoa.com/docs/tokens#mint-account | Mint account}
  */
 export function useTokenMint<TConfig extends RpcConfig = RpcConfig, TAddress extends string = string>({
   options,
@@ -36,7 +36,7 @@ export function useTokenMint<TConfig extends RpcConfig = RpcConfig, TAddress ext
   abortSignal,
   mint,
 }: UseTokenMintInput<TConfig, TAddress>) {
-  const { rpc, urlOrMoniker } = useSolanaClient();
+  const { rpc, urlOrMoniker } = useTrezoaClient();
 
   if (abortSignal) {
     // @ts-expect-error we stripped the `abortSignal` from the type but are now adding it back in

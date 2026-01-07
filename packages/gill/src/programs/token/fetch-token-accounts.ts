@@ -1,7 +1,7 @@
-import type { Mint, Token } from "@solana-program/token-2022";
-import { decodeToken, fetchMint } from "@solana-program/token-2022";
-import type { Account, Address, GetAccountInfoApi, GetTokenAccountsByOwnerApi, Rpc } from "@solana/kit";
-import { isAddress, parseBase64RpcAccount } from "@solana/kit";
+import type { Mint, Token } from "@trezoa-program/token-2022";
+import { decodeToken, fetchMint } from "@trezoa-program/token-2022";
+import type { Account, Address, GetAccountInfoApi, GetTokenAccountsByOwnerApi, Rpc } from "@trezoa/kit";
+import { isAddress, parseBase64RpcAccount } from "@trezoa/kit";
 import type { Simplify } from "../../types";
 import { assertIsMint } from "./assert-is-mint";
 

@@ -1,6 +1,6 @@
-import { getCreateAccountInstruction } from "@solana-program/system";
-import type { Address, Instruction, KeyPairSigner } from "@solana/kit";
-import { generateKeyPairSigner } from "@solana/kit";
+import { getCreateAccountInstruction } from "@trezoa-program/system";
+import type { Address, Instruction, KeyPairSigner } from "@trezoa/kit";
+import { generateKeyPairSigner } from "@trezoa/kit";
 import { getMinimumBalanceForRentExemption } from "../core";
 import { getCreateTokenInstructions, GetCreateTokenInstructionsArgs, TOKEN_PROGRAM_ADDRESS } from "../programs/token";
 import { getCreateMetadataAccountV3Instruction } from "../programs/token-metadata";
@@ -11,7 +11,7 @@ import {
   getInitializeTokenMetadataInstruction,
   getMintSize,
   TOKEN_2022_PROGRAM_ADDRESS,
-} from "@solana-program/token-2022";
+} from "@trezoa-program/token-2022";
 
 const MOCK_SPACE = 122n;
 const MOCK_RENT = 10000n;
@@ -28,13 +28,13 @@ jest.mock("../programs/token-metadata", () => ({
   getCreateMetadataAccountV3Instruction: jest.fn(),
 }));
 
-jest.mock("@solana-program/system", () => ({
+jest.mock("@trezoa-program/system", () => ({
   getCreateAccountInstruction: jest.fn(),
 }));
 
-jest.mock("@solana-program/token-2022", () => ({
+jest.mock("@trezoa-program/token-2022", () => ({
   // preserve all real implementations to only change the desired ones
-  ...jest.requireActual("@solana-program/token-2022"),
+  ...jest.requireActual("@trezoa-program/token-2022"),
   getMintSize: jest.fn(),
   getInitializeMintInstruction: jest.fn(),
   getInitializeMetadataPointerInstruction: jest.fn(),

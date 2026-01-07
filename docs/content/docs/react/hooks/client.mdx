@@ -15,7 +15,7 @@ Get the current Solana client configured in the `SolanaProvider`, including the 
 ```tsx
 "use client";
 
-import { useSolanaClient } from "@gillsdk/react";
+import { useSolanaClient } from "@trezoagill/react";
 
 export function MyComponent() {
   const { rpc, rpcSubscriptions } = useSolanaClient();
@@ -47,8 +47,8 @@ Using the client to make custom RPC calls:
 ```tsx
 "use client";
 
-import { useSolanaClient } from "@gillsdk/react";
-import type { Address } from "gill";
+import { useSolanaClient } from "@trezoagill/react";
+import type { Address } from "trezoagill";
 
 export function AccountExplorer({ accountAddress }: { accountAddress: Address }) {
   const { rpc } = useSolanaClient();
@@ -87,9 +87,9 @@ different networks or RPC endpoints.
 ```tsx
 "use client";
 
-import { createSolanaClient } from "gill";
-import type { SolanaClusterMoniker } from "gill";
-import { useUpdateSolanaClient } from "@gillsdk/react";
+import { createSolanaClient } from "trezoagill";
+import type { SolanaClusterMoniker } from "trezoagill";
+import { useUpdateSolanaClient } from "@trezoagill/react";
 
 export function NetworkSwitcher() {
   const updateClient = useUpdateSolanaClient();
@@ -126,9 +126,9 @@ Switching to a custom RPC endpoint with error handling:
 ```tsx
 "use client";
 
-import { createSolanaClient } from "gill";
-import type { SolanaClientUrlOrMoniker } from "gill";
-import { useUpdateSolanaClient, useSolanaClient } from "@gillsdk/react";
+import { createSolanaClient } from "trezoagill";
+import type { SolanaClientUrlOrMoniker } from "trezoagill";
+import { useUpdateSolanaClient, useSolanaClient } from "@trezoagill/react";
 
 export function CustomRPCManager() {
   const currentClient = useSolanaClient();

@@ -17,12 +17,12 @@ export * from "./hooks/index.js";
 export * from "./providers.js";
 
 /**
- * Reexporting the Solana Wallet Standard functionality allows gill to
+ * Reexporting the Trezoa Wallet Standard functionality allows trezoagill to
  * provide a cohesive developer experience
  */
-export * from "@solana/react";
-export * from "@solana/wallet-standard-chains";
-export * from "@solana/wallet-standard-features";
+export * from "@trezoa/react";
+export * from "@trezoa/wallet-standard-chains";
+export * from "@trezoa/wallet-standard-features";
 export * from "@wallet-standard/core";
 export * from "@wallet-standard/react";
 export * from "@wallet-standard/ui";

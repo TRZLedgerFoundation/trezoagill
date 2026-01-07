@@ -1,5 +1,5 @@
 {
-  "name": "@gillsdk/tests-e2e",
+  "name": "@trezoagill/tests-e2e",
   "license": "MIT",
   "private": true,
   "type": "module",
@@ -13,7 +13,7 @@
     "style:fix": "pnpm style:check --write"
   },
   "dependencies": {
-    "gill": "workspace:*"
+    "trezoagill": "workspace:*"
   },
   "devDependencies": {
     "tsx": "^4.19.4",

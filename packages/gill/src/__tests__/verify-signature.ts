@@ -1,9 +1,9 @@
-import { generateKeyPairSigner, getBase58Decoder, KeyPairSigner, signBytes } from "@solana/kit";
+import { generateKeyPairSigner, getBase58Decoder, KeyPairSigner, signBytes } from "@trezoa/kit";
 import { verifySignatureForAddress } from "../core/verify-signature";
 
 describe("verifySignatureForAddress", () => {
   let testKeyPair: KeyPairSigner;
-  const testMessage: string = "Hello, Solana!";
+  const testMessage: string = "Hello, Trezoa!";
   const messageBytes = new TextEncoder().encode(testMessage);
 
   beforeAll(async () => {

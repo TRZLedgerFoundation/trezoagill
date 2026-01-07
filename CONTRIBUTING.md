@@ -2,15 +2,15 @@
 
 ## Bug fixes
 
-If you've found a bug in gill that you'd like to fix, please [open an issue](https://github.com/gillsdk/gill/issues/new)
+If you've found a bug in trezoagill that you'd like to fix, please [open an issue](https://github.com/TRZLedgerFoundation/trezoagill/issues/new)
 before working on specific code changes to ensure it is within scope and desire for this library. Once approved,
-[submit a pull request](https://github.com/gillsdk/gill/pulls) with your changes. Include a helpful description of the
+[submit a pull request](https://github.com/TRZLedgerFoundation/trezoagill/pulls) with your changes. Include a helpful description of the
 problem and how your changes address it, and provide tests so we can verify the fix works as expected.
 
 ## New features
 
-If there's a new feature you'd like to see added to gill, please
-[open an issue](https://github.com/gillsdk/gill/issues/new) before working on specific code changes to ensure it is
+If there's a new feature you'd like to see added to trezoagill, please
+[open an issue](https://github.com/TRZLedgerFoundation/trezoagill/issues/new) before working on specific code changes to ensure it is
 within scope and desire for this library.
 
 Contributions are welcome and loved, but it's best to discuss major changes before investing time in implementation.
@@ -27,8 +27,8 @@ Before getting started, ensure your system has access to the following tools:
 Clone and prepare the repo locally:
 
 ```sh
-git clone https://github.com/gillsdk/gill.git
-cd gill
+git clone https://github.com/TRZLedgerFoundation/trezoagill.git
+cd trezoagill
 pnpm install
 ```
 
@@ -43,10 +43,10 @@ pnpm build
 To build a specific package, use the `--filter` flag:
 
 ```sh
-pnpm build --filter=gill
-pnpm build --filter=@gillsdk/react
+pnpm build --filter=trezoagill
+pnpm build --filter=@trezoagill/react
 # or multiple specific packages
-pnpm build --filter=gill --filter=@gillsdk/react
+pnpm build --filter=trezoagill --filter=@trezoagill/react
 ```
 
 ## Running tests
@@ -59,7 +59,7 @@ pnpm test
 
 > Note: You must run the build command the first time manually before running the `test` command.
 
-Please ensure that all tests are passing when submitting a pull request. If you're adding new features to the gill sdk,
+Please ensure that all tests are passing when submitting a pull request. If you're adding new features to the trezoagill sdk,
 always include tests.
 
 ## Pull request process
@@ -71,7 +71,7 @@ When submitting a pull request:
   tests.
 - Ensure all tests pass.
 
-When a pull request is created, gill maintainers will be notified automatically.
+When a pull request is created, trezoagill maintainers will be notified automatically.
 
 ## Communication
 

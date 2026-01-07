@@ -1,5 +1,5 @@
 {
-  "name": "@gillsdk/config-eslint",
+  "name": "@trezoagill/config-eslint",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -7,7 +7,7 @@
     "./base": "./base.mjs"
   },
   "devDependencies": {
-    "@solana/eslint-config-solana": "^4.0.0",
+    "@trezoa/eslint-config-trezoa": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^8.16.0",
     "@typescript-eslint/parser": "^8.16.0",
     "eslint": "^9.15.0",

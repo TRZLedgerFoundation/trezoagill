@@ -1,9 +1,9 @@
 ---
 title: React Hooks Reference
-description: Complete reference for all available hooks in @gillsdk/react
+description: Complete reference for all available hooks in @trezoagill/react
 ---
 
-`@gillsdk/react` provides a comprehensive set of React hooks for interacting with the Solana
+`@trezoagill/react` provides a comprehensive set of React hooks for interacting with the Solana
 blockchain. All hooks are built on top of TanStack Query, providing automatic caching, background
 refetching, and error handling.
 
@@ -43,7 +43,7 @@ Hooks for sending and managing transactions (coming soon):
 
 ## Common Hook Options
 
-All data fetching hooks in `@gillsdk/react` accept standard TanStack Query options:
+All data fetching hooks in `@trezoagill/react` accept standard TanStack Query options:
 
 ```typescript
 interface HookOptions {
@@ -145,11 +145,11 @@ const queryClient = new QueryClient({
 
 ## TypeScript Support
 
-All hooks are fully typed with TypeScript. Import types from `gill` for complete type safety:
+All hooks are fully typed with TypeScript. Import types from `trezoagill` for complete type safety:
 
 ```typescript
-import type { Address, Lamports } from "gill";
-import { useBalance } from "@gillsdk/react";
+import type { Address, Lamports } from "trezoagill";
+import { useBalance } from "@trezoagill/react";
 
 function Balance({ address }: { address: Address }) {
   const { balance } = useBalance({ address });

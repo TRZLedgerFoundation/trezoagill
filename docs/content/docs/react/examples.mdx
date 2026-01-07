@@ -1,9 +1,9 @@
 ---
 title: Examples
-description: Real-world examples of using @gillsdk/react in your applications
+description: Real-world examples of using @trezoagill/react in your applications
 ---
 
-Learn how to use `@gillsdk/react` through practical examples that demonstrate common patterns and
+Learn how to use `@trezoagill/react` through practical examples that demonstrate common patterns and
 use cases.
 
 ## Basic Examples
@@ -15,8 +15,8 @@ A simple component to display a wallet's SOL balance:
 ```tsx
 "use client";
 
-import { lamportsToSol } from "gill";
-import { useBalance } from "@gillsdk/react";
+import { lamportsToSol } from "trezoagill";
+import { useBalance } from "@trezoagill/react";
 
 export function WalletBalance({ address }: { address: string }) {
   const { balance, isLoading, isError, error } = useBalance({
@@ -43,8 +43,8 @@ Display a specific SPL token balance:
 ```tsx
 "use client";
 
-import { useTokenAccount, useTokenMint } from "@gillsdk/react";
-import { tokenAmountToUiAmount } from "@gillsdk/programs";
+import { useTokenAccount, useTokenMint } from "@trezoagill/react";
+import { tokenAmountToUiAmount } from "@trezoagill/programs";
 
 export function TokenBalance({ mint, owner }: { mint: string; owner: string }) {
   const { account: tokenAccount, isLoading: loadingAccount } = useTokenAccount({
@@ -80,7 +80,7 @@ Display recent transactions for an address:
 ```tsx
 "use client";
 
-import { useSignaturesForAddress } from "@gillsdk/react";
+import { useSignaturesForAddress } from "@trezoagill/react";
 
 export function TransactionHistory({ address }: { address: string }) {
   const { signatures, isLoading, refetch } = useSignaturesForAddress({
@@ -125,8 +125,8 @@ Create a providers file:
 ```tsx filename="app/providers.tsx"
 "use client";
 
-import { createSolanaClient } from "gill";
-import { SolanaProvider } from "@gillsdk/react";
+import { createSolanaClient } from "trezoagill";
+import { SolanaProvider } from "@trezoagill/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient({
@@ -169,14 +169,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ### With Wallet Adapter
 
-Combine `@gillsdk/react` with Solana wallet adapter:
+Combine `@trezoagill/react` with Solana wallet adapter:
 
 ```tsx
 "use client";
 
 import { useWallet } from "@solana/wallet-adapter-react";
-import { useBalance } from "@gillsdk/react";
-import { lamportsToSol } from "gill";
+import { useBalance } from "@trezoagill/react";
+import { lamportsToSol } from "trezoagill";
 
 export function ConnectedWalletInfo() {
   const { publicKey, connected } = useWallet();
@@ -213,7 +213,7 @@ Fetch data conditionally based on other data:
 ```tsx
 "use client";
 
-import { useAccount, useTokenAccount } from "@gillsdk/react";
+import { useAccount, useTokenAccount } from "@trezoagill/react";
 
 export function ConditionalTokenBalance({ address }: { address: string }) {
   // First, check if the address exists
@@ -247,7 +247,7 @@ Update UI immediately while transaction confirms:
 ```tsx
 "use client";
 
-import { useBalance } from "@gillsdk/react";
+import { useBalance } from "@trezoagill/react";
 import { useQueryClient } from "@tanstack/react-query";
 
 export function OptimisticBalance({ address }: { address: string }) {
@@ -256,7 +256,7 @@ export function OptimisticBalance({ address }: { address: string }) {
 
   const handleTransfer = async (amount: bigint) => {
     // Optimistically update the balance
-    queryClient.setQueryData(["gill", "balance", address], (old: bigint) => old - amount);
+    queryClient.setQueryData(["trezoagill", "balance", address], (old: bigint) => old - amount);
 
     try {
       // Send transaction...
@@ -264,12 +264,12 @@ export function OptimisticBalance({ address }: { address: string }) {
 
       // Refetch to get real balance
       queryClient.invalidateQueries({
-        queryKey: ["gill", "balance", address],
+        queryKey: ["trezoagill", "balance", address],
       });
     } catch (error) {
       // Revert optimistic update on error
       queryClient.invalidateQueries({
-        queryKey: ["gill", "balance", address],
+        queryKey: ["trezoagill", "balance", address],
       });
     }
   };
@@ -318,5 +318,5 @@ export function AppWithErrorBoundary({ children }) {
 
 ## Resources
 
-- [gill sdk Documentation](/docs) - Core `gill` library documentation
+- [trezoagill sdk Documentation](/docs) - Core `trezoagill` library documentation
 - [TanStack Query Docs](https://tanstack.com/query) - Learn more about React Query

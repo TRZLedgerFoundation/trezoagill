@@ -1,46 +1,46 @@
 ---
 title: API Reference
 description:
-  "Explore the functions, variables, types, and more that are included within the gill library, the
+  "Explore the functions, variables, types, and more that are included within the trezoagill library, the
   new Solana developer JavaScript SDK."
 ---
 
-## Install gill
+## Install trezoagill
 
-Install gill using the core `gill` library:
+Install trezoagill using the core `trezoagill` library:
 
 ```package-install
-gill
+trezoagill
 ```
 
-## Importing from gill
+## Importing from trezoagill
 
-The `gill` library has a few different import paths to help segment the code within library and
+The `trezoagill` library has a few different import paths to help segment the code within library and
 improve compatibility in different environments (i.e. browser vs server).
 
 To utilize the core functionality in either browser or server environments, you can import directly
-from `gill` as expected:
+from `trezoagill` as expected:
 
 ```ts
-import { ... } from "gill"
+import { ... } from "trezoagill"
 ```
 
 ### Import program clients
 
-The `gill` package includes several Solana program clients including Token/Token22, System, Compute
-Budget, and several others. The available program clients can be imported from the `gill/programs`
+The `trezoagill` package includes several Solana program clients including Token/Token22, System, Compute
+Budget, and several others. The available program clients can be imported from the `trezoagill/programs`
 path as follows:
 
 ```ts
-import { ... } from "gill/programs"
+import { ... } from "trezoagill/programs"
 ```
 
 ### Import server only utilities
 
-The `gill` package includes some "server only" functionality that is only usable in JavaScript
+The `trezoagill` package includes some "server only" functionality that is only usable in JavaScript
 server runtimes like NodeJs and Bun. To utilize this specific functionality, you can import from
-`gill/node` as follows:
+`trezoagill/node` as follows:
 
 ```ts
-import { ... } from "gill/node"
+import { ... } from "trezoagill/node"
 ```

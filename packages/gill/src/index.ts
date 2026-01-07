@@ -1,4 +1,4 @@
-export * from "@solana/kit";
+export * from "@trezoa/kit";
 
 export * from "./types";
 export * from "./core";

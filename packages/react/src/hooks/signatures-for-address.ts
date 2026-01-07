@@ -1,10 +1,10 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { Address, GetSignaturesForAddressApi, Simplify } from "gill";
+import { Address, GetSignaturesForAddressApi, Simplify } from "trezoagill";
 
 import { GILL_HOOK_CLIENT_KEY } from "../const.js";
-import { useSolanaClient } from "./client.js";
+import { useTrezoaClient } from "./client.js";
 import { GillUseRpcHook } from "./types.js";
 
 type RpcConfig = Simplify<Parameters<GetSignaturesForAddressApi["getSignaturesForAddress"]>[1]>;
@@ -21,8 +21,8 @@ type UseSignaturesForAddressResponse = ReturnType<GetSignaturesForAddressApi["ge
 /**
  * Returns signatures for confirmed transactions that include the given address
  * in their `accountKeys` list. Returns signatures backwards in time from the
- * provided signature or most recent confirmed block using the Solana RPC method of
- * [`getSignaturesForAddress`](https://solana.com/docs/rpc/http/getsignaturesforaddress)
+ * provided signature or most recent confirmed block using the Trezoa RPC method of
+ * [`getSignaturesForAddress`](https://trezoa.com/docs/rpc/http/getsignaturesforaddress)
  */
 export function useSignaturesForAddress<TConfig extends RpcConfig = RpcConfig>({
   options,
@@ -30,7 +30,7 @@ export function useSignaturesForAddress<TConfig extends RpcConfig = RpcConfig>({
   abortSignal,
   address,
 }: UseSignaturesForAddressInput<TConfig>) {
-  const { rpc, urlOrMoniker } = useSolanaClient();
+  const { rpc, urlOrMoniker } = useTrezoaClient();
   const { data, ...rest } = useQuery({
     networkMode: "offlineFirst",
     ...options,

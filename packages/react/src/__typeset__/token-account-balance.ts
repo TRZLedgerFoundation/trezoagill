@@ -1,4 +1,4 @@
-import { Address, GetTokenAccountBalanceApi } from "gill";
+import { Address, GetTokenAccountBalanceApi } from "trezoagill";
 import { useTokenAccountBalance } from "../hooks/token-account-balance.js";
 
 // [DESCRIBE] useTokenAccountBalance

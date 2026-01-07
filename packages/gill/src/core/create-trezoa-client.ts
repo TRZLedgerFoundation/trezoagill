@@ -1,49 +1,49 @@
-import type { DevnetUrl, MainnetUrl, TestnetUrl } from "@solana/kit";
-import { createSolanaRpc, createSolanaRpcSubscriptions } from "@solana/kit";
+import type { DevnetUrl, MainnetUrl, TestnetUrl } from "@trezoa/kit";
+import { createTrezoaRpc, createTrezoaRpcSubscriptions } from "@trezoa/kit";
 
-import type { CreateSolanaClientArgs, LocalnetUrl, ModifiedClusterUrl, SolanaClient } from "../types/rpc";
-import { getPublicSolanaRpcUrl } from "./rpc";
+import type { CreateTrezoaClientArgs, LocalnetUrl, ModifiedClusterUrl, TrezoaClient } from "../types/rpc";
+import { getPublicTrezoaRpcUrl } from "./rpc";
 import { sendAndConfirmTransactionWithSignersFactory } from "./send-and-confirm-transaction-with-signers";
 import { simulateTransactionFactory } from "./simulate-transaction";
 
 /**
- * Create a Solana `rpc` and `rpcSubscriptions` client
+ * Create a Trezoa `rpc` and `rpcSubscriptions` client
  */
-export function createSolanaClient(
-  props: Omit<CreateSolanaClientArgs<MainnetUrl | "mainnet">, "urlOrMoniker"> & {
+export function createTrezoaClient(
+  props: Omit<CreateTrezoaClientArgs<MainnetUrl | "mainnet">, "urlOrMoniker"> & {
     urlOrMoniker: "mainnet";
   },
-): SolanaClient<MainnetUrl>;
-export function createSolanaClient(
-  props: Omit<CreateSolanaClientArgs<DevnetUrl | "devnet">, "urlOrMoniker"> & {
+): TrezoaClient<MainnetUrl>;
+export function createTrezoaClient(
+  props: Omit<CreateTrezoaClientArgs<DevnetUrl | "devnet">, "urlOrMoniker"> & {
     urlOrMoniker: "devnet";
   },
-): SolanaClient<DevnetUrl>;
-export function createSolanaClient(
-  props: Omit<CreateSolanaClientArgs<TestnetUrl | "testnet">, "urlOrMoniker"> & {
+): TrezoaClient<DevnetUrl>;
+export function createTrezoaClient(
+  props: Omit<CreateTrezoaClientArgs<TestnetUrl | "testnet">, "urlOrMoniker"> & {
     urlOrMoniker: "testnet";
   },
-): SolanaClient<TestnetUrl>;
-export function createSolanaClient(
-  props: Omit<CreateSolanaClientArgs<LocalnetUrl | "localnet">, "urlOrMoniker"> & {
+): TrezoaClient<TestnetUrl>;
+export function createTrezoaClient(
+  props: Omit<CreateTrezoaClientArgs<LocalnetUrl | "localnet">, "urlOrMoniker"> & {
     urlOrMoniker: "localnet";
   },
-): SolanaClient<LocalnetUrl>;
-export function createSolanaClient<TClusterUrl extends ModifiedClusterUrl>(
-  props: CreateSolanaClientArgs<TClusterUrl>,
-): SolanaClient<TClusterUrl>;
-export function createSolanaClient<TCluster extends ModifiedClusterUrl>({
+): TrezoaClient<LocalnetUrl>;
+export function createTrezoaClient<TClusterUrl extends ModifiedClusterUrl>(
+  props: CreateTrezoaClientArgs<TClusterUrl>,
+): TrezoaClient<TClusterUrl>;
+export function createTrezoaClient<TCluster extends ModifiedClusterUrl>({
   urlOrMoniker,
   rpcConfig,
   rpcSubscriptionsConfig,
-}: CreateSolanaClientArgs<TCluster>) {
+}: CreateTrezoaClientArgs<TCluster>) {
   if (!urlOrMoniker) throw new Error("Cluster url or moniker is required");
   if (urlOrMoniker instanceof URL == false) {
     try {
       urlOrMoniker = new URL(urlOrMoniker.toString());
     } catch (err) {
       try {
-        urlOrMoniker = new URL(getPublicSolanaRpcUrl(urlOrMoniker.toString() as any));
+        urlOrMoniker = new URL(getPublicTrezoaRpcUrl(urlOrMoniker.toString() as any));
       } catch (err) {
         throw new Error("Invalid URL or cluster moniker");
       }
@@ -58,7 +58,7 @@ export function createSolanaClient<TCluster extends ModifiedClusterUrl>({
     urlOrMoniker.port = rpcConfig.port.toString();
   }
 
-  const rpc = createSolanaRpc<TCluster>(urlOrMoniker.toString() as TCluster, rpcConfig);
+  const rpc = createTrezoaRpc<TCluster>(urlOrMoniker.toString() as TCluster, rpcConfig);
 
   urlOrMoniker.protocol = urlOrMoniker.protocol.replace("http", "ws");
 
@@ -68,7 +68,7 @@ export function createSolanaClient<TCluster extends ModifiedClusterUrl>({
     urlOrMoniker.port = "8900";
   }
 
-  const rpcSubscriptions = createSolanaRpcSubscriptions<TCluster>(
+  const rpcSubscriptions = createTrezoaRpcSubscriptions<TCluster>(
     urlOrMoniker.toString() as TCluster,
     rpcSubscriptionsConfig,
   );

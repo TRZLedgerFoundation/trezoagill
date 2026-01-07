@@ -10,5 +10,5 @@
     "src/programs/token/index.ts",
     "src/programs/token-metadata/index.ts"
   ],
-  "out": "./.docs/gill-programs"
+  "out": "./.docs/trezoagill-programs"
 }

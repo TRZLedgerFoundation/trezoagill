@@ -7,8 +7,8 @@ import type {
   TransactionMessageWithBlockhashLifetime,
   TransactionMessageWithFeePayer,
   TransactionMessageWithFeePayerSigner,
-} from "@solana/kit";
-import { signTransactionMessageWithSigners } from "@solana/kit";
+} from "@trezoa/kit";
+import { signTransactionMessageWithSigners } from "@trezoa/kit";
 
 import { createTransaction } from "../core";
 

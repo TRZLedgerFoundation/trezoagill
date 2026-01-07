@@ -1,20 +1,20 @@
 import {
   address,
-  createSolanaClient,
+  createTrezoaClient,
   createTransaction,
   getExplorerLink,
   getSignatureFromTransaction,
   signTransactionMessageWithSigners,
-} from "gill";
-import { loadKeypairSignerFromFile } from "gill/node";
+} from "trezoagill";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
 import {
   getAssociatedTokenAccountAddress,
   getCreateAssociatedTokenIdempotentInstruction,
   getMintToInstruction,
   TOKEN_PROGRAM_ADDRESS,
-} from "gill/programs";
+} from "trezoagill/programs";
 
-const { rpc, sendAndConfirmTransaction } = createSolanaClient({
+const { rpc, sendAndConfirmTransaction } = createTrezoaClient({
   urlOrMoniker: "devnet",
 });
 

@@ -1,5 +1,5 @@
 import type { useQuery } from "@tanstack/react-query";
-import type { Simplify } from "gill";
+import type { Simplify } from "trezoagill";
 
 export type OmittedUseQueryFields = "queryKey" | "queryFn";
 

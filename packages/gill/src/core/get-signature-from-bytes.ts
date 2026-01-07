@@ -1,5 +1,5 @@
-import type { Signature, SignatureBytes } from "@solana/kit";
-import { getBase58Decoder } from "@solana/kit";
+import type { Signature, SignatureBytes } from "@trezoa/kit";
+import { getBase58Decoder } from "@trezoa/kit";
 
 /**
  * Converts signature bytes to a {@link Signature} string.

@@ -4,16 +4,16 @@ import {
   isTransactionSigner,
   type Address,
   type TransactionSigner,
-} from "@solana/kit";
-import type { SolanaClusterMoniker } from "../types";
+} from "@trezoa/kit";
+import type { TrezoaClusterMoniker } from "../types";
 import { GENESIS_HASH } from "./const";
 
 /**
- * Determine the Solana moniker from its genesis hash
+ * Determine the Trezoa moniker from its genesis hash
  *
  * If the hash is NOT known, returns `unknown`
  */
-export function getMonikerFromGenesisHash(hash: string): SolanaClusterMoniker | "unknown" {
+export function getMonikerFromGenesisHash(hash: string): TrezoaClusterMoniker | "unknown" {
   switch (hash) {
     case GENESIS_HASH.mainnet:
       return "mainnet";
@@ -42,7 +42,7 @@ export function checkedTransactionSigner<TAddress extends string = string>(
 }
 
 /**
- * Convert a lamport number to the human readable string of a SOL value
+ * Convert a lamport number to the human readable string of a TRZ value
  * @param lamports - The amount in lamports
  * @param decimals - Number of decimal places to show (default: 9, max: 9)
  */

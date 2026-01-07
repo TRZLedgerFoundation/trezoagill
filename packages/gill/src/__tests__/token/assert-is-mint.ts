@@ -1,21 +1,21 @@
-import type { Mint } from "@solana-program/token-2022";
-import type { Account, Address, Lamports } from "@solana/kit";
+import type { Mint } from "@trezoa-program/token-2022";
+import type { Account, Address, Lamports } from "@trezoa/kit";
 import {
-  SOLANA_ERROR__ACCOUNTS__ACCOUNT_NOT_FOUND,
-  SOLANA_ERROR__ACCOUNTS__FAILED_TO_DECODE_ACCOUNT,
-  SolanaError,
-} from "@solana/kit";
+  TREZOA_ERROR__ACCOUNTS__ACCOUNT_NOT_FOUND,
+  TREZOA_ERROR__ACCOUNTS__FAILED_TO_DECODE_ACCOUNT,
+  TrezoaError,
+} from "@trezoa/kit";
 import { assertIsMint } from "../../programs";
 
 describe("assertIsMint", () => {
   it("should throw ACCOUNT_NOT_FOUND error when given an address", () => {
     const address = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v" as Address;
 
-    expect(() => assertIsMint(address)).toThrow(SolanaError);
+    expect(() => assertIsMint(address)).toThrow(TrezoaError);
     expect(() => assertIsMint(address)).toThrow(
       expect.objectContaining({
         context: expect.objectContaining({
-          __code: SOLANA_ERROR__ACCOUNTS__ACCOUNT_NOT_FOUND,
+          __code: TREZOA_ERROR__ACCOUNTS__ACCOUNT_NOT_FOUND,
           address: address,
         }),
       }),
@@ -25,11 +25,11 @@ describe("assertIsMint", () => {
   it("should throw FAILED_TO_DECODE_ACCOUNT error when account has no data property", () => {
     const invalidAccount = { address: "test" } as any;
 
-    expect(() => assertIsMint(invalidAccount)).toThrow(SolanaError);
+    expect(() => assertIsMint(invalidAccount)).toThrow(TrezoaError);
     expect(() => assertIsMint(invalidAccount)).toThrow(
       expect.objectContaining({
         context: expect.objectContaining({
-          __code: SOLANA_ERROR__ACCOUNTS__FAILED_TO_DECODE_ACCOUNT,
+          __code: TREZOA_ERROR__ACCOUNTS__FAILED_TO_DECODE_ACCOUNT,
         }),
       }),
     );
@@ -41,11 +41,11 @@ describe("assertIsMint", () => {
       data: { someOtherProperty: true },
     } as any;
 
-    expect(() => assertIsMint(invalidAccount)).toThrow(SolanaError);
+    expect(() => assertIsMint(invalidAccount)).toThrow(TrezoaError);
     expect(() => assertIsMint(invalidAccount)).toThrow(
       expect.objectContaining({
         context: expect.objectContaining({
-          __code: SOLANA_ERROR__ACCOUNTS__FAILED_TO_DECODE_ACCOUNT,
+          __code: TREZOA_ERROR__ACCOUNTS__FAILED_TO_DECODE_ACCOUNT,
         }),
       }),
     );

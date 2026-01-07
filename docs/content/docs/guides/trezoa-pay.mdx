@@ -1,6 +1,6 @@
 ---
 title: Solana Pay
-description: "Guide on how to utilize the Solana Pay protocol using the gill sdk."
+description: "Guide on how to utilize the Solana Pay protocol using the trezoagill sdk."
 ---
 
 Solana Pay is a standardized protocol for encoding transaction requests within URLs, enabling
@@ -9,10 +9,10 @@ simple transfer requests for direct payments and interactive "transaction reques
 use cases like merchant checkouts or scenarios where you need a non-user controlled keypair to
 pre-sign a transaction.
 
-The gill SDK provides a complete, type-safe implementation of the
-[Solana Pay specification](https://github.com/solana-foundation/solana-pay/blob/master/SPEC.md) with
+The trezoagill SDK provides a complete, type-safe implementation of the
+[Solana Pay specification](https://github.com/solana-foundation/trezoa-pay/blob/master/SPEC.md) with
 comprehensive validation and error handling. This guide covers how to create, parse, and validate
-Solana Pay URLs using [`@gillsdk/solana-pay`](https://www.npmjs.com/package/@gillsdk/solana-pay).
+Solana Pay URLs using [`@trezoagill/trezoa-pay`](https://www.npmjs.com/package/@trezoagill/trezoa-pay).
 
 ## Request Types
 
@@ -39,16 +39,16 @@ solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1.5&label=Coffee+Shop
 - Requires server-side implementation and HTTPS
 
 ```
-solana:https://checkout.usedecal.com/api/solana-pay-transaction
+solana:https://checkout.usedecal.com/api/trezoa-pay-transaction
 ```
 
 ## Install the Solana Pay SDK
 
-This guide requires both the `gill` SDK and the
-[`@gillsdk/solana-pay`](https://www.npmjs.com/package/@gillsdk/solana-pay) package.
+This guide requires both the `trezoagill` SDK and the
+[`@trezoagill/trezoa-pay`](https://www.npmjs.com/package/@trezoagill/trezoa-pay) package.
 
 ```package-install
-gill @gillsdk/solana-pay
+trezoagill @trezoagill/trezoa-pay
 ```
 
 ## Transfer Requests
@@ -73,8 +73,8 @@ human-readable amount), not the raw blockchain amount.
 The simplest transfer request specifies only a recipient address:
 
 ```ts twoslash
-import { encodeSolanaPayURL } from "@gillsdk/solana-pay";
-import { address } from "gill";
+import { encodeSolanaPayURL } from "@trezoagill/trezoa-pay";
+import { address } from "trezoagill";
 
 const recipient = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 
@@ -88,8 +88,8 @@ this means SOL (not lamports). For SPL tokens, this means the token's display am
 token amount).
 
 ```ts twoslash
-import { encodeSolanaPayURL } from "@gillsdk/solana-pay";
-import { address } from "gill";
+import { encodeSolanaPayURL } from "@trezoagill/trezoa-pay";
+import { address } from "trezoagill";
 
 const recipient = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 
@@ -108,8 +108,8 @@ address. The `amount` is still the UI amount based on the token's decimals (not 
 amount).
 
 ```ts twoslash
-import { encodeSolanaPayURL } from "@gillsdk/solana-pay";
-import { address } from "gill";
+import { encodeSolanaPayURL } from "@trezoagill/trezoa-pay";
+import { address } from "trezoagill";
 
 const recipient = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 const usdcMint = address("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v");
@@ -132,8 +132,8 @@ the transaction. This allows you to query for specific transactions using the
 `getSignaturesForAddress` RPC method.
 
 ```ts twoslash
-import { encodeSolanaPayURL } from "@gillsdk/solana-pay";
-import { address } from "gill";
+import { encodeSolanaPayURL } from "@trezoagill/trezoa-pay";
+import { address } from "trezoagill";
 
 const recipient = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 const referenceKey = address("Href9m18T7a9TKgS21e9Y9Aa1yce1Sw3TjXbRJ9Exm5P");
@@ -148,8 +148,8 @@ const url = encodeSolanaPayURL({
 You can include multiple reference keys by passing an array:
 
 ```ts twoslash
-import { encodeSolanaPayURL } from "@gillsdk/solana-pay";
-import { address } from "gill";
+import { encodeSolanaPayURL } from "@trezoagill/trezoa-pay";
+import { address } from "trezoagill";
 
 const recipient = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 const ref1 = address("Href9m18T7a9TKgS21e9Y9Aa1yce1Sw3TjXbRJ9Exm5P");
@@ -174,8 +174,8 @@ Solana Pay Transfer requests support additional metadata to provide context:
 - **memo**: Text included in an SPL Memo instruction in the transaction
 
 ```ts twoslash
-import { encodeSolanaPayURL } from "@gillsdk/solana-pay";
-import { address } from "gill";
+import { encodeSolanaPayURL } from "@trezoagill/trezoa-pay";
+import { address } from "trezoagill";
 
 const recipient = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 const usdcMint = address("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v");
@@ -205,7 +205,7 @@ a server.
 Transaction requests require an HTTPS URL and optionally include `label` and `message` metadata:
 
 ```ts twoslash
-import { encodeSolanaPayURL } from "@gillsdk/solana-pay";
+import { encodeSolanaPayURL } from "@trezoagill/trezoa-pay";
 
 const url = encodeSolanaPayURL({
   link: new URL("https://merchant.example.com/checkout"),
@@ -216,14 +216,14 @@ const url = encodeSolanaPayURL({
 ```
 
 <Callout type="error">
-  Transaction request links MUST use HTTPS. The `@gillsdk/solana-pay` SDK validates this requirement
+  Transaction request links MUST use HTTPS. The `@trezoagill/trezoa-pay` SDK validates this requirement
   and will throw an error for non-HTTPS URLs.
 </Callout>
 
 If your link includes query parameters, they will be properly URL-encoded:
 
 ```ts twoslash
-import { encodeSolanaPayURL } from "@gillsdk/solana-pay";
+import { encodeSolanaPayURL } from "@trezoagill/trezoa-pay";
 
 const url = encodeSolanaPayURL({
   link: new URL("https://merchant.example.com/api?item=123&quantity=2"),
@@ -236,7 +236,7 @@ When a wallet receives a transaction request URL, it first makes a GET request t
 merchant's label and icon:
 
 ```ts twoslash
-import { solanaPayTransactionRequest } from "@gillsdk/solana-pay";
+import { solanaPayTransactionRequest } from "@trezoagill/trezoa-pay";
 
 const response = await solanaPayTransactionRequest.get(new URL("https://merchant.example.com/api"));
 
@@ -252,8 +252,8 @@ After displaying the merchant information to the user, the wallet makes a POST r
 user's account to receive the transaction to sign:
 
 ```ts
-import { solanaPayTransactionRequest } from "@gillsdk/solana-pay";
-import { address } from "gill";
+import { solanaPayTransactionRequest } from "@trezoagill/trezoa-pay";
+import { address } from "trezoagill";
 
 const userAccount = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 
@@ -267,7 +267,7 @@ const message = response.message; // Optional message to display
 ```
 
 The underlying response contains a base64-encoded transaction that the wallet will present to the
-user for signing. The `@gillsdk/solana-pay` sdk will automatically decode and deserialize this
+user for signing. The `@trezoagill/trezoa-pay` sdk will automatically decode and deserialize this
 transaction from a `string` to a ready to sign `Transaction`.
 
 ## Parsing Solana Pay URLs
@@ -276,7 +276,7 @@ The `parseSolanaPayURL` function parses any Solana Pay URL and returns the appro
 structure:
 
 ```ts twoslash
-import { parseSolanaPayURL } from "@gillsdk/solana-pay";
+import { parseSolanaPayURL } from "@trezoagill/trezoa-pay";
 
 const url = "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1";
 const parsed = parseSolanaPayURL(url);
@@ -304,7 +304,7 @@ validation functions:
 ### Validating GET Responses
 
 ```ts twoslash
-import { parseSolanaPayGetResponse } from "@gillsdk/solana-pay";
+import { parseSolanaPayGetResponse } from "@trezoagill/trezoa-pay";
 
 const data = await fetch("https://merchant.example.com/api").then((r) => r.json());
 const validated = parseSolanaPayGetResponse(data);
@@ -314,7 +314,7 @@ const validated = parseSolanaPayGetResponse(data);
 ### Validating POST Responses
 
 ```ts twoslash
-import { parseSolanaPayPostResponse } from "@gillsdk/solana-pay";
+import { parseSolanaPayPostResponse } from "@trezoagill/trezoa-pay";
 
 const data = await fetch("https://merchant.example.com/api", {
   method: "POST",
@@ -328,7 +328,7 @@ const validated = parseSolanaPayPostResponse(data);
 Both functions throw a `SolanaPayResponseError` if validation fails.
 
 <Callout title="Security Considerations">
-The gill SDK enforces several security measures:
+The trezoagill SDK enforces several security measures:
 
 - **HTTPS Requirement**: Transaction request links must use HTTPS to prevent man-in-the-middle
   attacks
@@ -345,7 +345,7 @@ user review.
 
 ## Summary
 
-The `@gillsdk/solana-pay` package provides everything needed to implement Solana Pay in your
+The `@trezoagill/trezoa-pay` package provides everything needed to implement Solana Pay in your
 application:
 
 - **Transfer Requests**: Create payment URLs for SOL and SPL tokens with optional reference tracking
@@ -354,4 +354,4 @@ application:
 - **Response Handling**: Fetch and validate merchant information and transactions
 
 For more information on the Solana Pay protocol, refer to the
-[official specification](https://github.com/solana-foundation/solana-pay/blob/master/SPEC.md).
+[official specification](https://github.com/solana-foundation/trezoa-pay/blob/master/SPEC.md).

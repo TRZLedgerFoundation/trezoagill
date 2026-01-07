@@ -17,12 +17,12 @@ Gill considers the "Solana client" to be (at a minimum) the following pieces:
   connections
 
 <Callout>
-  If you are familiar with the `Connection` class from the older `@solana/web3.js` library, gill's
+  If you are familiar with the `Connection` class from the older `@solana/web3.js` library, trezoagill's
   `createSolanaClient` is similar. But more bare-bones and lightweight.
 </Callout>
 
 Most client applications will need to initialize the above functionality in their codebase. Within
-gill, there are two primary ways to create a Solana client:
+trezoagill, there are two primary ways to create a Solana client:
 
 1. using the [`createSolanaClient()`](#create-a-solana-rpc-connection) function (recommended in
    order to reduce application boilerplate)
@@ -35,7 +35,7 @@ standard Solana network moniker (i.e. `devnet`, `localnet`, `mainnet` etc) using
 `createSolanaClient()` function.
 
 ```typescript twoslash
-import { createSolanaClient } from "gill";
+import { createSolanaClient } from "trezoagill";
 
 const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient({
   urlOrMoniker: "mainnet",
@@ -55,7 +55,7 @@ on your computer.
 To create a Solana client for your local test validator:
 
 ```typescript twoslash
-import { createSolanaClient } from "gill";
+import { createSolanaClient } from "trezoagill";
 
 const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient({
   urlOrMoniker: "localnet",
@@ -73,7 +73,7 @@ const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient(
 To create an RPC client for an custom RPC provider or service:
 
 ```typescript twoslash
-import { createSolanaClient } from "gill";
+import { createSolanaClient } from "trezoagill";
 
 const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient({
   urlOrMoniker: "https://private-solana-rpc-provider.com",
@@ -87,7 +87,7 @@ After you have a Solana `rpc` connection, you can make all the
 [latest blockhash](#get-the-latest-blockhash) or [fetching a specific account](#fetch-an-account).
 
 ```typescript twoslash
-import { createSolanaClient } from "gill";
+import { createSolanaClient } from "trezoagill";
 
 const { rpc } = createSolanaClient({ urlOrMoniker: "devnet" });
 
@@ -117,7 +117,7 @@ transaction.
 To get the latest blockhash from your RPC:
 
 ```typescript twoslash
-import { createSolanaClient } from "gill";
+import { createSolanaClient } from "trezoagill";
 
 const { rpc } = createSolanaClient({ urlOrMoniker: "devnet" });
 
@@ -141,7 +141,7 @@ programs. The structure of an account's data and associated metadata information
 To get an account's `AccountInfo` from your RPC:
 
 ```typescript twoslash
-import { createSolanaClient, address } from "gill";
+import { createSolanaClient, address } from "trezoagill";
 
 const { rpc } = createSolanaClient({ urlOrMoniker: "devnet" });
 
@@ -162,7 +162,7 @@ It is **strongly** recommended to utilize `base64` encoding when fetching accoun
 blockchain to avoid the common errors when fetching with the default `base58` encoding.
 
 ```typescript twoslash
-import { createSolanaClient, address } from "gill";
+import { createSolanaClient, address } from "trezoagill";
 
 const { rpc } = createSolanaClient({ urlOrMoniker: "devnet" });
 
@@ -178,7 +178,7 @@ An even better solution is to utilize the `fetchEncodedAccount()` function to fe
 always utilizes the `base64` encoding.
 
 ```typescript twoslash
-import { createSolanaClient, address, fetchEncodedAccount } from "gill";
+import { createSolanaClient, address, fetchEncodedAccount } from "trezoagill";
 
 const { rpc } = createSolanaClient({ urlOrMoniker: "devnet" });
 
@@ -197,7 +197,7 @@ You can also include custom configuration settings on your RPC calls, like using
 into `send()`:
 
 ```typescript twoslash
-import { createSolanaClient } from "gill";
+import { createSolanaClient } from "trezoagill";
 
 const { rpc } = createSolanaClient({ urlOrMoniker: "devnet" });
 

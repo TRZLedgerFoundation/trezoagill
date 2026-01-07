@@ -32,7 +32,7 @@ const getMinLogLevel = (): LogLevel =>
   "info";
 
 /**
- * Check if the `gill` debug logger is enabled or not
+ * Check if the `trezoagill` debug logger is enabled or not
  */
 export const isDebugEnabled = (): boolean =>
   Boolean(
@@ -51,7 +51,7 @@ export const isDebugEnabled = (): boolean =>
  * @param level - default: `info` (see: {@link GILL_LOG_LEVELS})
  * @param prefix - default: `[GILL]`
  *
- * To enable gill's debug logger, set any of the following to `true`:
+ * To enable trezoagill's debug logger, set any of the following to `true`:
  * - `process.env.GILL_DEBUG`
  * - `global.__GILL_DEBUG__`
  * - `window.__GILL_DEBUG__`

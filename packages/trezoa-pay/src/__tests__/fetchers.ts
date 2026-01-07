@@ -1,7 +1,7 @@
 import assert from "node:assert";
 
-import { transactionFromBase64, type Address } from "gill";
-import { fetchSolanaPayGetRequest, fetchSolanaPayPostRequest, fetchSolanaPayRequest } from "../fetchers.js";
+import { transactionFromBase64, type Address } from "trezoagill";
+import { fetchTrezoaPayGetRequest, fetchTrezoaPayPostRequest, fetchTrezoaPayRequest } from "../fetchers.js";
 
 // Mock fetch for testing
 const originalFetch = globalThis.fetch;
@@ -44,7 +44,7 @@ describe("HTTP Integration Tests", () => {
     mockFetch(mockResponse);
 
     const url = new URL("https://example.com/pay");
-    const result = await fetchSolanaPayGetRequest(url);
+    const result = await fetchTrezoaPayGetRequest(url);
 
     assert.equal(result.label, mockResponse.label);
     assert.equal(result.icon.href, mockResponse.icon);
@@ -59,7 +59,7 @@ describe("HTTP Integration Tests", () => {
     mockFetch(mockResponse);
 
     const url = new URL("https://example.com/pay");
-    const result = await fetchSolanaPayPostRequest(url, {
+    const result = await fetchTrezoaPayPostRequest(url, {
       account,
     });
 
@@ -77,7 +77,7 @@ describe("HTTP Integration Tests", () => {
     mockFetch(mockResponse);
 
     const url = new URL("https://example.com/pay");
-    const result = await fetchSolanaPayPostRequest(url, {
+    const result = await fetchTrezoaPayPostRequest(url, {
       account,
     });
 
@@ -86,7 +86,7 @@ describe("HTTP Integration Tests", () => {
   });
 });
 
-describe("fetchSolanaPayRequest", () => {
+describe("fetchTrezoaPayRequest", () => {
   afterEach(() => {
     restoreFetch();
   });
@@ -97,7 +97,7 @@ describe("fetchSolanaPayRequest", () => {
 
       await assert.rejects(
         async () =>
-          fetchSolanaPayRequest(url, {
+          fetchTrezoaPayRequest(url, {
             method: "GET",
           }),
         {
@@ -111,7 +111,7 @@ describe("fetchSolanaPayRequest", () => {
       mockFetch(mockResponse);
 
       const url = new URL("https://example.com/pay");
-      const result = await fetchSolanaPayRequest(url, {
+      const result = await fetchTrezoaPayRequest(url, {
         method: "GET",
       });
 
@@ -135,7 +135,7 @@ describe("fetchSolanaPayRequest", () => {
       };
 
       const url = new URL("https://example.com/pay");
-      await fetchSolanaPayRequest(url, {
+      await fetchTrezoaPayRequest(url, {
         method: "GET",
       });
 
@@ -161,7 +161,7 @@ describe("fetchSolanaPayRequest", () => {
       };
 
       const url = new URL("https://example.com/pay");
-      await fetchSolanaPayRequest(url, {
+      await fetchTrezoaPayRequest(url, {
         method: "POST",
         body: { test: "data" },
       });
@@ -190,7 +190,7 @@ describe("fetchSolanaPayRequest", () => {
       };
 
       const url = new URL("https://example.com/pay");
-      await fetchSolanaPayRequest(url, {
+      await fetchTrezoaPayRequest(url, {
         method: "GET",
         requestInit: {
           headers: {
@@ -223,7 +223,7 @@ describe("fetchSolanaPayRequest", () => {
       const url = new URL("https://example.com/pay");
       const body = { account: "test123", amount: 100 };
 
-      await fetchSolanaPayRequest(url, {
+      await fetchTrezoaPayRequest(url, {
         method: "POST",
         body,
       });
@@ -238,7 +238,7 @@ describe("fetchSolanaPayRequest", () => {
       mockFetch(mockResponse);
 
       const url = new URL("https://example.com/pay");
-      const result = await fetchSolanaPayRequest(url, {
+      const result = await fetchTrezoaPayRequest(url, {
         method: "GET",
       });
 
@@ -255,7 +255,7 @@ describe("fetchSolanaPayRequest", () => {
       };
 
       const url = new URL("https://example.com/pay");
-      const result = await fetchSolanaPayRequest(url, {
+      const result = await fetchTrezoaPayRequest(url, {
         method: "GET",
         parser,
       });
@@ -268,7 +268,7 @@ describe("fetchSolanaPayRequest", () => {
       mockFetch(mockResponse);
 
       const url = new URL("https://example.com/pay");
-      const result = await fetchSolanaPayRequest(url, {
+      const result = await fetchTrezoaPayRequest(url, {
         method: "GET",
       });
 
@@ -280,7 +280,7 @@ describe("fetchSolanaPayRequest", () => {
       mockFetch(mockResponse);
 
       const url = new URL("https://example.com/pay");
-      const result = await fetchSolanaPayRequest(url, {
+      const result = await fetchTrezoaPayRequest(url, {
         method: "POST",
         body: { account: "test123" },
       });
@@ -297,7 +297,7 @@ describe("fetchSolanaPayRequest", () => {
 
       await assert.rejects(
         async () =>
-          fetchSolanaPayRequest(url, {
+          fetchTrezoaPayRequest(url, {
             method: "GET",
           }),
         {
@@ -313,7 +313,7 @@ describe("fetchSolanaPayRequest", () => {
 
       await assert.rejects(
         async () =>
-          fetchSolanaPayRequest(url, {
+          fetchTrezoaPayRequest(url, {
             method: "GET",
           }),
         {
@@ -337,7 +337,7 @@ describe("fetchSolanaPayRequest", () => {
 
       await assert.rejects(
         async () =>
-          fetchSolanaPayRequest(url, {
+          fetchTrezoaPayRequest(url, {
             method: "GET",
           }),
         {
@@ -362,7 +362,7 @@ describe("fetchSolanaPayRequest", () => {
 
       await assert.rejects(
         async () =>
-          fetchSolanaPayRequest(url, {
+          fetchTrezoaPayRequest(url, {
             method: "GET",
             parser,
           }),
@@ -387,7 +387,7 @@ describe("fetchSolanaPayRequest", () => {
 
       await assert.rejects(
         async () =>
-          fetchSolanaPayRequest(url, {
+          fetchTrezoaPayRequest(url, {
             method: "GET",
           }),
         {
@@ -408,7 +408,7 @@ describe("fetchSolanaPayRequest", () => {
 
       await assert.rejects(
         async () =>
-          fetchSolanaPayRequest(url, {
+          fetchTrezoaPayRequest(url, {
             method: "GET",
             parser,
           }),
@@ -435,7 +435,7 @@ describe("fetchSolanaPayRequest", () => {
       };
 
       const url = new URL("https://example.com/pay");
-      await fetchSolanaPayRequest(url, {
+      await fetchTrezoaPayRequest(url, {
         method: "GET",
         body: { test: "data" },
       });
@@ -463,7 +463,7 @@ describe("fetchSolanaPayRequest", () => {
       };
 
       const url = new URL("https://example.com/pay");
-      await fetchSolanaPayRequest(url, {
+      await fetchTrezoaPayRequest(url, {
         method: "POST",
       });
 
@@ -481,7 +481,7 @@ describe("fetchSolanaPayRequest", () => {
       mockFetch({});
 
       const url = new URL("https://example.com/pay");
-      const result = await fetchSolanaPayRequest(url, {
+      const result = await fetchTrezoaPayRequest(url, {
         method: "GET",
       });
 
@@ -503,7 +503,7 @@ describe("fetchSolanaPayRequest", () => {
       };
 
       const url = new URL("https://example.com/pay");
-      const result = await fetchSolanaPayRequest(url, {
+      const result = await fetchTrezoaPayRequest(url, {
         method: "GET",
         parser,
       });
@@ -526,7 +526,7 @@ describe("fetchSolanaPayRequest", () => {
       };
 
       const url = new URL("https://example.com/pay");
-      await fetchSolanaPayRequest(url, {
+      await fetchTrezoaPayRequest(url, {
         method: "GET",
         requestInit: {
           signal: new AbortController().signal,

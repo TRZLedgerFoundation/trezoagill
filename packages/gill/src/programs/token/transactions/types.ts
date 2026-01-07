@@ -3,7 +3,7 @@ import type {
   TransactionMessageWithBlockhashLifetime,
   TransactionSigner,
   TransactionVersion,
-} from "@solana/kit";
+} from "@trezoa/kit";
 import type { CreateTransactionInput, Simplify } from "../../../types";
 
 export type TransactionBuilderInput<

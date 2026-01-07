@@ -4,7 +4,7 @@ import type {
   TransactionMessageWithBlockhashLifetime,
   TransactionSigner,
   TransactionVersion,
-} from "@solana/kit";
+} from "@trezoa/kit";
 import { checkedAddress, checkedTransactionSigner, createTransaction } from "../../../core";
 import type { FullTransaction, Simplify } from "../../../types";
 import { checkedTokenProgramAddress, getAssociatedTokenAccountAddress } from "../addresses";

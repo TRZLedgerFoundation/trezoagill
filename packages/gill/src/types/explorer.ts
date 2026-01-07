@@ -1,4 +1,4 @@
-import type { SolanaClusterMoniker } from "./rpc";
+import type { TrezoaClusterMoniker } from "./rpc";
 
 type ExplorerLinkAccount = {
   address: string;
@@ -14,5 +14,5 @@ type ExplorerLinkBlock = {
  * @param cluster - Default: `mainnet`
  */
 export type GetExplorerLinkArgs = {
-  cluster?: SolanaClusterMoniker | "mainnet-beta" | "localhost";
+  cluster?: TrezoaClusterMoniker | "mainnet-beta" | "localhost";
 } & (ExplorerLinkAccount | ExplorerLinkTransaction | ExplorerLinkBlock | {});

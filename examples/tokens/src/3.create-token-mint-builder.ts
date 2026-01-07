@@ -1,14 +1,14 @@
 import {
-  createSolanaClient,
+  createTrezoaClient,
   generateKeyPairSigner,
   getExplorerLink,
   getSignatureFromTransaction,
   signTransactionMessageWithSigners,
-} from "gill";
-import { loadKeypairSignerFromFile } from "gill/node";
-import { buildCreateTokenTransaction, TOKEN_2022_PROGRAM_ADDRESS } from "gill/programs";
+} from "trezoagill";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
+import { buildCreateTokenTransaction, TOKEN_2022_PROGRAM_ADDRESS } from "trezoagill/programs";
 
-const { rpc, sendAndConfirmTransaction } = createSolanaClient({
+const { rpc, sendAndConfirmTransaction } = createTrezoaClient({
   urlOrMoniker: "devnet",
 });
 
@@ -29,7 +29,7 @@ const tx = await buildCreateTokenTransaction({
     isMutable: true,
     name: "super sweet token",
     symbol: "SST",
-    uri: "https://raw.githubusercontent.com/solana-developers/opos-asset/main/assets/Climate/metadata.json",
+    uri: "https://raw.githubusercontent.com/trezoa-developers/opos-asset/main/assets/Climate/metadata.json",
   },
   mint,
   latestBlockhash,

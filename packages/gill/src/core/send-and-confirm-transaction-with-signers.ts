@@ -14,7 +14,7 @@ import type {
   TransactionMessage,
   TransactionMessageWithFeePayer,
   TransactionWithLifetime,
-} from "@solana/kit";
+} from "@trezoa/kit";
 import {
   assertIsFullySignedTransaction,
   assertIsSendableTransaction,
@@ -27,8 +27,8 @@ import {
   sendAndConfirmTransactionFactory,
   setTransactionMessageLifetimeUsingBlockhash,
   signTransactionMessageWithSigners,
-} from "@solana/kit";
-import { type waitForRecentTransactionConfirmation } from "@solana/transaction-confirmation";
+} from "@trezoa/kit";
+import { type waitForRecentTransactionConfirmation } from "@trezoa/transaction-confirmation";
 import { debug } from "./debug";
 import { getExplorerLink } from "./explorer";
 

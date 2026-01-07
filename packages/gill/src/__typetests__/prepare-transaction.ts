@@ -4,15 +4,15 @@ import type {
   BaseTransactionMessage,
   TransactionMessageWithFeePayer,
   Rpc,
-  SolanaRpcApi,
+  TrezoaRpcApi,
   TransactionMessageWithBlockhashLifetime,
-} from "@solana/kit";
-import { signTransactionMessageWithSigners } from "@solana/kit";
+} from "@trezoa/kit";
+import { signTransactionMessageWithSigners } from "@trezoa/kit";
 import { prepareTransaction } from "../core";
 
 // [DESCRIBE] prepareTransaction
 async () => {
-  const rpc = null as unknown as Rpc<SolanaRpcApi>;
+  const rpc = null as unknown as Rpc<TrezoaRpcApi>;
 
   const transactionWithoutBlockhash = null as unknown as BaseTransactionMessage<"legacy"> &
     TransactionMessageWithFeePayer;

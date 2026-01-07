@@ -1,61 +1,61 @@
 <h1 align="center">
-  @gillsdk/react
+  @trezoagill/react
 </h1>
 
 <p align="center">
-  React hooks library for the Solana blockchain
+  React hooks library for the Trezoa blockchain
 </p>
 
 ## Overview
 
-Welcome to `@gillsdk/react`, a React hooks library for easily interacting with the [Solana](http://solana.com/)
+Welcome to `@trezoagill/react`, a React hooks library for easily interacting with the [Trezoa](http://trezoa.com/)
 blockchain.
 
-> Notice: `@gillsdk/react` is in active development. All APIs are subject to change until reaching the first major
+> Notice: `@trezoagill/react` is in active development. All APIs are subject to change until reaching the first major
 > version (v1.0.0).
 
 This React hooks library is built on top of two core libraries:
 
-1. [`gill`](https://www.npmjs.com/package/gill) - modern JavaScript/TypeScript library for interacting with the Solana
+1. [`trezoagill`](https://www.npmjs.com/package/trezoagill) - modern JavaScript/TypeScript library for interacting with the Trezoa
    blockchain.
 2. [`@tanstack/react-query`](https://www.npmjs.com/package/@tanstack/react-query) - popular and powerful asynchronous
    state management for React.
 
 ## Installation
 
-Install `@gillsdk/react` with your package manager of choice:
+Install `@trezoagill/react` with your package manager of choice:
 
 ```shell
-npm install gill @gillsdk/react @tanstack/react-query
+npm install trezoagill @trezoagill/react @tanstack/react-query
 ```
 
 ```shell
-pnpm add gill @gillsdk/react @tanstack/react-query
+pnpm add trezoagill @trezoagill/react @tanstack/react-query
 ```
 
 ```shell
-yarn add gill @gillsdk/react @tanstack/react-query
+yarn add trezoagill @trezoagill/react @tanstack/react-query
 ```
 
-> Note: `gill` and `@tanstack/react-query` are peer dependencies of `@gillsdk/react` so you need to explicitly install
+> Note: `trezoagill` and `@tanstack/react-query` are peer dependencies of `@trezoagill/react` so you need to explicitly install
 > them. This allows you have more/easier control over managing dependencies yourself.
 
 ## Quick start
 
-Setup and configure your `SolanaProvider` to use the gill hooks:
+Setup and configure your `TrezoaProvider` to use the trezoagill hooks:
 
 - [Wrap your React app in a context provider](#wrap-your-react-app-in-a-context-provider)
 - [Create a client-only provider for NextJs and React server components](#create-a-client-only-provider-for-nextjs-and-react-server-components)
 - [Wrap your app in the client-only provider for NextJs](#wrap-your-app-in-the-client-only-provider-for-nextjs)
 - [Using React hooks in React server component applications](#using-react-hooks-in-react-server-component-applications)
 
-Manage and use your Solana client's connections:
+Manage and use your Trezoa client's connections:
 
-- [`useSolanaClient`](#get-solana-client) - get the current Solana client (including `rpc` and `rpcSubscriptions`)
-- [`useUpdateSolanaClient`](#get-account-balance-in-lamports) - update the current Solana client (including `rpc` and
+- [`useTrezoaClient`](#get-trezoa-client) - get the current Trezoa client (including `rpc` and `rpcSubscriptions`)
+- [`useUpdateTrezoaClient`](#get-account-balance-in-lamports) - update the current Trezoa client (including `rpc` and
   `rpcSubscriptions`)
 
-Fetch data from the Solana blockchain with the gill hooks:
+Fetch data from the Trezoa blockchain with the trezoagill hooks:
 
 - [`useAccount`](#get-account-info-and-data) - get the account info for an address
 - [`useBalance`](#get-account-balance-in-lamports) - get account balance (in lamports)
@@ -68,55 +68,55 @@ Fetch data from the Solana blockchain with the gill hooks:
 
 ### Wrap your React app in a context provider
 
-Wrap your app with the `SolanaProvider` React context provider and pass your Solana client to it:
+Wrap your app with the `TrezoaProvider` React context provider and pass your Trezoa client to it:
 
 ```tsx
-import { createSolanaClient } from "gill";
-import { SolanaProvider } from "@gillsdk/react";
+import { createTrezoaClient } from "trezoagill";
+import { TrezoaProvider } from "@trezoagill/react";
 
-const client = createSolanaClient({
+const client = createTrezoaClient({
   urlOrMoniker: "devnet",
 });
 
 function App() {
-  return <SolanaProvider client={client}>{/* ... */}</SolanaProvider>;
+  return <TrezoaProvider client={client}>{/* ... */}</TrezoaProvider>;
 }
 ```
 
 ### Create a client-only provider for NextJs and React server components
 
 For application that use React server components, like NextJS, you will need to create a "client only" wrapper for the
-`SolanaProvider` exported from `@gillsdk/react`:
+`TrezoaProvider` exported from `@trezoagill/react`:
 
 ```tsx
 "use client"; // <--- this "use client" directive is required!
 
-import { createSolanaClient } from "gill";
-import { SolanaProvider } from "@gillsdk/react";
+import { createTrezoaClient } from "trezoagill";
+import { TrezoaProvider } from "@trezoagill/react";
 
-const client = createSolanaClient({
+const client = createTrezoaClient({
   urlOrMoniker: "devnet",
 });
 
-export function SolanaProviderClient({ children }: { children: React.ReactNode }) {
-  return <SolanaProvider client={client}>{children}</SolanaProvider>;
+export function TrezoaProviderClient({ children }: { children: React.ReactNode }) {
+  return <TrezoaProvider client={client}>{children}</TrezoaProvider>;
 }
 ```
 
 ### Wrap your app in the client-only provider for NextJs
 
 After creating your client-only provider, you can wrap your app with this
-[`SolanaProviderClient`](#create-a-client-only-provider-for-nextjs-and-react-server-components) (normally inside the
+[`TrezoaProviderClient`](#create-a-client-only-provider-for-nextjs-and-react-server-components) (normally inside the
 root `layout.tsx`):
 
 ```tsx
-import { SolanaProviderClient } from "@/providers/solana-provider";
+import { TrezoaProviderClient } from "@/providers/trezoa-provider";
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html>
       <body>
-        <SolanaProviderClient>{children}</SolanaProviderClient>
+        <TrezoaProviderClient>{children}</TrezoaProviderClient>
       </body>
     </html>
   );
@@ -126,7 +126,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 ### Using React hooks in React server component applications
 
 After you have setup your client-only provider, you must set the `use client` directive in any component that uses the
-`@gillsdk/react` library. Signifying this component is required to be "client only".
+`@trezoagill/react` library. Signifying this component is required to be "client only".
 
 See React's [`use client` directive docs](https://react.dev/reference/rsc/use-client).
 
@@ -134,9 +134,9 @@ See React's [`use client` directive docs](https://react.dev/reference/rsc/use-cl
 > [here](https://react.dev/reference/rsc/use-client) on the `use client` directive.
 
 ```tsx
-"use client"; // <--- directive required anywhere you use `@gillsdk/react`
+"use client"; // <--- directive required anywhere you use `@trezoagill/react`
 
-import { useBalance, ... } from "@gillsdk/react";
+import { useBalance, ... } from "@trezoagill/react";
 // ... other imports
 
 export function PageClient() {
@@ -151,20 +151,20 @@ export function PageClient() {
 
 ```
 
-### Get your Solana client
+### Get your Trezoa client
 
-Get the current Solana client configured in the [`SolanaProvider`](#wrap-your-react-app-in-a-context-provider),
+Get the current Trezoa client configured in the [`TrezoaProvider`](#wrap-your-react-app-in-a-context-provider),
 including the `rpc` and `rpcSubscriptions` connections:
 
 ```tsx
 "use client";
 
-import { useSolanaClient } from "@gillsdk/react";
+import { useTrezoaClient } from "@trezoagill/react";
 
 export function PageClient() {
-  const { rpc, rpcSubscriptions } = useSolanaClient();
+  const { rpc, rpcSubscriptions } = useTrezoaClient();
 
-  // you can now use `rpc` to access any of the Solana JSON RPC methods
+  // you can now use `rpc` to access any of the Trezoa JSON RPC methods
 
   return { ... }
 }
@@ -172,14 +172,14 @@ export function PageClient() {
 
 ### Get account balance (in lamports)
 
-Get an account's balance (in lamports) using the Solana RPC method of
-[`getBalance`](https://solana.com/docs/rpc/http/getbalance):
+Get an account's balance (in lamports) using the Trezoa RPC method of
+[`getBalance`](https://trezoa.com/docs/rpc/http/getbalance):
 
 ```tsx
 "use client";
 
-import { lamportsToSol } from "gill";
-import { useBalance } from "@gillsdk/react";
+import { lamportsToSol } from "trezoagill";
+import { useBalance } from "@trezoagill/react";
 
 export function PageClient() {
   const { balance, isLoading, isError, error } = useBalance({
@@ -191,7 +191,7 @@ export function PageClient() {
 
   return (
     <div className="">
-      <p>Balance: {lamportsToSol(balance) + " SOL"}</p>
+      <p>Balance: {lamportsToSol(balance) + " TRZ"}</p>
     </div>
   );
 }
@@ -199,13 +199,13 @@ export function PageClient() {
 
 ### Get latest blockhash
 
-Get the latest blockhash using the Solana RPC method of
-[`getLatestBlockhash`](https://solana.com/docs/rpc/http/getlatestblockhash)
+Get the latest blockhash using the Trezoa RPC method of
+[`getLatestBlockhash`](https://trezoa.com/docs/rpc/http/getlatestblockhash)
 
 ```tsx
 "use client";
 
-import { useLatestBlockhash } from "@gillsdk/react";
+import { useLatestBlockhash } from "@trezoagill/react";
 
 export function PageClient() {
   const { latestBlockhash, isLoading, isError, error } = useLatestBlockhash();
@@ -223,15 +223,15 @@ export function PageClient() {
 
 ### Get account info (and data)
 
-Get the account info for an address using the Solana RPC method of
-[`getAccountInfo`](https://solana.com/docs/rpc/http/getaccountinfo):
+Get the account info for an address using the Trezoa RPC method of
+[`getAccountInfo`](https://trezoa.com/docs/rpc/http/getaccountinfo):
 
 > See also: [useTokenMint](#get-token-mint-account) and [`useTokenAccount`](#get-token-account)
 
 ```tsx
 "use client";
 
-import { useAccount } from "@gillsdk/react";
+import { useAccount } from "@trezoagill/react";
 
 export function PageClient() {
   const { account, isLoading, isError, error } = useAccount({
@@ -260,12 +260,12 @@ object:
 ```tsx
 "use client";
 
-import { useAccount } from "@gillsdk/react";
-import { getMintDecoder } from "gill/programs";
+import { useAccount } from "@trezoagill/react";
+import { getMintDecoder } from "trezoagill/programs";
 
 export function PageClient() {
   const { account, isLoading, isError, error } = useAccount({
-    // USDC mint account (on Solana mainnet)
+    // USDC mint account (on Trezoa mainnet)
     address: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
     decoder: getMintDecoder(),
   });
@@ -283,13 +283,13 @@ export function PageClient() {
 
 ### Get signature statuses
 
-Get the statuses of signatures using the Solana RPC method of
-[`getSignatureStatuses`](https://solana.com/docs/rpc/http/getSignatureStatuses):
+Get the statuses of signatures using the Trezoa RPC method of
+[`getSignatureStatuses`](https://trezoa.com/docs/rpc/http/getSignatureStatuses):
 
 ```tsx
 "use client";
 
-import { useSignatureStatuses } from "@gillsdk/react";
+import { useSignatureStatuses } from "@trezoagill/react";
 
 export function PageClient() {
   const { statuses, isLoading, isError, error } = useSignatureStatuses({
@@ -309,13 +309,13 @@ export function PageClient() {
 
 ### Get program accounts (GPA)
 
-Get all the accounts owned by a `program` using the Solana RPC method of
-[`getProgramAccounts`](https://solana.com/docs/rpc/http/getProgramAccounts):
+Get all the accounts owned by a `program` using the Trezoa RPC method of
+[`getProgramAccounts`](https://trezoa.com/docs/rpc/http/getProgramAccounts):
 
 ```tsx
 "use client";
 
-import { useProgramAccounts } from "@gillsdk/react";
+import { useProgramAccounts } from "@trezoagill/react";
 
 export function PageClient() {
   const { accounts, isLoading, isError, error } = useProgramAccounts({
@@ -348,18 +348,18 @@ export function PageClient() {
 
 ### Get token Mint account
 
-Get a decoded [Mint account](https://solana.com/docs/tokens#mint-account) for a given token's Mint address.
+Get a decoded [Mint account](https://trezoa.com/docs/tokens#mint-account) for a given token's Mint address.
 
 > Note: the Mint's information can be accessed via the returned `account.data` field.
 
 ```tsx
 "use client";
 
-import { useTokenMint } from "@gillsdk/react";
+import { useTokenMint } from "@trezoagill/react";
 
 export function PageClient() {
   const { account, isLoading, isError, error } = useTokenMint({
-    // USDC mint account (on Solana mainnet)
+    // USDC mint account (on Trezoa mainnet)
     mint: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
   });
 
@@ -381,7 +381,7 @@ Get the token account for a given mint and owner:
 ```tsx
 "use client";
 
-import { useTokenAccount } from "@gillsdk/react";
+import { useTokenAccount } from "@trezoagill/react";
 
 export function PageClient() {
   const { account, isLoading, isError, error } = useTokenAccount({
@@ -409,7 +409,7 @@ by providing the `ata` address:
 ```tsx
 "use client";
 
-import { useTokenAccount } from "@gillsdk/react";
+import { useTokenAccount } from "@trezoagill/react";
 
 export function PageClient() {
   const { account, isLoading, isError, error } = useTokenAccount({
@@ -430,12 +430,12 @@ export function PageClient() {
 ### Get Signatures for address
 
 Get the signatures for confirmed transactions using the RPC method of
-[getSignaturesForAddress](https://solana.com/docs/rpc/http/getsignaturesforaddress)
+[getSignaturesForAddress](https://trezoa.com/docs/rpc/http/getsignaturesforaddress)
 
 ```tsx
 "use client";
 
-import { useSignaturesForAddress } from "@gillsdk/react";
+import { useSignaturesForAddress } from "@trezoagill/react";
 
 export function PageClient() {
   const { signatures, isLoading, isError, error } = useSignaturesForAddress({

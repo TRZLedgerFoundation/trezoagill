@@ -1,10 +1,10 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import type { GetTransactionApi, Signature, Simplify } from "gill";
+import type { GetTransactionApi, Signature, Simplify } from "trezoagill";
 
 import { GILL_HOOK_CLIENT_KEY } from "../const.js";
-import { useSolanaClient } from "./client.js";
+import { useTrezoaClient } from "./client.js";
 import type { GillUseRpcHook } from "./types.js";
 
 type RpcConfig = Simplify<Parameters<GetTransactionApi["getTransaction"]>[1]>;
@@ -19,8 +19,8 @@ type UseTransactionInput<TConfig extends RpcConfig = RpcConfig> = GillUseRpcHook
 };
 
 /**
- * Get transaction details for a confirmed transaction using the Solana RPC method of
- * [`getTransaction`](https://solana.com/docs/rpc/http/gettransaction)
+ * Get transaction details for a confirmed transaction using the Trezoa RPC method of
+ * [`getTransaction`](https://trezoa.com/docs/rpc/http/gettransaction)
  *
  * Default `config` includes:
  * - `maxSupportedTransactionVersion` of `0`
@@ -32,7 +32,7 @@ export function useTransaction<TConfig extends RpcConfig = RpcConfig>({
   abortSignal,
   signature,
 }: UseTransactionInput<TConfig>) {
-  const { rpc, urlOrMoniker } = useSolanaClient();
+  const { rpc, urlOrMoniker } = useTrezoaClient();
   const { data, ...rest } = useQuery({
     networkMode: "offlineFirst",
     ...options,

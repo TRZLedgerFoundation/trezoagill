@@ -1,5 +1,5 @@
 {
-  "name": "@gillsdk/examples-tokens",
+  "name": "@trezoagill/examples-tokens",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -12,7 +12,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "esrun": "^3.2.26",
-    "gill": "workspace:*"
+    "trezoagill": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.9.0",

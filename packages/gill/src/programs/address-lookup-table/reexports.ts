@@ -1,4 +1,4 @@
-// Re-exports from @solana-program/address-lookup-table
+// Re-exports from @trezoa-program/address-lookup-table
 export {
   ADDRESS_LOOKUP_TABLE_DISCRIMINATOR,
   ADDRESS_LOOKUP_TABLE_PROGRAM_ADDRESS,
@@ -54,6 +54,6 @@ export {
   parseDeactivateLookupTableInstruction,
   parseExtendLookupTableInstruction,
   parseFreezeLookupTableInstruction,
-} from "@solana-program/address-lookup-table";
+} from "@trezoa-program/address-lookup-table";
 
-export type * from "@solana-program/address-lookup-table";
+export type * from "@trezoa-program/address-lookup-table";

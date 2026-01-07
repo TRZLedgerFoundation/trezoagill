@@ -1,8 +1,8 @@
-/** 1 billion lamports per SOL */
-export const LAMPORTS_PER_SOL = 1_000_000_000;
+/** 1 billion lamports per TRZ */
+export const LAMPORTS_PER_TRZ = 1_000_000_000;
 
 /**
- * Genesis hash for Solana network clusters
+ * Genesis hash for Trezoa network clusters
  */
 export const GENESIS_HASH = {
   mainnet: "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",

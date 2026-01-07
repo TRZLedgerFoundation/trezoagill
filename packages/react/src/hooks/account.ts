@@ -1,11 +1,11 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import type { Account, Address, Decoder, FetchAccountConfig, Simplify } from "gill";
-import { assertAccountExists, decodeAccount, fetchEncodedAccount } from "gill";
+import type { Account, Address, Decoder, FetchAccountConfig, Simplify } from "trezoagill";
+import { assertAccountExists, decodeAccount, fetchEncodedAccount } from "trezoagill";
 
 import { GILL_HOOK_CLIENT_KEY } from "../const.js";
-import { useSolanaClient } from "./client.js";
+import { useTrezoaClient } from "./client.js";
 import type { GillUseRpcHook } from "./types.js";
 
 type RpcConfig = Simplify<Omit<FetchAccountConfig, "abortSignal">>;
@@ -33,15 +33,15 @@ type UseAccountInput<
 };
 
 /**
- * Get the account info for an address using the Solana RPC method of
- * [`getAccountInfo`](https://solana.com/docs/rpc/http/getaccountinfo)
+ * Get the account info for an address using the Trezoa RPC method of
+ * [`getAccountInfo`](https://trezoa.com/docs/rpc/http/getaccountinfo)
  */
 export function useAccount<
   TConfig extends RpcConfig = RpcConfig,
   TAddress extends string = string,
   TDecodedData extends object = Uint8Array,
 >({ options, config, abortSignal, address, decoder }: UseAccountInput<TConfig, TAddress, TDecodedData>) {
-  const { rpc, urlOrMoniker } = useSolanaClient();
+  const { rpc, urlOrMoniker } = useTrezoaClient();
 
   if (abortSignal) {
     // @ts-expect-error we stripped the `abortSignal` from the type but are now adding it back in

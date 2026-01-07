@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "solana-pay",
+  "display": "trezoa-pay",
   "extends": "../tsconfig/base.json",
   "include": ["src"]
 }

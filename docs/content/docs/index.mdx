@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: Get started with gill, the new JavaScript client for Solana developers.
+description: Get started with trezoagill, the new JavaScript client for Solana developers.
 ---
 
 Gill is a modern javascript/typescript client library for interacting with the
@@ -9,28 +9,28 @@ browsers, React Native, and just about any other JavaScript environment.
 
 Gill is built on top of the Solana JavaScript libraries built by Anza:
 [@solana/kit](https://github.com/anza-xyz/kit) (formerly known as "web3.js v2"). By utilizing the
-same types and functions under the hood, `gill` is compatible with `@solana/kit`. All `@solana/kit`
-imports can even be directly replaced with `gill` for one-to-one compatibility, plus unlocking the
-various quality-of-life improvements that gill provides.
+same types and functions under the hood, `trezoagill` is compatible with `@solana/kit`. All `@solana/kit`
+imports can even be directly replaced with `trezoagill` for one-to-one compatibility, plus unlocking the
+various quality-of-life improvements that trezoagill provides.
 
-## Install gill
+## Install trezoagill
 
-Install the core `gill` library in your project:
+Install the core `trezoagill` library in your project:
 
 ```package-install
-gill
+trezoagill
 ```
 
 <Callout title="Coming from Kit?">
-  All imports from the `@solana/kit` library can be directly replaces with `gill` to achieve the
-  exact same functionality. Plus unlock the additional functionality only included in gill, like
+  All imports from the `@solana/kit` library can be directly replaces with `trezoagill` to achieve the
+  exact same functionality. Plus unlock the additional functionality only included in trezoagill, like
   `createTransaction`.
 </Callout>
 
 ## Quick start
 
-After [installing gill](#install-gill), follow these simple steps to install and get started with
-the `gill` library:
+After [installing trezoagill](#install-trezoagill), follow these simple steps to install and get started with
+the `trezoagill` library:
 
 <Steps>
 
@@ -42,7 +42,7 @@ Create a Solana `rpc` and `rpcSubscriptions` client connection from any RPC URL 
 network moniker (i.e. `devnet`, `localnet`, `mainnet` etc).
 
 ```typescript
-import { createSolanaClient } from "gill";
+import { createSolanaClient } from "trezoagill";
 
 const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient({
   urlOrMoniker: "mainnet",
@@ -56,7 +56,7 @@ When you are ready to ship your application to production, you will need to util
 ready RPC provider.
 
 ```typescript
-import { createSolanaClient } from "gill";
+import { createSolanaClient } from "trezoagill";
 
 const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient({
   urlOrMoniker: "https://private-solana-rpc-provider.com",
@@ -73,7 +73,7 @@ After you have a Solana `rpc` connection, you can make all the
 [JSON RPC method](https://solana.com/docs/rpc) calls directly off of it.
 
 ```typescript
-import { createSolanaClient } from "gill";
+import { createSolanaClient } from "trezoagill";
 
 const { rpc } = createSolanaClient({ urlOrMoniker: "devnet" });
 
@@ -117,9 +117,9 @@ When creating a Solana transaction, you will need several pieces of information:
 </Callout>
 
 ```ts twoslash
-import { createTransaction, createSolanaClient } from "gill";
-import { loadKeypairSignerFromFile } from "gill/node";
-import { getAddMemoInstruction } from "gill/programs";
+import { createTransaction, createSolanaClient } from "trezoagill";
+import { loadKeypairSignerFromFile } from "trezoagill/node";
+import { getAddMemoInstruction } from "trezoagill/programs";
 
 /**
  * load the Solana CLI's default keypair file (`~/.config/solana/id.json`)
@@ -180,7 +180,7 @@ import {
   createTransaction,
   createSolanaClient,
   signTransactionMessageWithSigners,
-} from "gill";
+} from "trezoagill";
 
 const { rpc, sendAndConfirmTransaction } = createSolanaClient({
   urlOrMoniker: "devnet",
@@ -208,7 +208,7 @@ it to the blockchain network for confirmation.
 ### Send and confirm transactions
 
 When your transaction is ready and signed, you can send it to the network via your RPC provider
-using the `sendAndConfirmTransaction()` function initialized via gill's `createSolanaClient()`:
+using the `sendAndConfirmTransaction()` function initialized via trezoagill's `createSolanaClient()`:
 
 ```ts twoslash
 // @noErrors
@@ -216,7 +216,7 @@ import {
   createTransaction,
   createSolanaClient,
   signTransactionMessageWithSigners,
-} from "gill";
+} from "trezoagill";
 
 const { rpc, sendAndConfirmTransaction } = createSolanaClient({
   urlOrMoniker: "devnet",
@@ -252,10 +252,10 @@ try {
 
 </Steps>
 
-Congratulations! You now understand the basics of using the `gill` library to perform create and
+Congratulations! You now understand the basics of using the `trezoagill` library to perform create and
 send Solana transactions.
 
 ## Example source code
 
-You can find the well-commented source code file for the above code snippets in gill's open source
-repo here: https://github.com/gillsdk/gill/blob/master/examples/get-started/src/intro.ts
+You can find the well-commented source code file for the above code snippets in trezoagill's open source
+repo here: https://github.com/trezoagill/trezoagill/blob/master/examples/get-started/src/intro.ts
