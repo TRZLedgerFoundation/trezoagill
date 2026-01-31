@@ -8,7 +8,7 @@ export * from "./address-lookup-table";
 export * from "./token";
 
 /**
- * Codama generated clients, stored internally in this package
+ * Codoma generated clients, stored internally in this package
  * (and associated helpers for them)
  */
 export * from "./memo"; // vendored in from @trezoa-program/memo

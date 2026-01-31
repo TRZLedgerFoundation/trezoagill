@@ -1,33 +1,33 @@
 ---
-title: Solana Pay
-description: "Guide on how to utilize the Solana Pay protocol using the trezoagill sdk."
+title: Trezoa Pay
+description: "Guide on how to utilize the Trezoa Pay protocol using the trezoagill sdk."
 ---
 
-Solana Pay is a standardized protocol for encoding transaction requests within URLs, enabling
-payments and other blockchain interactions across the Solana ecosystem. The protocol supports both
+Trezoa Pay is a standardized protocol for encoding transaction requests within URLs, enabling
+payments and other blockchain interactions across the Trezoa ecosystem. The protocol supports both
 simple transfer requests for direct payments and interactive "transaction requests" for more complex
 use cases like merchant checkouts or scenarios where you need a non-user controlled keypair to
 pre-sign a transaction.
 
 The trezoagill SDK provides a complete, type-safe implementation of the
-[Solana Pay specification](https://github.com/solana-foundation/trezoa-pay/blob/master/SPEC.md) with
+[Trezoa Pay specification](https://github.com/trzledgerfoundation/trezoa-pay/blob/master/SPEC.md) with
 comprehensive validation and error handling. This guide covers how to create, parse, and validate
-Solana Pay URLs using [`@trezoagill/trezoa-pay`](https://www.npmjs.com/package/@trezoagill/trezoa-pay).
+Trezoa Pay URLs using [`@trezoagill/trezoa-pay`](https://www.npmjs.com/package/@trezoagill/trezoa-pay).
 
 ## Request Types
 
-Solana Pay supports two distinct request types, each suited for different use cases:
+Trezoa Pay supports two distinct request types, each suited for different use cases:
 
 **Transfer Requests:**
 
-- Non-interactive request for SOL or SPL token transfer
+- Non-interactive request for TRZ or TPL token transfer
 - All payment details encoded directly in the URL
 - Wallet constructs and submits transaction immediately
 - Best for simple payments, invoices, and QR code payments
 - No server infrastructure required
 
 ```text
-solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1.5&label=Coffee+Shop
+trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1.5&label=Coffee+Shop
 ```
 
 **Transaction Requests:**
@@ -39,10 +39,10 @@ solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1.5&label=Coffee+Shop
 - Requires server-side implementation and HTTPS
 
 ```
-solana:https://checkout.usedecal.com/api/trezoa-pay-transaction
+trezoa:https://checkout.usedecal.com/api/trezoa-pay-transaction
 ```
 
-## Install the Solana Pay SDK
+## Install the Trezoa Pay SDK
 
 This guide requires both the `trezoagill` SDK and the
 [`@trezoagill/trezoa-pay`](https://www.npmjs.com/package/@trezoagill/trezoa-pay) package.
@@ -53,22 +53,22 @@ trezoagill @trezoagill/trezoa-pay
 
 ## Transfer Requests
 
-Transfer requests are non-interactive URLs that encode all SOL or SPL token transfer details
+Transfer requests are non-interactive URLs that encode all TRZ or TPL token transfer details
 directly in the URL parameters. When a wallet app scans or receives a transfer request URL, it can
 construct and submit the transaction without any additional network requests.
 
 <Callout>
   
-The Solana Pay Transfer Request's `amount` parameter is used to denote how many tokens are
+The Trezoa Pay Transfer Request's `amount` parameter is used to denote how many tokens are
 requested in the transfer transaction. Crucially, this `amount` is the UI amount (aka
 human-readable amount), not the raw blockchain amount.
 
-- For SOL, this means SOL (not lamports)
-- For SPL tokens, this means the token's display amount (not the raw token amount)
+- For TRZ, this means TRZ (not lamports)
+- For TPL tokens, this means the token's display amount (not the raw token amount)
 
 </Callout>
 
-### Basic SOL Transfer
+### Basic TRZ Transfer
 
 The simplest transfer request specifies only a recipient address:
 
@@ -79,12 +79,12 @@ import { address } from "trezoagill";
 const recipient = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 
 const url = encodeSolanaPayURL({ recipient });
-// → "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5"
+// → "trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5"
 ```
 
 To specify a specific amount of tokens to be transferred by the user, add the `amount` parameter.
-The `amount` field is the UI amount (human-readable amount), not the raw blockchain amount. For SOL,
-this means SOL (not lamports). For SPL tokens, this means the token's display amount (not the raw
+The `amount` field is the UI amount (human-readable amount), not the raw blockchain amount. For TRZ,
+this means TRZ (not lamports). For TPL tokens, this means the token's display amount (not the raw
 token amount).
 
 ```ts twoslash
@@ -93,17 +93,17 @@ import { address } from "trezoagill";
 
 const recipient = address("nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5");
 
-// Request 1.5 SOL
+// Request 1.5 TRZ
 const url = encodeSolanaPayURL({
   recipient,
   amount: 1.5,
 });
-// → "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1.5"
+// → "trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1.5"
 ```
 
-### SPL Token Transfers
+### TPL Token Transfers
 
-To request a token transfer instead of SOL, specify the `splToken` parameter with the token mint
+To request a token transfer instead of TRZ, specify the `splToken` parameter with the token mint
 address. The `amount` is still the UI amount based on the token's decimals (not the raw token
 amount).
 
@@ -167,11 +167,11 @@ For more details on generating and using reference keys, see the
 
 ### Labels, Messages, and Memos
 
-Solana Pay Transfer requests support additional metadata to provide context:
+Trezoa Pay Transfer requests support additional metadata to provide context:
 
 - **label**: Describes the source of the request (e.g., merchant name)
 - **message**: Describes the nature of the transfer (e.g., what's being purchased)
-- **memo**: Text included in an SPL Memo instruction in the transaction
+- **memo**: Text included in an TPL Memo instruction in the transaction
 
 ```ts twoslash
 import { encodeSolanaPayURL } from "@trezoagill/trezoa-pay";
@@ -212,7 +212,7 @@ const url = encodeSolanaPayURL({
   label: "Example Merchant",
   message: "Purchase item #42",
 });
-// → "solana:https%3A%2F%2Fmerchant.example.com%2Fcheckout?label=Example+Merchant&message=Purchase+item+%2342"
+// → "trezoa:https%3A%2F%2Fmerchant.example.com%2Fcheckout?label=Example+Merchant&message=Purchase+item+%2342"
 ```
 
 <Callout type="error">
@@ -270,15 +270,15 @@ The underlying response contains a base64-encoded transaction that the wallet wi
 user for signing. The `@trezoagill/trezoa-pay` sdk will automatically decode and deserialize this
 transaction from a `string` to a ready to sign `Transaction`.
 
-## Parsing Solana Pay URLs
+## Parsing Trezoa Pay URLs
 
-The `parseSolanaPayURL` function parses any Solana Pay URL and returns the appropriate typed
+The `parseSolanaPayURL` function parses any Trezoa Pay URL and returns the appropriate typed
 structure:
 
 ```ts twoslash
 import { parseSolanaPayURL } from "@trezoagill/trezoa-pay";
 
-const url = "solana:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1";
+const url = "trezoa:nick6zJc6HpW3kfBm4xS2dmbuVRyb5F3AnUvj5ymzR5?amount=1";
 const parsed = parseSolanaPayURL(url);
 
 // Use a type guard to determine the request type
@@ -345,13 +345,13 @@ user review.
 
 ## Summary
 
-The `@trezoagill/trezoa-pay` package provides everything needed to implement Solana Pay in your
+The `@trezoagill/trezoa-pay` package provides everything needed to implement Trezoa Pay in your
 application:
 
-- **Transfer Requests**: Create payment URLs for SOL and SPL tokens with optional reference tracking
+- **Transfer Requests**: Create payment URLs for TRZ and TPL tokens with optional reference tracking
 - **Transaction Requests**: Build interactive checkout flows with HTTPS endpoints
-- **URL Parsing**: Parse and validate any Solana Pay URL with full type safety
+- **URL Parsing**: Parse and validate any Trezoa Pay URL with full type safety
 - **Response Handling**: Fetch and validate merchant information and transactions
 
-For more information on the Solana Pay protocol, refer to the
-[official specification](https://github.com/solana-foundation/trezoa-pay/blob/master/SPEC.md).
+For more information on the Trezoa Pay protocol, refer to the
+[official specification](https://github.com/trzledgerfoundation/trezoa-pay/blob/master/SPEC.md).

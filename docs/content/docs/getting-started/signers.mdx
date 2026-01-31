@@ -1,9 +1,9 @@
 ---
 title: Generate a signer
-description: Create a new keypair signer that can perform Solana signing operations.
+description: Create a new keypair signer that can perform Trezoa signing operations.
 ---
 
-For most typical Solana transaction signing operations, you will be utilizing a `TransactionSigner`.
+For most typical Trezoa transaction signing operations, you will be utilizing a `TransactionSigner`.
 This object type is capable of being "attached" to instructions and transaction to perform signing
 operations.
 
@@ -18,7 +18,7 @@ instructions or creating transactions.
 
 ## Generating a keypair signer
 
-For various Solana development tasks, you may need to generate a new signer. Including when creating
+For various Trezoa development tasks, you may need to generate a new signer. Including when creating
 a new account, generating reference keys for transactions, or
 [creating tokens](/docs/guides/tokens/create-token).
 
@@ -65,7 +65,7 @@ const signer = await generateExtractableKeyPairSigner();
 
 ## Create a signer without the secret key
 
-If your Solana application allows users to sign transaction's by way of connecting their wallet
+If your Trezoa application allows users to sign transaction's by way of connecting their wallet
 (e.g. Backpack, Phantom, Solflare, etc) to your app, you will not have access to their secret key
 material.
 

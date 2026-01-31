@@ -33,9 +33,9 @@ trezoagill @trezoagill/react @tanstack/react-query
 
 <Step>
 
-### Create a Solana Client
+### Create a Trezoa Client
 
-Create a Solana client using trezoagill's `createSolanaClient` function:
+Create a Trezoa client using trezoagill's `createSolanaClient` function:
 
 ```typescript
 import { createSolanaClient } from "trezoagill";
@@ -46,7 +46,7 @@ const client = createSolanaClient({
 ```
 
 <Callout type="warn">
-  The public Solana RPC endpoints are subject to rate limits and should not be used in production.
+  The public Trezoa RPC endpoints are subject to rate limits and should not be used in production.
   For production applications, use a dedicated RPC provider like Helius, QuickNode, or Alchemy.
 </Callout>
 
@@ -56,7 +56,7 @@ const client = createSolanaClient({
 
 ### Wrap Your App with SolanaProvider
 
-The `SolanaProvider` is a React context provider that makes the Solana client available to all
+The `SolanaProvider` is a React context provider that makes the Trezoa client available to all
 `@trezoagill/react` hooks in your component tree.
 
 #### For Standard React Apps
@@ -97,7 +97,7 @@ RSC-enabled frameworks), you need to create a client-side wrapper component.
 
 Here's how to create a client-side provider wrapper:
 
-```tsx filename="app/providers/solana-provider.tsx"
+```tsx filename="app/providers/trezoa-provider.tsx"
 "use client"; // Required - marks this as a Client Component
 
 import { createSolanaClient } from "trezoagill";
@@ -115,7 +115,7 @@ export function SolanaProviderClient({ children }: { children: React.ReactNode }
 Then wrap your app in the root layout with this `SolanaProviderClient` component:
 
 ```tsx filename="app/layout.tsx"
-import { SolanaProviderClient } from "@/providers/solana-provider";
+import { SolanaProviderClient } from "@/providers/trezoa-provider";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -154,7 +154,7 @@ export function WalletBalance() {
 
   return (
     <div>
-      <p>Balance: {lamportsToSol(balance)} SOL</p>
+      <p>Balance: {lamportsToSol(balance)} TRZ</p>
     </div>
   );
 }
@@ -186,7 +186,7 @@ const client = createSolanaClient({
 
 ### Multiple Clients
 
-You can manage multiple Solana clients using the `useUpdateSolanaClient` hook:
+You can manage multiple Trezoa clients using the `useUpdateSolanaClient` hook:
 
 ```tsx
 "use client";
@@ -237,7 +237,7 @@ Component" or "useState only works in Client Components", this means you're tryi
 
 - React Server Components run on the server during build/request time
 - `@trezoagill/react` uses browser-specific features like React hooks and Web APIs
-- The Solana client needs to make RPC calls from the browser
+- The Trezoa client needs to make RPC calls from the browser
 
 **To fix:**
 

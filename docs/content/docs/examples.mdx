@@ -1,11 +1,11 @@
 ---
 title: Examples
 description:
-  Collection of example scripts and code snippets on how to use trezoagill, the Solana JavaScript SDK.
+  Collection of example scripts and code snippets on how to use trezoagill, the Trezoa JavaScript SDK.
 ---
 
 Listed here and in trezoagill's open source repository, you can find a collection of example scripts and
-code snippets that demonstrate how to accomplish various common tasks for Solana developers.
+code snippets that demonstrate how to accomplish various common tasks for Trezoa developers.
 
 [github.com/trezoagill/trezoagill/tree/master/examples](https://github.com/trezoagill/trezoagill/tree/master/examples)
 
@@ -21,7 +21,7 @@ scripts on the following:
 </Callout>
 
 A brief introduction to the `trezoagill` library. Demonstrating and explaining the commonly used tasks
-involved to interact with the Solana blockchain, including:
+involved to interact with the Trezoa blockchain, including:
 
 - load a keypair signer from the local filesystem
 - create an rpc connection to the blockchain
@@ -30,10 +30,10 @@ involved to interact with the Solana blockchain, including:
 - building a complete transaction
 - signing the transaction with the loaded local keypair signer
 - getting the signature of a transaction (even before it is sent)
-- logging Solana Explorer links
+- logging Trezoa Explorer links
 - sending and confirming a transaction
 
-These are all the most basic tasks required for any application sending transaction to the Solana
+These are all the most basic tasks required for any application sending transaction to the Trezoa
 blockchain.
 
 ### airdrop.ts
@@ -42,8 +42,8 @@ blockchain.
   https://github.com/trezoagill/trezoagill/blob/master/examples/get-started/src/airdrop.ts
 </Callout>
 
-Demonstrates how to create a client connection to the Solana blockchain on a test cluster (e.g.
-`devnet`, `testnet`, or `localnet`) and request airdrops of testing SOL tokens to a wallet address.
+Demonstrates how to create a client connection to the Trezoa blockchain on a test cluster (e.g.
+`devnet`, `testnet`, or `localnet`) and request airdrops of testing TRZ tokens to a wallet address.
 
 ### tokens.ts
 
@@ -51,7 +51,7 @@ Demonstrates how to create a client connection to the Solana blockchain on a tes
   https://github.com/trezoagill/trezoagill/blob/master/examples/get-started/src/tokens.ts
 </Callout>
 
-Demonstrates how to use trezoagill's "transaction builders" to create a brand new Solana token (with
+Demonstrates how to use trezoagill's "transaction builders" to create a brand new Trezoa token (with
 onchain metadata) and then mint tokens to another user's wallet:
 
 - load a keypair signer from the local filesystem
@@ -79,18 +79,18 @@ Most notably utilized within SolanaPay and Blinks.
 See also: the trezoagill docs for [Reference Keys](https://trezoagill.com/docs/guides/reference-keys) for
 more information.
 
-### Comparison between @solana/kit and trezoagill
+### Comparison between @trezoa/kit and trezoagill
 
 You can find comparison scripts that demonstrates some of the differences between
-[trezoagill](https://github.com/trezoagill/trezoagill) and [@solana/kit](https://github.com/anza-xyz/kit) (formerly
+[trezoagill](https://github.com/trezoagill/trezoagill) and [@trezoa/kit](https://github.com/anza-xyz/kit) (formerly
 known as "web3.js v2").
 
 <Callout>
-  Find a more comprehensive comparison in [trezoagill vs @solana/kit comparison
+  Find a more comprehensive comparison in [trezoagill vs @trezoa/kit comparison
   docs](https://trezoagill.com/docs/compare/kit)
 </Callout>
 
-Both scripts accomplish the same task: send an optimized transaction to the Solana blockchain.
+Both scripts accomplish the same task: send an optimized transaction to the Trezoa blockchain.
 
 - Using trezoagill -
   [`basic.ts`](https://github.com/trezoagill/trezoagill/blob/master/examples/get-started/src/basic.ts)

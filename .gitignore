@@ -24,7 +24,7 @@ yarn-error.log*
 # Sapling SCM
 .sl
 
-# `solana-test-validator`
+# `trezoa-test-validator`
 .agave/
 .cache
 test-ledger

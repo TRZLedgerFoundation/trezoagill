@@ -1,9 +1,9 @@
 import { createCodamaConfig } from "../core";
 
 describe("createCodamaConfig", () => {
-  const idl = "anchor/target/idl/counter.json";
-  const clientJs = "anchor/src/client/js";
-  const clientRust = "anchor/src/client/rust";
+  const idl = "trezoaanchor/target/idl/counter.json";
+  const clientJs = "trezoaanchor/src/client/js";
+  const clientRust = "trezoaanchor/src/client/rust";
 
   it("should return accept minimal arguments", () => {
     const config = createCodamaConfig({

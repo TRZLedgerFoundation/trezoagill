@@ -1,13 +1,13 @@
 ---
 title: Transaction Hooks
-description: Hooks for sending and managing Solana transactions
+description: Hooks for sending and managing Trezoa transactions
 ---
 
 <Callout type="info">
   Transaction hooks are coming soon to `@trezoagill/react`. This page documents the planned API.
 </Callout>
 
-These hooks will provide an easy way to send, confirm, and manage Solana transactions with automatic
+These hooks will provide an easy way to send, confirm, and manage Trezoa transactions with automatic
 error handling and retry logic.
 
 ## Planned Hooks
@@ -66,7 +66,7 @@ const { status, confirmations } = useTransactionStatus({
 
 ## Current Approach
 
-Until transaction hooks are available, you can use the Solana client directly:
+Until transaction hooks are available, you can use the Trezoa client directly:
 
 ```tsx
 "use client";
@@ -112,7 +112,7 @@ If you're using a wallet adapter, combine it with `@trezoagill/react`:
 ```tsx
 "use client";
 
-import { useWallet } from "@solana/wallet-adapter-react";
+import { useWallet } from "@trezoa/wallet-adapter-react";
 import { useSolanaClient } from "@trezoagill/react";
 import { createTransaction } from "trezoagill";
 

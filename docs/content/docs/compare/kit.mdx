@@ -1,13 +1,13 @@
 ---
-title: trezoagill vs @solana/kit
+title: trezoagill vs @trezoa/kit
 description:
-  "Explore a side-by-side comparison of trezoagill and @solana/kit (formerly known as web3js v2)"
+  "Explore a side-by-side comparison of trezoagill and @trezoa/kit (formerly known as web3js v2)"
 ---
 
 The trezoagill library is built directly on top of
-[`@solana/kit`](https://www.npmjs.com/package/@solana/kit), the new JavaScript primitives developed
+[`@trezoa/kit`](https://www.npmjs.com/package/@trezoa/kit), the new JavaScript primitives developed
 by [Anza](https://anza.xyz) as a more performant replacement for the old
-[`@solana/web3.js`](https://www.npmjs.com/package/@solana/web3.js). Since Kit only ships these new
+[`@trezoa/web3.js`](https://www.npmjs.com/package/@trezoa/web3.js). Since Kit only ships these new
 low level primitives, developers are forced into a single experience of manually crafting everything
 and ballooning their applications with verbose boilerplate.
 
@@ -17,10 +17,10 @@ the board with trezoagill, developers can focus more time on their application's
 verbose boilerplate.
 
 <Callout>
-  `@solana/kit` was formerly know as "web3.js v2" as it was originally published as the version
-  `2.x` release of `@solana/web3.js`. Anza engineers noted this to complicate and confuse the
+  `@trezoa/kit` was formerly know as "web3.js v2" as it was originally published as the version
+  `2.x` release of `@trezoa/web3.js`. Anza engineers noted this to complicate and confuse the
   upgrade path for the new technologies, so they decided to publish under the new package name of
-  `@solana/kit`.
+  `@trezoa/kit`.
 </Callout>
 
 You can find the complete scripts that the example code snippets were created from in the trezoagill repo
@@ -33,7 +33,7 @@ accomplishing the same task.
 Every application will need to create a connection to the blockchain. A complete and usable
 connection consists of the following three parts (at a minimum):
 
-1. `rpc` - used to send [Solana RPC](https://solana.com/docs/rpc) requests over HTTP (the most
+1. `rpc` - used to send [Trezoa RPC](https://trezoa.com/docs/rpc) requests over HTTP (the most
    common way)
 2. `rpcSubscriptions` - used to make certain RPC requests over websockets
 3. `sendAndConfirmTransaction` - function used to actually send a complete transaction to the
@@ -50,17 +50,17 @@ const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient(
 });
 ```
 
-```ts tab="@solana/kit"
+```ts tab="@trezoa/kit"
 import {
   devnet,
   createSolanaRpc,
   createSolanaRpcSubscriptions,
   sendAndConfirmTransactionFactory,
-} from "@solana/kit";
+} from "@trezoa/kit";
 
-const rpc = createSolanaRpc(devnet("https://api.devnet.solana.com"));
+const rpc = createSolanaRpc(devnet("https://api.devnet.trezoa.com"));
 
-const rpcSubscriptions = createSolanaRpcSubscriptions(devnet("wss://api.devnet.solana.com"));
+const rpcSubscriptions = createSolanaRpcSubscriptions(devnet("wss://api.devnet.trezoa.com"));
 
 const sendAndConfirmTransaction = sendAndConfirmTransactionFactory({
   rpc,
@@ -70,7 +70,7 @@ const sendAndConfirmTransaction = sendAndConfirmTransactionFactory({
 
 ## Making RPC requests
 
-For both `@solana/kit` and `trezoagill`, making standard Solana RPC requests is the same: use the
+For both `@trezoa/kit` and `trezoagill`, making standard Trezoa RPC requests is the same: use the
 previously created `rpc` object.
 
 ```ts
@@ -83,7 +83,7 @@ const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
 
 ## Loading a signer
 
-There are many different ways to obtain a keypair that is capable of performing the Solana specific
+There are many different ways to obtain a keypair that is capable of performing the Trezoa specific
 signing operations (aka a "signer"). This will look different for frontend and backend applications.
 
 For local scripts, JavaScript server runtimes (like NodeJS and Bun), and backend applications it's
@@ -96,13 +96,13 @@ import { loadKeypairSignerFromFile } from "trezoagill/node";
 const signer = await loadKeypairSignerFromFile();
 ```
 
-```ts tab="@solana/kit"
+```ts tab="@trezoa/kit"
 import { readFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { resolve } from "node:path";
-import { createKeyPairFromBytes } from "@solana/kit";
+import { createKeyPairFromBytes } from "@trezoa/kit";
 
-const keypairFilePath = "~/.config/solana/id.json";
+const keypairFilePath = "~/.config/trezoa/id.json";
 
 const resolvedKeypairPath = resolve(keypairFilePath.replace("~", homedir()));
 
@@ -111,7 +111,7 @@ const keypair = await createKeyPairFromBytes(
 );
 ```
 
-Note that `@solana/kit` has no specific functionality for loading keypairs from files or ENV
+Note that `@trezoa/kit` has no specific functionality for loading keypairs from files or ENV
 variables, so developers must implement the file/ENV reading operations themselves.
 
 Whereas trezoagill includes multiple functions to handle these very scenarios:
@@ -121,8 +121,8 @@ Whereas trezoagill includes multiple functions to handle these very scenarios:
 - [`loadKeypairSignerFromEnvironmentBase58()`](/api/trezoagill-node/functions/loadKeypairSignerFromEnvironmentBase58)
 
 <Callout>
-  The `loadKeypairSignerFromFile()` function defaults to the Solana CLI's keypair path
-  (`~/.config/solana/id.json`). If you wish to load a different keypair file, provide the path in as
+  The `loadKeypairSignerFromFile()` function defaults to the Trezoa CLI's keypair path
+  (`~/.config/trezoa/id.json`). If you wish to load a different keypair file, provide the path in as
   an argument.
 </Callout>
 
@@ -152,19 +152,19 @@ const transaction = createTransaction({
 });
 ```
 
-```ts tab="@solana/kit"
+```ts tab="@trezoa/kit"
 import {
   pipe,
   createTransactionMessage,
   setTransactionMessageFeePayerSigner,
   appendTransactionMessageInstructions,
   setTransactionMessageLifetimeUsingBlockhash,
-} from "@solana/kit";
-import { getAddMemoInstruction } from "@solana-program/memo";
+} from "@trezoa/kit";
+import { getAddMemoInstruction } from "@trezoa-program/memo";
 import {
   getSetComputeUnitLimitInstruction,
   getSetComputeUnitPriceInstruction,
-} from "@solana-program/compute-budget";
+} from "@trezoa-program/compute-budget";
 
 const transaction = pipe(
   createTransactionMessage({ version: "legacy" }),
@@ -184,8 +184,8 @@ const transaction = pipe(
 );
 ```
 
-Notice that the `@solana/kit` based example above requires manually installing two additional
-packages: `@solana-program/compute-budget` and `@solana-program/memo`.
+Notice that the `@trezoa/kit` based example above requires manually installing two additional
+packages: `@trezoa-program/compute-budget` and `@trezoa-program/memo`.
 
 Whereas trezoagill takes a different approach:
 

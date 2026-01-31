@@ -110,7 +110,7 @@
 
 - [#161](https://github.com/TRZLedgerFoundation/trezoagill/pull/161)
   [`81c6bed`](https://github.com/TRZLedgerFoundation/trezoagill/commit/81c6beddc314a98b75180e5241c7808da16c4f42) Thanks
-  [@beeman](https://github.com/beeman)! - add create-codama-config function
+  [@beeman](https://github.com/beeman)! - add create-codoma-config function
 
 ## 0.10.1
 
@@ -338,7 +338,7 @@
 
 - [#49](https://github.com/TRZLedgerFoundation/trezoagill/pull/49)
   [`64d138a`](https://github.com/TRZLedgerFoundation/trezoagill/commit/64d138a03e3c09b340c54273455b44ae582ff0c6) Thanks
-  [@nickfrosty](https://github.com/nickfrosty)! - vendor in spl memo
+  [@nickfrosty](https://github.com/nickfrosty)! - vendor in tpl memo
 
 - [#48](https://github.com/TRZLedgerFoundation/trezoagill/pull/48)
   [`18a8eec`](https://github.com/TRZLedgerFoundation/trezoagill/commit/18a8eecba39d4c133e90c90905a5bb87f4eb7ba9) Thanks
@@ -367,7 +367,7 @@
 
 - [#29](https://github.com/TRZLedgerFoundation/trezoagill/pull/29)
   [`94c1210`](https://github.com/TRZLedgerFoundation/trezoagill/commit/94c12107ca22d07c1ffb59879c81a0027ebf10de) Thanks
-  [@nickfrosty](https://github.com/nickfrosty)! - added client for Metaplex's Token Metadata program
+  [@nickfrosty](https://github.com/nickfrosty)! - added client for Trezoaplex's Token Metadata program
 
 - [#33](https://github.com/TRZLedgerFoundation/trezoagill/pull/33)
   [`be3110d`](https://github.com/TRZLedgerFoundation/trezoagill/commit/be3110d21652f3d31e238a55962a872f65f63faf) Thanks

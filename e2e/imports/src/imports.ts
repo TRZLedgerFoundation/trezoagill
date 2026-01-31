@@ -56,7 +56,7 @@ import { getAddMemoInstruction } from "trezoagill/programs";
 getAddMemoInstruction;
 
 /**
- * ! Metaplex's Token Metadata client is generated and vendored in
+ * ! Trezoaplex's Token Metadata client is generated and vendored in
  */
 import { TOKEN_METADATA_PROGRAM_ADDRESS } from "trezoagill/programs";
 TOKEN_METADATA_PROGRAM_ADDRESS;

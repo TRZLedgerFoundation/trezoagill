@@ -1,8 +1,8 @@
 /**
- * Token Metadata program from Metaplex
- * - repo: https://github.com/metaplex-foundation/mpl-token-metadata
+ * Token Metadata program from Trezoaplex
+ * - repo: https://github.com/trezoaplex-foundation/tpl-token-metadata
  *
- * TypeScript client generated via Codama
+ * TypeScript client generated via Codoma
  */
 
 export * from "./generated";

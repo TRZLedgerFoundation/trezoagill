@@ -1,12 +1,12 @@
 ---
 title: TypeScript Support
 description:
-  The trezoagill library is TypeScript first and heavily typed to improve your Solana developer
+  The trezoagill library is TypeScript first and heavily typed to improve your Trezoa developer
   experience.
 ---
 
 Gill is a heavily typed library to improve developer experience. After completing the
-[simple installation guide](/docs#install-trezoagill) to get your Solana application setup, everything
+[simple installation guide](/docs#install-trezoagill) to get your Trezoa application setup, everything
 _should_ work out of the box for most common application configurations.
 
 However, there may be some configuration your codebase may require in order to utilize the trezoagill
@@ -46,7 +46,7 @@ SyntaxError: The requested module 'trezoagill' does not provide an export named 
 
 <Step>
 
-Update your project's `tsconfig.json` file to utilize the
+Update your trezoa's `tsconfig.json` file to utilize the
 [verbatimModuleSyntax](https://www.typescriptlang.org/tsconfig/#verbatimModuleSyntax) compiler
 option. This will ensure your editor and build system will correctly show errors when codes does not
 explicitly annotate imported types/interfaces with the `type` keyword.

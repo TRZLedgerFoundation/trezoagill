@@ -1,11 +1,11 @@
 ---
-title: React Hooks for Solana
+title: React Hooks for Trezoa
 description:
-  A React hooks library for easily interacting with the Solana blockchain, built on top of trezoagill
+  A React hooks library for easily interacting with the Trezoa blockchain, built on top of trezoagill
 ---
 
 Welcome to `@trezoagill/react`, a React hooks library for easily interacting with the
-[Solana](http://solana.com/) blockchain.
+[Trezoa](http://trezoa.com/) blockchain.
 
 <Callout type="info">
   `@trezoagill/react` is in active development. All APIs are subject to change until reaching the first
@@ -15,7 +15,7 @@ Welcome to `@trezoagill/react`, a React hooks library for easily interacting wit
 This React hooks library is built on top of two core libraries:
 
 1. [`trezoagill`](https://www.npmjs.com/package/trezoagill) - modern JavaScript/TypeScript library for
-   interacting with the Solana blockchain.
+   interacting with the Trezoa blockchain.
 2. [`@tanstack/react-query`](https://www.npmjs.com/package/@tanstack/react-query) - popular and
    powerful asynchronous state management for React.
 
@@ -34,7 +34,7 @@ trezoagill @trezoagill/react @tanstack/react-query
 
 ## Key Features
 
-- **Type-safe hooks** - Full TypeScript support with proper typing for all Solana data
+- **Type-safe hooks** - Full TypeScript support with proper typing for all Trezoa data
 - **Built on TanStack Query** - Leverages the power of React Query for caching, background
   refetching, and optimistic updates
 - **Easy to use** - Simple, intuitive API that follows React best practices
@@ -45,8 +45,8 @@ trezoagill @trezoagill/react @tanstack/react-query
 
 ### Client Management
 
-- [`useSolanaClient`](/docs/react/hooks/client#usesolanaclient) - Get the current Solana client
-- [`useUpdateSolanaClient`](/docs/react/hooks/client#useupdatesolanaclient) - Update the Solana
+- [`useSolanaClient`](/docs/react/hooks/client#usesolanaclient) - Get the current Trezoa client
+- [`useUpdateSolanaClient`](/docs/react/hooks/client#useupdatesolanaclient) - Update the Trezoa
   client
 
 ### Data Fetching
@@ -80,7 +80,7 @@ export function WalletBalance({ address }: { address: string }) {
 
   return (
     <div>
-      <p>Balance: {lamportsToSol(balance)} SOL</p>
+      <p>Balance: {lamportsToSol(balance)} TRZ</p>
     </div>
   );
 }

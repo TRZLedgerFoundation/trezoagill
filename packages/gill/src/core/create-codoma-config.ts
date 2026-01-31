@@ -1,5 +1,5 @@
 /**
- * Codama dependency map to utilize trezoagill imports
+ * Codoma dependency map to utilize trezoagill imports
  */
 export const GILL_EXTERNAL_MODULE_MAP: Record<string, string> = {
   trezoaAccounts: "trezoagill",
@@ -17,8 +17,8 @@ export const GILL_EXTERNAL_MODULE_MAP: Record<string, string> = {
 };
 
 /**
- * Create a Codama CLI configuration to generate a program client from an IDL.
- * Normally saved to `codama.js`.
+ * Create a Codoma CLI configuration to generate a program client from an IDL.
+ * Normally saved to `codoma.js`.
  *
  * @example
  * ```ts

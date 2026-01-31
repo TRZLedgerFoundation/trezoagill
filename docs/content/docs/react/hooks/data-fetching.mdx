@@ -1,15 +1,15 @@
 ---
 title: Data Fetching Hooks
-description: Hooks for fetching data from the Solana blockchain
+description: Hooks for fetching data from the Trezoa blockchain
 ---
 
-These hooks provide easy access to common Solana blockchain data with automatic caching, refetching,
+These hooks provide easy access to common Trezoa blockchain data with automatic caching, refetching,
 and error handling.
 
 ## useAccount
 
-Get the account info for an address using the Solana RPC method
-[`getAccountInfo`](https://solana.com/docs/rpc/http/getaccountinfo).
+Get the account info for an address using the Trezoa RPC method
+[`getAccountInfo`](https://trezoa.com/docs/rpc/http/getaccountinfo).
 
 ### Usage
 
@@ -78,7 +78,7 @@ interface UseAccountOptions {
 ## useBalance
 
 Get an account's balance in lamports using
-[`getBalance`](https://solana.com/docs/rpc/http/getbalance).
+[`getBalance`](https://trezoa.com/docs/rpc/http/getbalance).
 
 ### Usage
 
@@ -98,7 +98,7 @@ export function WalletBalance() {
 
   return (
     <div>
-      <p>Balance: {lamportsToSol(balance)} SOL</p>
+      <p>Balance: {lamportsToSol(balance)} TRZ</p>
     </div>
   );
 }
@@ -129,7 +129,7 @@ interface UseBalanceOptions {
 ## useLatestBlockhash
 
 Get the latest blockhash using
-[`getLatestBlockhash`](https://solana.com/docs/rpc/http/getlatestblockhash).
+[`getLatestBlockhash`](https://trezoa.com/docs/rpc/http/getlatestblockhash).
 
 ### Usage
 
@@ -178,7 +178,7 @@ interface UseLatestBlockhashOptions {
 ## useSignatureStatuses
 
 Get the statuses of signatures using
-[`getSignatureStatuses`](https://solana.com/docs/rpc/http/getSignatureStatuses).
+[`getSignatureStatuses`](https://trezoa.com/docs/rpc/http/getSignatureStatuses).
 
 ### Usage
 
@@ -232,7 +232,7 @@ interface UseSignatureStatusesOptions {
 ## useSignaturesForAddress
 
 Get signatures for confirmed transactions using
-[`getSignaturesForAddress`](https://solana.com/docs/rpc/http/getsignaturesforaddress).
+[`getSignaturesForAddress`](https://trezoa.com/docs/rpc/http/getsignaturesforaddress).
 
 ### Usage
 
@@ -297,7 +297,7 @@ interface UseSignaturesForAddressOptions {
 ## useProgramAccounts
 
 Get all accounts owned by a program using the
-[`getProgramAccounts`](https://solana.com/docs/rpc/http/getProgramAccounts) RPC method.
+[`getProgramAccounts`](https://trezoa.com/docs/rpc/http/getProgramAccounts) RPC method.
 
 <Callout type="warn" title="Important getProgramAccounts (GPA) Limitations">
 
@@ -377,7 +377,7 @@ interface UseProgramAccountsOptions {
 
 ## useTokenMint
 
-Get a decoded [Mint account](https://solana.com/docs/tokens#mint-account) for a token.
+Get a decoded [Mint account](https://trezoa.com/docs/tokens#mint-account) for a token.
 
 ### Usage
 
@@ -418,7 +418,7 @@ interface UseTokenMintOptions {
 
 ## useTokenAccount
 
-Get the decoded [Token Account](https://solana.com/docs/tokens#token-account) for a given mint and
+Get the decoded [Token Account](https://trezoa.com/docs/tokens#token-account) for a given mint and
 owner, automatically deriving the Associated Token Account (ATA) address:
 
 ### Usage

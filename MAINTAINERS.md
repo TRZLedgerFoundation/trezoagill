@@ -124,7 +124,7 @@ In the respective submodule's source code directory:
 
 # Token Metadata program client
 
-The included Token Metadata program client was generated using [Codoma](https://github.com/codoma/codama).
+The included Token Metadata program client was generated using [Codoma](https://github.com/trzledgerfoundation/codoma).
 
 ## Minimal functionality
 

@@ -575,7 +575,7 @@ Build a transaction that can create a token with metadata, either using the
 [original token](https://github.com/trezoa-program/token) or
 [token extensions (token22)](https://github.com/trezoa-program/token-2022) program.
 
-- Tokens created with the original token program (`TOKEN_PROGRAM_ADDRESS`, default) will use Metaplex's Token Metadata
+- Tokens created with the original token program (`TOKEN_PROGRAM_ADDRESS`, default) will use Trezoaplex's Token Metadata
   program for onchain metadata
 - Tokens created with the token extensions program (`TOKEN_2022_PROGRAM_ADDRESS`) will use the metadata pointer
   extensions
@@ -748,7 +748,7 @@ debug("custom message", "warn");
 ## Program clients
 
 With `trezoagill` you can also import some of the most commonly used clients for popular programs. These are also fully
-tree-shakable, so if you do not import them inside your project they will be removed by your JavaScript bundler at build
+tree-shakable, so if you do not import them inside your trezoa they will be removed by your JavaScript bundler at build
 time (i.e. Webpack).
 
 To import any of these program clients:
@@ -772,8 +772,8 @@ The program clients included inside `trezoagill` are:
   client with the original Token Program
 - Address Lookup Table program - re-exported from
   [`@trezoa-program/address-lookup-table`](https://github.com/trezoa-program/address-lookup-table)
-- Token Metadata program from Metaplex (only the v3 functionality) - generated via Codama their IDL
-  ([source](https://github.com/metaplex-foundation/mpl-token-metadata))
+- Token Metadata program from Trezoaplex (only the v3 functionality) - generated via Codoma their IDL
+  ([source](https://github.com/trezoaplex-foundation/tpl-token-metadata))
 
 If one of the existing clients are not being exported from `trezoagill/programs` or a subpath therein, you can of course
 manually add their compatible client to your repo.
@@ -797,8 +797,8 @@ package to use in conjunction with trezoagill:
 ### Generate a program client from an IDL
 
 See also: this official trezoagill docs and guide on
-[how to generate a program client with codoma](https://trezoagill.com/docs/guides/codama)
+[how to generate a program client with codoma](https://trezoagill.com/docs/guides/codoma)
 
 If you want to easily interact with any custom program with this library, you can use
-[Codoma](https://github.com/codoma/codama) to generate a compatible JavaScript/TypeScript client using its IDL. You
+[Codoma](https://github.com/trzledgerfoundation/codoma) to generate a compatible JavaScript/TypeScript client using its IDL. You
 can either store the generated client inside your repo or publish it as a NPM package for others to easily consume.

@@ -10,7 +10,7 @@ use cases.
 
 ### Display Wallet Balance
 
-A simple component to display a wallet's SOL balance:
+A simple component to display a wallet's TRZ balance:
 
 ```tsx
 "use client";
@@ -30,7 +30,7 @@ export function WalletBalance({ address }: { address: string }) {
   return (
     <div className="p-4 border rounded">
       <h3 className="font-bold">Wallet Balance</h3>
-      <p className="text-2xl">{lamportsToSol(balance)} SOL</p>
+      <p className="text-2xl">{lamportsToSol(balance)} TRZ</p>
     </div>
   );
 }
@@ -38,7 +38,7 @@ export function WalletBalance({ address }: { address: string }) {
 
 ### Token Balance Display
 
-Display a specific SPL token balance:
+Display a specific TPL token balance:
 
 ```tsx
 "use client";
@@ -169,12 +169,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ### With Wallet Adapter
 
-Combine `@trezoagill/react` with Solana wallet adapter:
+Combine `@trezoagill/react` with Trezoa wallet adapter:
 
 ```tsx
 "use client";
 
-import { useWallet } from "@solana/wallet-adapter-react";
+import { useWallet } from "@trezoa/wallet-adapter-react";
 import { useBalance } from "@trezoagill/react";
 import { lamportsToSol } from "trezoagill";
 
@@ -197,7 +197,7 @@ export function ConnectedWalletInfo() {
       {isLoading ? (
         <p>Loading balance...</p>
       ) : (
-        <p className="text-xl font-bold">{lamportsToSol(balance)} SOL</p>
+        <p className="text-xl font-bold">{lamportsToSol(balance)} TRZ</p>
       )}
     </div>
   );

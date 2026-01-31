@@ -1,13 +1,13 @@
 ---
 title: Client Management Hooks
-description: Hooks for managing and accessing the Solana client connection
+description: Hooks for managing and accessing the Trezoa client connection
 ---
 
-These hooks allow you to access and manage the Solana client configured in your `SolanaProvider`.
+These hooks allow you to access and manage the Trezoa client configured in your `SolanaProvider`.
 
 ## useSolanaClient
 
-Get the current Solana client configured in the `SolanaProvider`, including the `rpc` and
+Get the current Trezoa client configured in the `SolanaProvider`, including the `rpc` and
 `rpcSubscriptions` connections.
 
 ### Usage
@@ -20,7 +20,7 @@ import { useSolanaClient } from "@trezoagill/react";
 export function MyComponent() {
   const { rpc, rpcSubscriptions } = useSolanaClient();
 
-  // You can now use rpc to access any Solana JSON RPC methods
+  // You can now use rpc to access any Trezoa JSON RPC methods
   const getSlot = async () => {
     const slot = await rpc.getSlot().send();
     console.log("Current slot:", slot);
@@ -79,7 +79,7 @@ export function AccountExplorer({ accountAddress }: { accountAddress: Address })
 
 ## useUpdateSolanaClient
 
-Update the current Solana client in the `SolanaProvider`. This is useful for switching between
+Update the current Trezoa client in the `SolanaProvider`. This is useful for switching between
 different networks or RPC endpoints.
 
 ### Usage
@@ -117,7 +117,7 @@ export function NetworkSwitcher() {
 updateClient(client: SolanaClient): void
 ```
 
-- `client` - The new Solana client to set
+- `client` - The new Trezoa client to set
 
 ### Advanced Example
 

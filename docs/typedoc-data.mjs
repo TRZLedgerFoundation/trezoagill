@@ -23,7 +23,7 @@ export const typedocPageIndexData = {
     frontmatter: {
       title: "trezoagill/programs",
       description:
-        "Utilize the compatible Solana program clients that ship directly within trezoagill. Including common programs from the official Trezoa Program Library (TPL), Metaplex, and others.",
+        "Utilize the compatible Trezoa program clients that ship directly within trezoagill. Including common programs from the official Trezoa Program Library (TPL), Trezoaplex, and others.",
     },
   },
   react: {

@@ -1,28 +1,28 @@
 ---
 title: Installation
-description: Get started with trezoagill, the new JavaScript client for Solana developers.
+description: Get started with trezoagill, the new JavaScript client for Trezoa developers.
 ---
 
 Gill is a modern javascript/typescript client library for interacting with the
-[Solana](http://solana.com/) blockchain. You can use it to build Solana apps in NodeJS, web
+[Trezoa](http://trezoa.com/) blockchain. You can use it to build Trezoa apps in NodeJS, web
 browsers, React Native, and just about any other JavaScript environment.
 
-Gill is built on top of the Solana JavaScript libraries built by Anza:
-[@solana/kit](https://github.com/anza-xyz/kit) (formerly known as "web3.js v2"). By utilizing the
-same types and functions under the hood, `trezoagill` is compatible with `@solana/kit`. All `@solana/kit`
+Gill is built on top of the Trezoa JavaScript libraries built by Anza:
+[@trezoa/kit](https://github.com/anza-xyz/kit) (formerly known as "web3.js v2"). By utilizing the
+same types and functions under the hood, `trezoagill` is compatible with `@trezoa/kit`. All `@trezoa/kit`
 imports can even be directly replaced with `trezoagill` for one-to-one compatibility, plus unlocking the
 various quality-of-life improvements that trezoagill provides.
 
 ## Install trezoagill
 
-Install the core `trezoagill` library in your project:
+Install the core `trezoagill` library in your trezoa:
 
 ```package-install
 trezoagill
 ```
 
 <Callout title="Coming from Kit?">
-  All imports from the `@solana/kit` library can be directly replaces with `trezoagill` to achieve the
+  All imports from the `@trezoa/kit` library can be directly replaces with `trezoagill` to achieve the
   exact same functionality. Plus unlock the additional functionality only included in trezoagill, like
   `createTransaction`.
 </Callout>
@@ -36,9 +36,9 @@ the `trezoagill` library:
 
 <Step>
 
-### Create a Solana RPC connection
+### Create a Trezoa RPC connection
 
-Create a Solana `rpc` and `rpcSubscriptions` client connection from any RPC URL or standard Solana
+Create a Trezoa `rpc` and `rpcSubscriptions` client connection from any RPC URL or standard Trezoa
 network moniker (i.e. `devnet`, `localnet`, `mainnet` etc).
 
 ```typescript
@@ -49,7 +49,7 @@ const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient(
 });
 ```
 
-The above snippet demonstrates how to use the public Solana RPC endpoints. These are great for quick
+The above snippet demonstrates how to use the public Trezoa RPC endpoints. These are great for quick
 local testing, but they are (rightfully) subject to heavy rate limits.
 
 When you are ready to ship your application to production, you will need to utilize a production
@@ -59,7 +59,7 @@ ready RPC provider.
 import { createSolanaClient } from "trezoagill";
 
 const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient({
-  urlOrMoniker: "https://private-solana-rpc-provider.com",
+  urlOrMoniker: "https://private-trezoa-rpc-provider.com",
 });
 ```
 
@@ -67,10 +67,10 @@ const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient(
 
 <Step>
 
-### Make Solana RPC requests
+### Make Trezoa RPC requests
 
-After you have a Solana `rpc` connection, you can make all the
-[JSON RPC method](https://solana.com/docs/rpc) calls directly off of it.
+After you have a Trezoa `rpc` connection, you can make all the
+[JSON RPC method](https://trezoa.com/docs/rpc) calls directly off of it.
 
 ```typescript
 import { createSolanaClient } from "trezoagill";
@@ -96,22 +96,22 @@ const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
 ### Create a transaction
 
 You can easily create transactions using the `createTransaction()` function. It accepts a single
-object argument that is fully typed for all the required (and optional) pieces of a Solana
+object argument that is fully typed for all the required (and optional) pieces of a Trezoa
 transaction.
 
-When creating a Solana transaction, you will need several pieces of information:
+When creating a Trezoa transaction, you will need several pieces of information:
 
 - version - `legacy` works well for every task, unless you need Address Lookup Tables (then use `0`)
 - latest blockhash - This is like a recent timestamp check that the blockchain uses. Simply request
   it from your `rpc`.
-- instructions - Instructs the Solana runtime which programs and logic to execute onchain.
+- instructions - Instructs the Trezoa runtime which programs and logic to execute onchain.
 - fee payer - The signer that will cover the small fee collected by the network to execute the
   transaction.
 
 <Callout>
-  For simplicity, the following examples utilize `loadKeypairSignerFromFile()` to load a Solana
-  keypair file from the local file system. Specifically the Solana CLI's default file path:
-  `~/.config/solana/id.json`. This can work well for running local scripts, but not for frontend
+  For simplicity, the following examples utilize `loadKeypairSignerFromFile()` to load a Trezoa
+  keypair file from the local file system. Specifically the Trezoa CLI's default file path:
+  `~/.config/trezoa/id.json`. This can work well for running local scripts, but not for frontend
   applications where users will need to sign using their wallets. See [Creating a signer without a
   secret key](/docs/getting-started/signers#create-a-signer-without-the-secret-key) for details.
 </Callout>
@@ -122,7 +122,7 @@ import { loadKeypairSignerFromFile } from "trezoagill/node";
 import { getAddMemoInstruction } from "trezoagill/programs";
 
 /**
- * load the Solana CLI's default keypair file (`~/.config/solana/id.json`)
+ * load the Trezoa CLI's default keypair file (`~/.config/trezoa/id.json`)
  * as a signer into your script
  */
 const signer = await loadKeypairSignerFromFile();
@@ -152,7 +152,7 @@ You can now [sign the transaction](#signing-transactions) and send it to the blo
 confirmation.
 
 <Callout title="Optimizing transactions">
-  You can (and should) optimize your Solana transactions by including a compute unit limit and
+  You can (and should) optimize your Trezoa transactions by including a compute unit limit and
   compute unit price instructions within your transaction. The `createTransaction()` function
   supports easily adding these instructions via the `computeUnitLimit` and `computeUnitPrice`
   arguments.
@@ -253,7 +253,7 @@ try {
 </Steps>
 
 Congratulations! You now understand the basics of using the `trezoagill` library to perform create and
-send Solana transactions.
+send Trezoa transactions.
 
 ## Example source code
 

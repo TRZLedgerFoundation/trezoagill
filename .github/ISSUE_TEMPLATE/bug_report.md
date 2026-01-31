@@ -38,9 +38,9 @@ For example: Ubuntu, PopOS, Fedora, MacOS, Windows, etc
 
 **Reproduction URL**
 
-A public GitHub repo that includes a minimal reproduction of the bug. **Please do not link to your actual project**,
-what we need instead is a _minimal_ reproduction in a fresh project without any unnecessary code. This means it doesn't
-matter if your real project is private/confidential, since we want a link to a separate, isolated reproduction anyways.
+A public GitHub repo that includes a minimal reproduction of the bug. **Please do not link to your actual trezoa**,
+what we need instead is a _minimal_ reproduction in a fresh trezoa without any unnecessary code. This means it doesn't
+matter if your real trezoa is private/confidential, since we want a link to a separate, isolated reproduction anyways.
 
 A reproduction is **required** when filing a bug report — any bug report opened without a reproduction will be closed
 and you'll be asked to create a new issue that includes a reproduction. We're a small team and we can't keep up with the

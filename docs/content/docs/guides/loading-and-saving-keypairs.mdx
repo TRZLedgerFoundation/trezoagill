@@ -33,7 +33,7 @@ The `trezoagill/node` package provides the following keypair management function
 **Loading functions:**
 
 - `loadKeypairSignerFromFile()` - Load a keypair signer from a filesystem JSON file (defaults to
-  Solana CLI path)
+  Trezoa CLI path)
 - `loadKeypairSignerFromEnvironment()` - Load a keypair signer from an environment variable (JSON
   array format)
 - `loadKeypairSignerFromEnvironmentBase58()` - Load a keypair signer from an environment variable
@@ -50,7 +50,7 @@ All functions also have non-`Signer` variants (e.g., `loadKeypairFromFile`) that
 
 ## Loading Keypairs from Environment Variables
 
-Environment variables are the recommended approach for loading Solana keypairs in production
+Environment variables are the recommended approach for loading Trezoa keypairs in production
 environments, serverless functions, and CI/CD pipelines. This method provides better security and
 portability compared to storing private keys in files on disk.
 
@@ -64,7 +64,7 @@ configuration.
 
 The most common format for storing keypairs in environment variables is the JSON array format (a
 stringified array of 64 numbers representing the keypair bytes). This is the same format as the
-keypairs generated and used by the Solana CLI.
+keypairs generated and used by the Trezoa CLI.
 
 ```ts twoslash
 import { loadKeypairSignerFromEnvironment } from "trezoagill/node";
@@ -85,7 +85,7 @@ MY_KEYPAIR="[123,45,67,89,...]"
 
 ### Base58 Format
 
-Some Solana wallets, browser extensions, and third-party tools export keypairs as base58-encoded
+Some Trezoa wallets, browser extensions, and third-party tools export keypairs as base58-encoded
 strings instead of JSON arrays. The base58 format is a compact string representation that's easier
 to copy and paste, and is commonly used in certain wallet applications.
 
@@ -123,7 +123,7 @@ development or copy to your production environment's secret management system.
 
 This is particularly useful for:
 
-- Initial project setup when you need to create a new Solana wallet for your backend
+- Initial trezoa setup when you need to create a new Trezoa wallet for your backend
 - Local development configurations
 - Generating keypairs that will be deployed to cloud platforms (AWS, Google Cloud, Vercel, etc.)
 - CI/CD pipeline configuration
@@ -154,7 +154,7 @@ console.log("Keypair saved to .env file");
 This will append to your `.env` file with a helpful comment showing the public address:
 
 ```bash
-# Solana Address: 7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU
+# Trezoa Address: 7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU
 MY_KEYPAIR=[123,45,67,89,...]
 ```
 
@@ -179,25 +179,25 @@ await saveKeypairSignerToEnvFile(signer, "MY_KEYPAIR", "./config/.env.production
 
 ## Loading Keypairs from Files
 
-For local development, testing, and CLI tools, loading Solana keypairs from JSON files on your
-filesystem is often the most convenient approach. The Solana CLI (Command Line Interface) stores
-keypairs as JSON files by default, making this method seamlessly compatible with existing Solana
+For local development, testing, and CLI tools, loading Trezoa keypairs from JSON files on your
+filesystem is often the most convenient approach. The Trezoa CLI (Command Line Interface) stores
+keypairs as JSON files by default, making this method seamlessly compatible with existing Trezoa
 tooling.
 
 File-based keypair loading is ideal for:
 
 - **Local development** - Working on your laptop or development machine
-- **Solana CLI integration** - Using keypairs generated with `solana-keygen`
-- **CLI tools and scripts** - Node.js or Bun scripts that interact with Solana
+- **Trezoa CLI integration** - Using keypairs generated with `trezoa-keygen`
+- **CLI tools and scripts** - Node.js or Bun scripts that interact with Trezoa
 - **Testing and debugging** - Quick iteration without managing environment variables
 
 The keypair files contain a JSON array of 64 bytes (numbers from 0-255) representing the full
 keypair.
 
-### Using the Default Solana CLI Path
+### Using the Default Trezoa CLI Path
 
-By default, `loadKeypairSignerFromFile()` loads the keypair from the default Solana CLI keypair path
-(`~/.config/solana/id.json`):
+By default, `loadKeypairSignerFromFile()` loads the keypair from the default Trezoa CLI keypair path
+(`~/.config/trezoa/id.json`):
 
 ```ts twoslash
 import { loadKeypairSignerFromFile } from "trezoagill/node";
@@ -219,7 +219,7 @@ const signer = await loadKeypairSignerFromFile("./my-keypair.json");
 console.log("Loaded signer:", signer.address);
 ```
 
-The file should contain a JSON array of 64 numbers (the standard Solana CLI format):
+The file should contain a JSON array of 64 numbers (the standard Trezoa CLI format):
 
 ```json
 [123, 45, 67, 89, ...]
@@ -233,8 +233,8 @@ The file should contain a JSON array of 64 numbers (the standard Solana CLI form
 ## Saving Keypairs to Files
 
 When building CLI tools, development scripts, or testing utilities, you may need to generate new
-Solana keypairs and save them as JSON files on your local filesystem. The
-`saveKeypairSignerToFile()` function makes this easy by creating Solana CLI-compatible keypair files
+Trezoa keypairs and save them as JSON files on your local filesystem. The
+`saveKeypairSignerToFile()` function makes this easy by creating Trezoa CLI-compatible keypair files
 that can be used across your development workflow.
 
 Common use cases for saving keypairs to files include:
@@ -284,8 +284,8 @@ The function validates the save by attempting to reload the file, returning `tru
 
 ### Development vs Production
 
-- **Development**: Use `loadKeypairSignerFromFile()` to load from the Solana CLI default path or
-  project-specific files
+- **Development**: Use `loadKeypairSignerFromFile()` to load from the Trezoa CLI default path or
+  trezoa-specific files
 - **Production**: Use `loadKeypairSignerFromEnvironment()` or
   `loadKeypairSignerFromEnvironmentBase58()` to load from environment variables
 
@@ -326,7 +326,7 @@ import { loadKeypairSignerFromFile, loadKeypairSignerFromEnvironment } from "tre
 const signer =
   process.env.NODE_ENV === "production"
     ? await loadKeypairSignerFromEnvironment("KEYPAIR")
-    : await loadKeypairSignerFromFile(); // Uses Solana CLI default
+    : await loadKeypairSignerFromFile(); // Uses Trezoa CLI default
 
 console.log("Loaded signer for", process.env.NODE_ENV, ":", signer.address);
 ```

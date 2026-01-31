@@ -1,11 +1,11 @@
 ---
 title: Debug Mode
 description:
-  "Understand how to use trezoagill's debug mode to more easily debug your Solana applications."
+  "Understand how to use trezoagill's debug mode to more easily debug your Trezoa applications."
 ---
 
 Within `trezoagill`, you can enable "debug mode" to automatically log additional information that will be
-helpful in troubleshooting your Solana applications (especially failing transactions).
+helpful in troubleshooting your Trezoa applications (especially failing transactions).
 
 [Debug mode](./debug-mode) is disabled by default to minimize additional logs for your application.
 But with its flexible debug controller, you can enable it from the most common places your code will
@@ -14,11 +14,11 @@ browser console itself.
 
 Some examples of the existing debug logs that `trezoagill` has sprinkled in:
 
-- log the Solana Explorer link for transactions as you are sending them via
+- log the Trezoa Explorer link for transactions as you are sending them via
   `sendAndConfirmTransaction`
 - log the base64 transaction string for further troubleshooting using
-  [`mucho inspect`](https://github.com/solana-developers/mucho?tab=readme-ov-file#inspect) or the
-  Solana Explorer's [Transaction Inspector](https://explorer.solana.com/tx/inspector)
+  [`mucho inspect`](https://github.com/trezoa-developers/mucho?tab=readme-ov-file#inspect) or the
+  Trezoa Explorer's [Transaction Inspector](https://explorer.trezoa.com/tx/inspector)
 
 ## How to enable debug mode
 
@@ -67,7 +67,7 @@ The log levels supported (in order of priority):
 ## Custom debug logs
 
 Gill also exports the same debug functions it uses internally, allowing you to implement your own
-debug logic related to your Solana application and use the same controller for it as `trezoagill` does.
+debug logic related to your Trezoa application and use the same controller for it as `trezoagill` does.
 
 These functions include:
 

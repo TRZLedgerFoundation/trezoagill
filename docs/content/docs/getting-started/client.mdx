@@ -1,37 +1,37 @@
 ---
-title: Create a Solana client
-description: Create a client connection to the Solana blockchain to perform Solana RPC requests.
+title: Create a Trezoa client
+description: Create a client connection to the Trezoa blockchain to perform Trezoa RPC requests.
 ---
 
-Setting up a client connection to the Solana blockchain is a very important part of your
+Setting up a client connection to the Trezoa blockchain is a very important part of your
 application. This client connection is how your application will be sending and receiving data from
-the Solana JSON RPC layer, including [fetching accounts](#fetch-an-account) and sending
+the Trezoa JSON RPC layer, including [fetching accounts](#fetch-an-account) and sending
 transactions.
 
-Gill considers the "Solana client" to be (at a minimum) the following pieces:
+Gill considers the "Trezoa client" to be (at a minimum) the following pieces:
 
-- `rpc` - used to interact with the your [Solana JSON RPC](https://solana.com/docs/rpc/http)
+- `rpc` - used to interact with the your [Trezoa JSON RPC](https://trezoa.com/docs/rpc/http)
   provider (typically via HTTP)
-- `rpcSubscriptions` - used to interact with the Solana RPC over websockets
-- `sendAndConfirmTransaction` - used to send and confirm a Solana transaction over the RPC
+- `rpcSubscriptions` - used to interact with the Trezoa RPC over websockets
+- `sendAndConfirmTransaction` - used to send and confirm a Trezoa transaction over the RPC
   connections
 
 <Callout>
-  If you are familiar with the `Connection` class from the older `@solana/web3.js` library, trezoagill's
+  If you are familiar with the `Connection` class from the older `@trezoa/web3.js` library, trezoagill's
   `createSolanaClient` is similar. But more bare-bones and lightweight.
 </Callout>
 
 Most client applications will need to initialize the above functionality in their codebase. Within
-trezoagill, there are two primary ways to create a Solana client:
+trezoagill, there are two primary ways to create a Trezoa client:
 
-1. using the [`createSolanaClient()`](#create-a-solana-rpc-connection) function (recommended in
+1. using the [`createSolanaClient()`](#create-a-trezoa-rpc-connection) function (recommended in
    order to reduce application boilerplate)
 2. manually initialize them all individually
 
-## Create a Solana RPC connection
+## Create a Trezoa RPC connection
 
-Create the Solana client connections (i.e. `rpc` and `rpcSubscriptions`) from any RPC URL or
-standard Solana network moniker (i.e. `devnet`, `localnet`, `mainnet` etc) using the
+Create the Trezoa client connections (i.e. `rpc` and `rpcSubscriptions`) from any RPC URL or
+standard Trezoa network moniker (i.e. `devnet`, `localnet`, `mainnet` etc) using the
 `createSolanaClient()` function.
 
 ```typescript twoslash
@@ -42,17 +42,17 @@ const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient(
 });
 ```
 
-Using the Solana moniker will connect to the public RPC endpoints. These are subject to rate limits
+Using the Trezoa moniker will connect to the public RPC endpoints. These are subject to rate limits
 and should not be used in production applications. Applications should find their own RPC provider
 and use the URL provided by them.
 
-### Solana client for localnet
+### Trezoa client for localnet
 
 Developers can also connect to a local test validator (like
-[`solana-test-validator`](https://solana.com/docs/intro/installation#run-local-validator)) running
+[`trezoa-test-validator`](https://trezoa.com/docs/intro/installation#run-local-validator)) running
 on your computer.
 
-To create a Solana client for your local test validator:
+To create a Trezoa client for your local test validator:
 
 ```typescript twoslash
 import { createSolanaClient } from "trezoagill";
@@ -65,10 +65,10 @@ const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient(
 <Callout>
   The `urlOrMoniker` value of `localnet` will utilize the default test validator address and port of
   `http://127.0.0.1:8899`. If you need to connect to a different address/port, then simply pass in
-  its entire URL. See [custom RPC URL](#solana-client-for-a-custom-rpc-url) below.
+  its entire URL. See [custom RPC URL](#trezoa-client-for-a-custom-rpc-url) below.
 </Callout>
 
-### Solana client for a custom RPC URL
+### Trezoa client for a custom RPC URL
 
 To create an RPC client for an custom RPC provider or service:
 
@@ -76,14 +76,14 @@ To create an RPC client for an custom RPC provider or service:
 import { createSolanaClient } from "trezoagill";
 
 const { rpc, rpcSubscriptions, sendAndConfirmTransaction } = createSolanaClient({
-  urlOrMoniker: "https://private-solana-rpc-provider.com",
+  urlOrMoniker: "https://private-trezoa-rpc-provider.com",
 });
 ```
 
-## Making Solana RPC calls
+## Making Trezoa RPC calls
 
-After you have a Solana `rpc` connection, you can make all the
-[JSON RPC method](https://solana.com/docs/rpc) calls directly off of it. Most commonly to get the
+After you have a Trezoa `rpc` connection, you can make all the
+[JSON RPC method](https://trezoa.com/docs/rpc) calls directly off of it. Most commonly to get the
 [latest blockhash](#get-the-latest-blockhash) or [fetching a specific account](#fetch-an-account).
 
 ```typescript twoslash
@@ -103,7 +103,7 @@ request to your RPC provider and get a response.
 
 #### Destructure and renaming response values
 
-Many of the Solana RPC responses will return a generic `value` attribute containing the typed
+Many of the Trezoa RPC responses will return a generic `value` attribute containing the typed
 response payload. It is a common practice to
 [destructure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring)
 this generic `value` into a more aptly named variable, such as `latestBlockhash` (as demonstrated in
@@ -111,7 +111,7 @@ the example below).
 
 ### Get the latest blockhash
 
-On Solana, the latest blockhash is uses as a sort of "recent timestamp" check within the
+On Trezoa, the latest blockhash is uses as a sort of "recent timestamp" check within the
 transaction.
 
 To get the latest blockhash from your RPC:
@@ -133,8 +133,8 @@ const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
 
 ### Fetch an account
 
-All the data stored on the Solana blockchain is stored in
-[accounts](https://solana.com/docs/core/accounts), including native SOL balance, tokens, and
+All the data stored on the Trezoa blockchain is stored in
+[accounts](https://trezoa.com/docs/core/accounts), including native TRZ balance, tokens, and
 programs. The structure of an account's data and associated metadata information is called an
 `AccountInfo`.
 

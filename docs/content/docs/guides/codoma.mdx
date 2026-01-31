@@ -1,25 +1,25 @@
 ---
-title: Generate Solana program clients with Codama
+title: Generate Trezoa program clients with Codoma
 description:
-  "Step-by-step guide on how to use Codama to generate a Solana program client from an IDL."
+  "Step-by-step guide on how to use Codoma to generate a Trezoa program client from an IDL."
 ---
 
-[Codama](https://github.com/codama-idl/codama) is a tool that allows developers to take a Solana
+[Codoma](https://github.com/codoma-idl/codoma) is a tool that allows developers to take a Trezoa
 program's IDL and generate client libraries (e.g. JavaScript, Rust, etc) for use by other
-applications. Codama handles all the complexities of crafting Solana instructions into an IDL, a
+applications. Codoma handles all the complexities of crafting Trezoa instructions into an IDL, a
 config file, and importing a function.
 
-Codama is quickly becoming part of the defacto standard tooling for Solana developers. Even the new
-Solana Program Library (SPL) program clients are now generated using Codama. See the
-[solana-program](https://github.com/solana-program) organization on GitHub.
+Codoma is quickly becoming part of the defacto standard tooling for Trezoa developers. Even the new
+Trezoa Program Library (TPL) program clients are now generated using Codoma. See the
+[trezoa-program](https://github.com/trezoa-program) organization on GitHub.
 
-This guide will walk you through the step-by-step of taking a Solana program IDL and generating a
+This guide will walk you through the step-by-step of taking a Trezoa program IDL and generating a
 JavaScript/TypeScript client library that utilizes the `trezoagill` library. Afterwards, you can import
 the various functions, types, and more into your application and easily interact with the specific
-Solana program your IDL is from.
+Trezoa program your IDL is from.
 
 <Callout>
-  This guide was written using `v1.1.1` of the Codama CLI. If you experience any issues or
+  This guide was written using `v1.1.1` of the Codoma CLI. If you experience any issues or
   discrepancies on newer versions, please [open an
   issue](https://github.com/trezoagill/trezoagill/issues/new?title=%5BCodama%5D%20) on the trezoagill repo here so
   we can investigate and update this guide.
@@ -28,25 +28,25 @@ Solana program your IDL is from.
 <Steps>
 <Step>
 
-## Install the Codama CLI
+## Install the Codoma CLI
 
 To get started, you first need to install the
-[Codama CLI](https://github.com/codama-idl/codama/tree/main/packages/cli) inside your repo:
+[Codoma CLI](https://github.com/codoma-idl/codoma/tree/main/packages/cli) inside your repo:
 
 ```package-install
-@codama/cli
+@codoma/cli
 ```
 
 <Callout type="warn">
-  The Codama CLI is **not** meant to be installed globally, but rather version controlled with your
+  The Codoma CLI is **not** meant to be installed globally, but rather version controlled with your
   repo. Ensuring your generated program client will continue to be compatible with the rest of your
   code base (should breaking changes happen in the future).
 </Callout>
 
-This will allow you to execute the Codama CLI via your package manager's "run" command:
+This will allow you to execute the Codoma CLI via your package manager's "run" command:
 
 ```shell
-npx codama --version
+npx codoma --version
 # output: 1.1.1
 ```
 
@@ -54,18 +54,18 @@ npx codama --version
 
 <Step>
 
-## Create a Codama config
+## Create a Codoma config
 
-The Codama CLI utilizes a config file to declare which "renderers" should be used and other assorted
+The Codoma CLI utilizes a config file to declare which "renderers" should be used and other assorted
 logic. Gill provides the `createCodamaConfig()` helper function to simplify this setup.
 
 <Callout>
-  Utilizing a JavaScript Codama config file (e.g. `codama.js`) is recommended for use with trezoagill. If
-  you need more control, you can always fallback to [manually initializing your Codama
-  config](#manually-initialize-a-codama-config) using a JSON file.
+  Utilizing a JavaScript Codoma config file (e.g. `codoma.js`) is recommended for use with trezoagill. If
+  you need more control, you can always fallback to [manually initializing your Codoma
+  config](#manually-initialize-a-codoma-config) using a JSON file.
 </Callout>
 
-Create a `codama.js` file to utilize the `createCodamaConfig()` function, providing your program
+Create a `codoma.js` file to utilize the `createCodamaConfig()` function, providing your program
 specific configuration:
 
 ```ts
@@ -84,7 +84,7 @@ export default createCodamaConfig({
 <Callout>
   It's recommended to store your generated program client in a `generated` directory. This will
   allow you to easily co-locate other manually crafted functions. See [this
-  example](https://github.com/solana-program/token-2022/tree/main/clients/js/src) of the SPL Token
+  example](https://github.com/trezoa-program/token-2022/tree/main/clients/js/src) of the TPL Token
   Extension program client doing exactly this.
 </Callout>
 
@@ -92,13 +92,13 @@ export default createCodamaConfig({
 
 <Step>
 
-## Generate your program client with Codama
+## Generate your program client with Codoma
 
-With your Codama config file setup, you can use the `run` command to generate your
+With your Codoma config file setup, you can use the `run` command to generate your
 JavaScript/TypeScript client, storing the generated output in your configured destination:
 
 ```shell
-npx codama run js
+npx codoma run js
 ```
 
 You can now import your newly generated client library from anywhere in your code base or publish as
@@ -110,10 +110,10 @@ an installable package for any application to easily consume and interact with y
 
 ## Multiple program clients in a single repo
 
-At the time of writing this guide, the latest Codama CLI (`v1.1.1`) does not support multiple
-program clients in a single Codama config file.
+At the time of writing this guide, the latest Codoma CLI (`v1.1.1`) does not support multiple
+program clients in a single Codoma config file.
 
-If you have multiple Solana program IDLs in a single repo, you will need to create a separate config
+If you have multiple Trezoa program IDLs in a single repo, you will need to create a separate config
 file for each. We recommend creating a shell script to generate all the program clients with a
 single command.
 
@@ -123,38 +123,38 @@ For example, the trezoagill library itself utilizes a shell script similar to th
 #!/usr/bin/env bash
 set -euo pipefail
 
-# generate all the codama clients (per their respective config files)
-npx codama run js --config ./idls/token_metadata/codama.js
-npx codama run js --config ./idls/another_program/codama.js
+# generate all the codoma clients (per their respective config files)
+npx codoma run js --config ./idls/token_metadata/codoma.js
+npx codoma run js --config ./idls/another_program/codoma.js
 
 # run the repo's prettier settings on the generated files
 npx prettier --write './packages/trezoagill/src/programs/**/generated/{*,**/*}.{ts,js}'
 ```
 
-This script will execute the `codama run js` command for each program by explicitly passing in the
+This script will execute the `codoma run js` command for each program by explicitly passing in the
 config file to each. Then you can easily execute any additional commands you desire, like performing
 your standard prettier formatting operations.
 
 <Callout title="Use trezoagill's source code as a reference">
   You can find the [exact shell
-  script](https://github.com/trezoagill/trezoagill/blob/master/idls/build-codama-clients.sh) that trezoagill uses
+  script](https://github.com/trezoagill/trezoagill/blob/master/idls/build-codoma-clients.sh) that trezoagill uses
   in our repo to ship some of the program clients trezoagill includes.
 </Callout>
 
-## Manually initialize a Codama config
+## Manually initialize a Codoma config
 
-For more complex scenarios, you may desire to have more control over the Codama config file. In this
-case, use the `codama.json` file and manually configure it to your needs.
+For more complex scenarios, you may desire to have more control over the Codoma config file. In this
+case, use the `codoma.json` file and manually configure it to your needs.
 
 <Steps>
 <Step>
 
-### Create a codama.json file
+### Create a codoma.json file
 
-Run the Codama `init` command and follow the prompts to scaffold your `codama.json` config file:
+Run the Codoma `init` command and follow the prompts to scaffold your `codoma.json` config file:
 
 ```shell
-npx codama init
+npx codoma init
 ```
 
 You will be asked a few questions in order to generate the config file for your IDL:
@@ -166,11 +166,11 @@ You will be asked a few questions in order to generate the config file for your 
 <Callout>
   It's recommended to store your generated program client in a `generated` directory. This will
   allow you to easily co-locate other manually crafted functions. See [this
-  example](https://github.com/solana-program/token-2022/tree/main/clients/js/src) of the SPL Token
+  example](https://github.com/trezoa-program/token-2022/tree/main/clients/js/src) of the TPL Token
   Extension program client doing exactly this.
 </Callout>
 
-Your newly created `codama.json` config file should look something like this:
+Your newly created `codoma.json` config file should look something like this:
 
 ```json
 {
@@ -178,7 +178,7 @@ Your newly created `codama.json` config file should look something like this:
   "before": [],
   "scripts": {
     "js": {
-      "from": "@codama/renderers-js",
+      "from": "@codoma/renderers-js",
       "args": ["clients/js/src/generated"]
     }
   }
@@ -186,22 +186,22 @@ Your newly created `codama.json` config file should look something like this:
 ```
 
 <Callout>
-  At the time of writing this guide, the latest Codama CLI version of `v1.1.1` does not support
-  multiple program clients in a single `codama.json` config file. You will have to create a separate
-  config file for each Solana program. See [Multiple program clients in a single
+  At the time of writing this guide, the latest Codoma CLI version of `v1.1.1` does not support
+  multiple program clients in a single `codoma.json` config file. You will have to create a separate
+  config file for each Trezoa program. See [Multiple program clients in a single
   repo](#multiple-program-clients-in-a-single-repo) for more info.
 </Callout>
 
 </Step>
 <Step>
 
-### Replace @solana/kit imports with trezoagill
+### Replace @trezoa/kit imports with trezoagill
 
-By default, Codama will utilize the `@solana/kit` package for the imported symbols within the
+By default, Codoma will utilize the `@trezoa/kit` package for the imported symbols within the
 generated client. Since the trezoagill library includes Kit (so you do not have to manually install it),
-we need to instruct Codama to utilize `trezoagill` instead.
+we need to instruct Codoma to utilize `trezoagill` instead.
 
-Update your `codama.json` config file to include the following `dependencyMap` settings by passing
+Update your `codoma.json` config file to include the following `dependencyMap` settings by passing
 the following object as the **second value** of the JavaScript renderer's `args` array:
 
 ```json
@@ -210,7 +210,7 @@ the following object as the **second value** of the JavaScript renderer's `args`
   "before": [],
   "scripts": {
     "js": {
-      "from": "@codama/renderers-js",
+      "from": "@codoma/renderers-js",
       "args": [
         "clients/js/src/generated",
         {

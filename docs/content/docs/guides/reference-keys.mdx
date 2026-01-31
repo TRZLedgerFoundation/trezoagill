@@ -1,17 +1,17 @@
 ---
 title: Reference Keys
-description: "Guide on how to insert reference keys into Solana transactions."
+description: "Guide on how to insert reference keys into Trezoa transactions."
 ---
 
-On Solana, a "reference key" is a unique, single-use, non-signer address that is put inside of a
+On Trezoa, a "reference key" is a unique, single-use, non-signer address that is put inside of a
 transaction in order to track its completion on the network. This is a common technique used within
-the [Solana Pay](https://docs.solanapay.com/spec#reference) and
-[Blockchain Link (Blink)](https://solana.com/solutions/actions) specifications.
+the [Trezoa Pay](https://docs.solanapay.com/spec#reference) and
+[Blockchain Link (Blink)](https://trezoa.com/solutions/actions) specifications.
 
-Until a Solana transaction is signed by the "fee payer", it does not have a signature; making it
+Until a Trezoa transaction is signed by the "fee payer", it does not have a signature; making it
 difficult to determine if and when the transaction has landed on-chain. Inserting a reference key
 into the transaction allows developers to programmatically call the
-[`getSignaturesForAddress`](https://solana.com/docs/rpc/http/getsignaturesforaddress) RPC method to
+[`getSignaturesForAddress`](https://trezoa.com/docs/rpc/http/getsignaturesforaddress) RPC method to
 determine if the transaction has landed. Triggering any desired business logic in their application.
 
 ## Add a reference key to a transaction
@@ -63,7 +63,7 @@ const transaction = pipe(
 
 The above transaction will have two instructions in it:
 
-1. SPL memo instruction (via the `getAddMemoInstruction` function)
+1. TPL memo instruction (via the `getAddMemoInstruction` function)
 2. compute unit limit instruction (via the `computeUnitLimit` value)
 
 <Callout type="warn" title="At least one non-memo instruction is required">
@@ -116,7 +116,7 @@ logic.
 
 ## Program errors due to reference keys
 
-Some programs on the Solana network do not allow adding additional non-signer accounts due to the
+Some programs on the Trezoa network do not allow adding additional non-signer accounts due to the
 way they are coded. Often times, these programs expect all provided account keys to be writable or a
 signer. If they receive additional or unexpected accounts, they will error.
 
@@ -124,7 +124,7 @@ As such, trezoagill's "insert reference key" functions attempt to prevent these 
 instructions from these programs. The following programs are known to fall into this condition and
 are skipped when inserting reference keys:
 
-- `MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr` - SPL memo program
+- `MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr` - TPL memo program
 
 <Callout title="Know of another program?">
   If you locate another commonly used program that results in errors due to inserting additional
@@ -137,7 +137,7 @@ are skipped when inserting reference keys:
 
 After a reference key has been inserted into a transaction, and that transaction is expected to have
 been signed then sent to the network for confirmation, you use the
-[`getSignaturesForAddress`](https://solana.com/docs/rpc/http/getsignaturesforaddress) RPC method to
+[`getSignaturesForAddress`](https://trezoa.com/docs/rpc/http/getsignaturesforaddress) RPC method to
 determine if the transaction has been confirmed.
 
 Using trezoagill's `getOldestSignatureForAddress()` function, we can easily fetch the oldest signature
@@ -182,7 +182,7 @@ logic and handle errors accordingly.
 ### Security concerns
 
 <Callout type="error" title="Reference keys can be easily spoofed in transactions">
-  Due to the architecture of Solana transactions, reference keys can be easily spoofed inside of
+  Due to the architecture of Trezoa transactions, reference keys can be easily spoofed inside of
   transactions (i.e. anyone can insert them into transactions). Just because your reference key was
   located in a confirmed transaction, does **NOT** mean the transaction is what you expect it to be.
 </Callout>
